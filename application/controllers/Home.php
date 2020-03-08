@@ -6,7 +6,7 @@ class Home extends CI_Controller
 	
 	public function index()
 	{
-		$this->load->view('Buburlukman/Home');
+		$this->load->view('Home');
 	}
 }
 
