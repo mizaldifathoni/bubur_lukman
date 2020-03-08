@@ -180,11 +180,11 @@ button:focus{
 }
 
 .top-navbar .navbar-light .navbar-nav .nav-item .nav-link:hover{
-	background: #d0a772;
+	background: #72C02C;
 	color: #ffffff;
 }
 .top-navbar .navbar-light .navbar-nav .nav-item.active .nav-link{
-	background: #d0a772;
+	background: #50AA00;
 	color: #ffffff;
 	border-radius: 4px;
 }
@@ -195,11 +195,11 @@ button:focus{
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu a.dropdown-item:hover{
-	background: #d0a772;
+	background: #72C02C;
 	color: #ffffff;
 }
 .navbar-light .navbar-toggler:hover{
-	background: #cfa671;
+	background: #72C02C;
 }
 
 /*------------------------------------------------------------------
@@ -210,7 +210,7 @@ button:focus{
 	height: 100vh;
 }
 .slides-navigation a {
-	background: #cfa671;
+	background: transparent;
     position: absolute;
     height: 70px;
     width: 70px;
@@ -226,7 +226,7 @@ button:focus{
 	font-size: 40px;
 }
 .slides-navigation a:hover {
-	background: #010101;
+	background: transparent;
 }
 .cover-slides .container{
 	height: 100%;
@@ -267,12 +267,12 @@ button:focus{
     color: #fff;
     background-color: transparent;
     background-image: none;
-    border-color: #cfa671;
+    border-color: #ffffff;
 }
 .btn-outline-new-white:hover {
     color: #ffffff;
-    background-color: #cfa671;
-    border-color: #cfa671;
+    background-color: #50AA00;
+    border-color: #50AA00;
 }
 
 .overlay-background {
@@ -299,8 +299,8 @@ button:focus{
 	border: 2px solid #ffffff;
 }
 .slides-pagination a.current{
-	background: #cfa671;
-	border: 2px solid #cfa671;
+	background: #72C02C;
+	border: 2px solid #72C02C;
 }
 
 /*------------------------------------------------------------------
@@ -320,7 +320,7 @@ button:focus{
 	color: #010101;
 }
 .inner-column h1 span{
-	color: #d0a772;
+	color: #50AA00;
 }
 .inner-column h4{
 	font-size: 16px;
@@ -330,7 +330,7 @@ button:focus{
 	font-size: 18px;
 }
 .inner-column .btn-outline-new-white{
-	color: #d0a772;
+	color: #50AA00;
 }
 .inner-column .btn-outline-new-white:hover{
 	color: #ffffff;
@@ -342,7 +342,7 @@ button:focus{
 
 
 .qt-background{
-	background: url(../images/qt-bg.jpg) no-repeat;
+	background: url(https://www.free-css.com/assets/files/free-css-templates/preview/page249/yamifood/assets/images/slider-01.jpg) no-repeat;
 	background-size: cover;
 	padding: 100px 0;
 	background-attachment: fixed;
@@ -407,7 +407,7 @@ button:focus{
 }
 
 .filter-button-group button.active {
-    background: #cfa671;
+    background: #72C02C;
     color: #fff;
     box-shadow: 2px 20px 45px 5px rgba(0,0,0,.2);
 }
@@ -429,7 +429,7 @@ button:focus{
     bottom: -100%;
     right: 0;
     height: 100%;
-    background: rgba(207, 166, 113, 0.9);
+    background: rgba(114, 192, 44);
     padding: 12px 12px;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
@@ -561,7 +561,7 @@ button:focus{
 -------------------------------------------------------------------*/
 
 .contact-imfo-box{
-	background: #d0a772;
+	background: #50AA00;
 	padding: 30px 0;
 }
 
@@ -577,7 +577,7 @@ button:focus{
 	line-height: 60px;
 	text-align: center;
 	background: #fff;
-	color: #d0a772;
+	color: #50AA00;
 	font-size: 30px;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -1314,7 +1314,7 @@ blockquote {
     height: 32px;
     text-align: center;
     line-height: 30px;
-    background: #d0a772;
+    background: #72C02C;
     color: #ffffff;
     cursor: pointer;
     border: 0;
