@@ -35,7 +35,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
 				<a class="navbar-brand" href="#">
-					<img src="https://lh3.googleusercontent.com/proxy/VOAuLEW8_9z49Fwt9KbKxWcKcEz0ZGVMzPeLqlA8rKSLE22Q46-CqpbyxWcsax64VnAhqiCV5s-217obkwmHEOAgXtm6tJE_MaYI1tHZwHWA2g"   width="100px" height="100px" />
+					<img src="assets/assets_yamifood/images/bubur.jpg" width="90px" height="90px" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,6 @@
 							</div>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Admin</a></li>
 					</ul>
 				</div>
 			</div>
@@ -65,7 +64,7 @@
 	<div id="slides" class="cover-slides">
 		<ul class="slides-container">
 			<li class="text-center">
-				<img src="" alt="">
+				<img src="https://i.pinimg.com/originals/ef/d2/d9/efd2d9b2f7f77d0483a01225d60e7ae2.jpg" alt="">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -91,7 +90,7 @@
 				</div>
 			</li>
 			<li class="text-center">
-				<img src="https://i.pinimg.com/originals/ef/d2/d9/efd2d9b2f7f77d0483a01225d60e7ae2.jpg" alt="">
+				<img src="https://nyaribisnis.com/wp-content/uploads/2019/03/resep-bubur-kacang-hijau-madura.jpg" alt="">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -173,7 +172,7 @@
 			<div class="row special-list">
 				<div class="col-lg-4 col-md-6 special-grid drinks">
 					<div class="gallery-single fix">
-						<img src="https://www.free-css.com/assets/files/free-css-templates/preview/page249/yamifood/assets/images/img-01.jpg" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/images/img-01.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Teh Manis</h4>
 							<p>Bikin teh itu sama seperti buat janji, jangan terlalu MANIS.</p>
@@ -184,7 +183,7 @@
 				
 				<div class="col-lg-4 col-md-6 special-grid drinks">
 					<div class="gallery-single fix">
-						<img src="https://www.free-css.com/assets/files/free-css-templates/preview/page249/yamifood/assets/images/img-02.jpg" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/images/img-02.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Jus</h4>
 							<p>Jus apa yang paling gak enak ? Jus a friend.</p>
