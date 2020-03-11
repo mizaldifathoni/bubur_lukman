@@ -43,7 +43,7 @@
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('Home') ?> ">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Menu') ?>">Menu</a></li>
+						<li class="nav-item"><a class="nav-link" href="">Menu</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('About') ?> ">About</a></li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
@@ -60,87 +60,13 @@
 	</header>
 	<!-- End header -->
 	
-	<!-- Start slides -->
-	<div id="slides" class="cover-slides">
-		<ul class="slides-container">
-			<li class="text-center">
-				<img src="https://i.pinimg.com/originals/ef/d2/d9/efd2d9b2f7f77d0483a01225d60e7ae2.jpg" alt="">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<h1 class="m-b-20"><strong>Welcome To <br> Bubur Lukman</strong></h1>
-							<p class="m-b-40">See how your users experience your website in realtime or view  <br> 
-							trends to see any changes in performance over time.</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
-						</div>
-					</div>
-				</div>
-			</li>
-			<li class="text-center">
-				<img src="https://listsituspoker.com/wp-content/uploads/2019/01/resep-bubur-ketan-hitam.jpg" alt="">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<h1 class="m-b-20"><strong>Welcome To <br> Bubur Lukman</strong></h1>
-							<p class="m-b-40">See how your users experience your website in realtime or view  <br> 
-							trends to see any changes in performance over time.</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
-						</div>
-					</div>
-				</div>
-			</li>
-			<li class="text-center">
-				<img src="https://nyaribisnis.com/wp-content/uploads/2019/03/resep-bubur-kacang-hijau-madura.jpg" alt="">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<h1 class="m-b-20"><strong>Welcome To <br> Bubur Lukman</strong></h1>
-							<p class="m-b-40">See how your users experience your website in realtime or view  <br> 
-							trends to see any changes in performance over time.</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
-						</div>
-					</div>
-				</div>
-			</li>
-		</ul>
-		<div class="slides-navigation">
-			<a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-			<a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-		</div>
-	</div>
-	<!-- End slides -->
-	
-	<!-- Start About -->
-	<div class="about-section-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<img src="https://lh3.googleusercontent.com/Z3Ku3BTXT6LwhB1-mG01cGHS3t0wuhyCYxjy9YtKTBbIDeswLsUTaFGXJY9qvnEJhoPfbyd-IIxTeJSg=w768-h768-n-o-v1" alt="" class="img-thumbnail" width="1000px" height="1000px">
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
-					<div class="inner-column">
-						<h1>Bubur Lukman</h1>
-						<p>Bubur Lukman berdiri sejak tahun 1997, dan didirikan oleh bapak abubakar yang mana bermula bapak abubakar yang menyukai bubur ayam kemudian beliau akhirnya membuat suatu usaha keluarga, dan nama usaha tersebut terinspirasi oleh nama anak pertama beliau. </p>
-						<h4>Saat ini Bubur Lukman memiliki 3 outlet, yang terletak di : </h4>
-						<ul>
-							<li>Jl. Pulau Legundi No.202, Sukarame, Kota Bandar Lampung</li>
-							<li>Jl. Al Hikmah, Sukabumi Indah, Sukabumi, Kota Bandar Lampung</li>
-							<li>Jl. Pulau Singkep, Sukarame, Kota Bandar Lampung</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End About -->
-	
 	<!-- Start Menu -->
 	<div class="menu-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
-						<h2>Special Menu</h2>
+						</br></br></br><h2>Special Menu</h2>
 						<p>Belajarlah dari zombie, walaupun dia makan orang tapi dia gak pernah makan temen.</p>
 					</div>
 				</div>
@@ -244,42 +170,7 @@
 		</div>
 	</div>
 	<!-- End Menu -->
-	
-	<!-- Start Gallery -->
-	<div class="gallery-box">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="heading-title text-center">
-						<h2>Gallery</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-					</div>
-				</div>
-			</div>
-			<div class="tz-gallery">
-				<div class="row">
-					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="https://scontent.fcgk3-2.fna.fbcdn.net/v/t1.0-9/s960x960/67631969_10206277026322337_5395795807993593856_o.jpg?_nc_cat=101&_nc_sid=8024bb&_nc_eui2=AeH-D0G_tB82FMiiZkYUG-RlZHAD3JQ-7fI2iFbusPvGrFzZ2wDpvWdjuws0Wi83jeBPh_YrGz2CPk7G3R7I7nCb4LYQhUnwxwMjJq4tgZVrBw&_nc_ohc=xHz2uqejooUAX87dE8u&_nc_ht=scontent.fcgk3-2.fna&_nc_tp=7&oh=d84336115e79e296bfb258e67d248fe5&oe=5E97239E">
-							<img class="img-fluid" src="https://scontent.fcgk3-2.fna.fbcdn.net/v/t1.0-9/s960x960/67631969_10206277026322337_5395795807993593856_o.jpg?_nc_cat=101&_nc_sid=8024bb&_nc_eui2=AeH-D0G_tB82FMiiZkYUG-RlZHAD3JQ-7fI2iFbusPvGrFzZ2wDpvWdjuws0Wi83jeBPh_YrGz2CPk7G3R7I7nCb4LYQhUnwxwMjJq4tgZVrBw&_nc_ohc=xHz2uqejooUAX87dE8u&_nc_ht=scontent.fcgk3-2.fna&_nc_tp=7&oh=d84336115e79e296bfb258e67d248fe5&oe=5E97239E" alt="Gallery Images">
-						</a>
-					</div>
-					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="https://scontent.fcgk3-1.fna.fbcdn.net/v/t1.0-9/75116943_262468808047348_2007196319461933056_o.jpg?_nc_cat=104&_nc_sid=110474&_nc_eui2=AeGcI9Gv-lOVTsxEs60MpSzudB2g0ssuDgcShha_fgdc8UmKejI0vBsFSqjLdjV-P3OZylA5MpSjOQvR0epvHZNOUczF_jDHCZtsijEZFdJuTg&_nc_ohc=9RfzdvfmkUYAX-lkJp5&_nc_ht=scontent.fcgk3-1.fna&oh=87c7f8f08fe1af190824dedba493dc74&oe=5E9A041E">
-							<img class="img-fluid" src="https://scontent.fcgk3-1.fna.fbcdn.net/v/t1.0-9/75116943_262468808047348_2007196319461933056_o.jpg?_nc_cat=104&_nc_sid=110474&_nc_eui2=AeGcI9Gv-lOVTsxEs60MpSzudB2g0ssuDgcShha_fgdc8UmKejI0vBsFSqjLdjV-P3OZylA5MpSjOQvR0epvHZNOUczF_jDHCZtsijEZFdJuTg&_nc_ohc=9RfzdvfmkUYAX-lkJp5&_nc_ht=scontent.fcgk3-1.fna&oh=87c7f8f08fe1af190824dedba493dc74&oe=5E9A041E" alt="Gallery Images">
-						</a>
-					</div>
-					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="https://scontent.fcgk3-2.fna.fbcdn.net/v/t1.0-9/s960x960/73472677_10206563127114678_8095925593893240832_o.jpg?_nc_cat=102&_nc_sid=8024bb&_nc_eui2=AeEykttnGowAxibWrO4-3PrMXNdSlfIuUuIwIc31_-L1TDzYDELvRRP1K-tWOvLqh_zEiNg_Q5ZvIpB5dVd2MayFI0GnOCEsKJl6-l5o6RBcmQ&_nc_ohc=2R_ZSIlH5isAX_m2vHG&_nc_ht=scontent.fcgk3-2.fna&_nc_tp=7&oh=a1bb226ebadf00539e31170451933669&oe=5E800D7B">
-							<img class="img-fluid" src="https://scontent.fcgk3-2.fna.fbcdn.net/v/t1.0-9/s960x960/73472677_10206563127114678_8095925593893240832_o.jpg?_nc_cat=102&_nc_sid=8024bb&_nc_eui2=AeEykttnGowAxibWrO4-3PrMXNdSlfIuUuIwIc31_-L1TDzYDELvRRP1K-tWOvLqh_zEiNg_Q5ZvIpB5dVd2MayFI0GnOCEsKJl6-l5o6RBcmQ&_nc_ohc=2R_ZSIlH5isAX_m2vHG&_nc_ht=scontent.fcgk3-2.fna&_nc_tp=7&oh=a1bb226ebadf00539e31170451933669&oe=5E800D7B" alt="Gallery Images">
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Gallery -->
-
-	
+		
 	<!-- Start Contact info -->
 	<div class="contact-imfo-box">
 		<div class="container">
