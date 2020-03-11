@@ -120,7 +120,7 @@
 				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
 					<div class="inner-column">
 						<h1>Bubur Lukman</h1>
-						<p>Bubur Lukman berdiri sejak tahun 1997, dan didirikan oleh bapak abubakar yang mana bermula bapak abubakar yang menyukai bubur ayam kemudian beliau akhirnya membuat suatu usaha keluarga, yang mana nama usaha tersebut terinspirasi oleh nama anak pertama beliau. </p>
+						<p>Bubur Lukman berdiri sejak tahun 1997, dan didirikan oleh bapak abubakar yang mana bermula bapak abubakar yang menyukai bubur ayam kemudian beliau akhirnya membuat suatu usaha keluarga, dan nama usaha tersebut terinspirasi oleh nama anak pertama beliau. </p>
 						<h4>Saat ini Bubur Lukman memiliki 3 outlet, yang terletak di : </h4>
 						<ul>
 							<li>Jl. Pulau Legundi No.202, Sukarame, Kota Bandar Lampung</li>
