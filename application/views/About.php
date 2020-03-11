@@ -42,9 +42,9 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('Home') ?> ">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Home') ?> ">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Menu') ?>">Menu</a></li>
-						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('About') ?> ">About</a></li>
+						<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('About') ?> ">About</a></li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown-a">
