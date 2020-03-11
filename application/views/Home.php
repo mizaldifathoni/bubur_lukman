@@ -77,7 +77,7 @@
 				</div>
 			</li>
 			<li class="text-center">
-				<img src="https://www.free-css.com/assets/files/free-css-templates/preview/page249/yamifood/assets/images/slider-02.jpg" alt="">
+				<img src="https://listsituspoker.com/wp-content/uploads/2019/01/resep-bubur-ketan-hitam.jpg" alt="">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
