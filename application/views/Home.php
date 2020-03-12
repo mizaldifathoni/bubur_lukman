@@ -35,7 +35,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
 				<a class="navbar-brand" href="#">
-					<img src="assets/assets_yamifood/images/bubur.jpg" width="60px" height="60px" />
+					<img src="assets/assets_yamifood/images/bubur_lukman.png" width="60px" height="60px" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
