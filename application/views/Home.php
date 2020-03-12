@@ -64,7 +64,7 @@
 	<div id="slides" class="cover-slides">
 		<ul class="slides-container">
 			<li class="text-center">
-				<img src="https://i.pinimg.com/originals/ef/d2/d9/efd2d9b2f7f77d0483a01225d60e7ae2.jpg" alt="">
+				<img src="assets/assets_yamifood/images/ayam.jpg" alt="">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -77,7 +77,7 @@
 				</div>
 			</li>
 			<li class="text-center">
-				<img src="https://listsituspoker.com/wp-content/uploads/2019/01/resep-bubur-ketan-hitam.jpg" alt="">
+				<img src="assets/assets_yamifood/images/hitam.jpg" alt="">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -90,7 +90,7 @@
 				</div>
 			</li>
 			<li class="text-center">
-				<img src="https://nyaribisnis.com/wp-content/uploads/2019/03/resep-bubur-kacang-hijau-madura.jpg" alt="">
+				<img src="assets/assets_yamifood/images/hijau.jpg" alt="">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -115,7 +115,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-12">
-					<img src="https://lh3.googleusercontent.com/Z3Ku3BTXT6LwhB1-mG01cGHS3t0wuhyCYxjy9YtKTBbIDeswLsUTaFGXJY9qvnEJhoPfbyd-IIxTeJSg=w768-h768-n-o-v1" alt="" class="img-thumbnail" width="1000px" height="1000px">
+					<img src="assets/assets_yamifood/images/legundi.jpg" alt="" class="img-thumbnail" width="1000px" height="1000px">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
 					<div class="inner-column">
