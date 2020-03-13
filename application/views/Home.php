@@ -193,7 +193,7 @@
 				
 				<div class="col-lg-4 col-md-6 special-grid lunch">
 					<div class="gallery-single fix">
-						<img src="assets/assets_yamifood/buburayam1.jpg" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/images/buburayam1.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Bubur Ayam</h4>
 							<p>Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk.</p>
