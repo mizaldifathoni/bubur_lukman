@@ -35,7 +35,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
 				<a class="navbar-brand" href="#">
-					<img src="assets/assets_yamifood/images/bubur.jpg" width="60px" height="60px" />
+					<img src="assets/assets_yamifood/images/bubur_lukman.png" width="60px" height="60px" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
@@ -108,7 +108,7 @@
 				
 				<div class="col-lg-4 col-md-6 special-grid drinks">
 					<div class="gallery-single fix">
-						<img src="https://nyaribisnis.com/wp-content/uploads/2019/10/Cara-Membuat-Americano-Sendiri.jpg" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/images/kopi.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Kopi</h4>
 							<p>Kopi apa yang paling pahit ? Kopilih dia daripada aku :(.</p>
@@ -119,7 +119,7 @@
 				
 				<div class="col-lg-4 col-md-6 special-grid lunch">
 					<div class="gallery-single fix">
-						<img src="https://lh3.googleusercontent.com/BrmaENFLxkRJL_jQSPBZKWfIp3g6ODW3fung8W6co-XyPg_4NTTs4w92_hXXlyDayweXXSXvQmGob5G7=w768-h768-n-o-v1" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/images/buburayam1.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Bubur Ayam</h4>
 							<p>Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk.</p>
@@ -130,7 +130,7 @@
 				
 				<div class="col-lg-4 col-md-6 special-grid lunch">
 					<div class="gallery-single fix">
-						<img src="https://lh3.googleusercontent.com/uwFpeR2khj3xo0c9h1dIFCvEL4bw7sP-pfy28gMNB7usWB3rDbmCKUbUVkFKUSRFxJsap2cK5tWoCzBx=w768-h768-n-o-v1" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/images/buburkacangijo1.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Bubur Kacang Hijau</h4>
 							<p>Awali pagimu dengan bubur kacang hijau karena kalau diawali dengan senyuman, jam 9 sudah lapar .</p>
@@ -141,7 +141,7 @@
 				
 				<div class="col-lg-4 col-md-6 special-grid lunch">
 					<div class="gallery-single fix">
-						<img src="https://lh3.googleusercontent.com/dbhMVntzyiYgv2OszWcjzrjjHb07qEpCYq4aHncuq2JlhwfT__YGjIR79VI7bmU1UmwUJX4sh5hD3cVk=w768-h768-n-o-v1" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/images/buburketanhitam.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Bubur Ketan Hitam</h4>
 							<p>Makan Bubur .</p>
@@ -152,7 +152,7 @@
 
 				<div class="col-lg-4 col-md-6 special-grid lunch">
 					<div class="gallery-single fix">
-						<img src="https://lh3.googleusercontent.com/DyVaIOLeCIYa3umt_riX53Wzou9PV0K__vZPL-D-oYJO0mPqprt9XofWOeJVZ8yd_i0HgMO2ObckkLHI=w768-h768-n-o-v1" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/images/campur.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Bubur Campur</h4>
 							<p>Makan Bubur .</p>

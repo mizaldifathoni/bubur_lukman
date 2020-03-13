@@ -35,7 +35,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
 				<a class="navbar-brand" href="#">
-					<img src="assets/assets_yamifood/images/bubur.jpg" width="60px" height="60px" />
+					<img src="assets/assets_yamifood/images/bubur_lukman.png" width="60px" height="60px" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
@@ -65,7 +65,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-12">
-					</br></br></br><img src="https://lh3.googleusercontent.com/Z3Ku3BTXT6LwhB1-mG01cGHS3t0wuhyCYxjy9YtKTBbIDeswLsUTaFGXJY9qvnEJhoPfbyd-IIxTeJSg=w768-h768-n-o-v1" alt="" class="img-thumbnail" width="1000px" height="1000px">
+					</br></br></br><img src="assets/assets_yamifood/images/legundi.jpg" alt="" class="img-thumbnail" width="1000px" height="1000px">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
 					<div class="inner-column">

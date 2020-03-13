@@ -182,7 +182,7 @@
 				
 				<div class="col-lg-4 col-md-6 special-grid drinks">
 					<div class="gallery-single fix">
-						<img src="https://nyaribisnis.com/wp-content/uploads/2019/10/Cara-Membuat-Americano-Sendiri.jpg" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/images/kopi.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Kopi</h4>
 							<p>Kopi apa yang paling pahit ? Kopilih dia daripada aku :(.</p>
@@ -193,7 +193,7 @@
 				
 				<div class="col-lg-4 col-md-6 special-grid lunch">
 					<div class="gallery-single fix">
-						<img src="https://lh3.googleusercontent.com/BrmaENFLxkRJL_jQSPBZKWfIp3g6ODW3fung8W6co-XyPg_4NTTs4w92_hXXlyDayweXXSXvQmGob5G7=w768-h768-n-o-v1" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/buburayam1.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Bubur Ayam</h4>
 							<p>Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk.</p>
@@ -204,7 +204,7 @@
 				
 				<div class="col-lg-4 col-md-6 special-grid lunch">
 					<div class="gallery-single fix">
-						<img src="https://lh3.googleusercontent.com/uwFpeR2khj3xo0c9h1dIFCvEL4bw7sP-pfy28gMNB7usWB3rDbmCKUbUVkFKUSRFxJsap2cK5tWoCzBx=w768-h768-n-o-v1" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/images/buburkacangijo1.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Bubur Kacang Hijau</h4>
 							<p>Awali pagimu dengan bubur kacang hijau karena kalau diawali dengan senyuman, jam 9 sudah lapar .</p>
@@ -215,7 +215,7 @@
 				
 				<div class="col-lg-4 col-md-6 special-grid lunch">
 					<div class="gallery-single fix">
-						<img src="https://lh3.googleusercontent.com/dbhMVntzyiYgv2OszWcjzrjjHb07qEpCYq4aHncuq2JlhwfT__YGjIR79VI7bmU1UmwUJX4sh5hD3cVk=w768-h768-n-o-v1" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/images/buburketanhitam.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Bubur Ketan Hitam</h4>
 							<p>Makan Bubur .</p>
@@ -226,7 +226,7 @@
 
 				<div class="col-lg-4 col-md-6 special-grid lunch">
 					<div class="gallery-single fix">
-						<img src="https://lh3.googleusercontent.com/DyVaIOLeCIYa3umt_riX53Wzou9PV0K__vZPL-D-oYJO0mPqprt9XofWOeJVZ8yd_i0HgMO2ObckkLHI=w768-h768-n-o-v1" class="img-fluid" alt="Image">
+						<img src="assets/assets_yamifood/images/campur.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4>Bubur Campur</h4>
 							<p>Makan Bubur .</p>
@@ -259,18 +259,18 @@
 			<div class="tz-gallery">
 				<div class="row">
 					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="https://scontent.fcgk3-2.fna.fbcdn.net/v/t1.0-9/s960x960/67631969_10206277026322337_5395795807993593856_o.jpg?_nc_cat=101&_nc_sid=8024bb&_nc_eui2=AeH-D0G_tB82FMiiZkYUG-RlZHAD3JQ-7fI2iFbusPvGrFzZ2wDpvWdjuws0Wi83jeBPh_YrGz2CPk7G3R7I7nCb4LYQhUnwxwMjJq4tgZVrBw&_nc_ohc=xHz2uqejooUAX87dE8u&_nc_ht=scontent.fcgk3-2.fna&_nc_tp=7&oh=d84336115e79e296bfb258e67d248fe5&oe=5E97239E">
-							<img class="img-fluid" src="https://scontent.fcgk3-2.fna.fbcdn.net/v/t1.0-9/s960x960/67631969_10206277026322337_5395795807993593856_o.jpg?_nc_cat=101&_nc_sid=8024bb&_nc_eui2=AeH-D0G_tB82FMiiZkYUG-RlZHAD3JQ-7fI2iFbusPvGrFzZ2wDpvWdjuws0Wi83jeBPh_YrGz2CPk7G3R7I7nCb4LYQhUnwxwMjJq4tgZVrBw&_nc_ohc=xHz2uqejooUAX87dE8u&_nc_ht=scontent.fcgk3-2.fna&_nc_tp=7&oh=d84336115e79e296bfb258e67d248fe5&oe=5E97239E" alt="Gallery Images">
+						<a class="lightbox" href="assets/assets_yamifood/images/buburayam.jpg">
+							<img class="img-fluid" src="assets/assets_yamifood/images/buburayam.jpg" alt="Gallery Images">
 						</a>
 					</div>
 					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="https://scontent.fcgk3-1.fna.fbcdn.net/v/t1.0-9/75116943_262468808047348_2007196319461933056_o.jpg?_nc_cat=104&_nc_sid=110474&_nc_eui2=AeGcI9Gv-lOVTsxEs60MpSzudB2g0ssuDgcShha_fgdc8UmKejI0vBsFSqjLdjV-P3OZylA5MpSjOQvR0epvHZNOUczF_jDHCZtsijEZFdJuTg&_nc_ohc=9RfzdvfmkUYAX-lkJp5&_nc_ht=scontent.fcgk3-1.fna&oh=87c7f8f08fe1af190824dedba493dc74&oe=5E9A041E">
-							<img class="img-fluid" src="https://scontent.fcgk3-1.fna.fbcdn.net/v/t1.0-9/75116943_262468808047348_2007196319461933056_o.jpg?_nc_cat=104&_nc_sid=110474&_nc_eui2=AeGcI9Gv-lOVTsxEs60MpSzudB2g0ssuDgcShha_fgdc8UmKejI0vBsFSqjLdjV-P3OZylA5MpSjOQvR0epvHZNOUczF_jDHCZtsijEZFdJuTg&_nc_ohc=9RfzdvfmkUYAX-lkJp5&_nc_ht=scontent.fcgk3-1.fna&oh=87c7f8f08fe1af190824dedba493dc74&oe=5E9A041E" alt="Gallery Images">
+						<a class="lightbox" href="assets/assets_yamifood/images/buburkacangijo.jpg">
+							<img class="img-fluid" src="assets/assets_yamifood/images/buburkacangijo.jpg" alt="Gallery Images">
 						</a>
 					</div>
 					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="https://scontent.fcgk3-2.fna.fbcdn.net/v/t1.0-9/s960x960/73472677_10206563127114678_8095925593893240832_o.jpg?_nc_cat=102&_nc_sid=8024bb&_nc_eui2=AeEykttnGowAxibWrO4-3PrMXNdSlfIuUuIwIc31_-L1TDzYDELvRRP1K-tWOvLqh_zEiNg_Q5ZvIpB5dVd2MayFI0GnOCEsKJl6-l5o6RBcmQ&_nc_ohc=2R_ZSIlH5isAX_m2vHG&_nc_ht=scontent.fcgk3-2.fna&_nc_tp=7&oh=a1bb226ebadf00539e31170451933669&oe=5E800D7B">
-							<img class="img-fluid" src="https://scontent.fcgk3-2.fna.fbcdn.net/v/t1.0-9/s960x960/73472677_10206563127114678_8095925593893240832_o.jpg?_nc_cat=102&_nc_sid=8024bb&_nc_eui2=AeEykttnGowAxibWrO4-3PrMXNdSlfIuUuIwIc31_-L1TDzYDELvRRP1K-tWOvLqh_zEiNg_Q5ZvIpB5dVd2MayFI0GnOCEsKJl6-l5o6RBcmQ&_nc_ohc=2R_ZSIlH5isAX_m2vHG&_nc_ht=scontent.fcgk3-2.fna&_nc_tp=7&oh=a1bb226ebadf00539e31170451933669&oe=5E800D7B" alt="Gallery Images">
+						<a class="lightbox" href="assets/assets_yamifood/images/buburr.jpg">
+							<img class="img-fluid" src="assets/assets_yamifood/images/buburr.jpg" alt="Gallery Images">
 						</a>
 					</div>
 				</div>
