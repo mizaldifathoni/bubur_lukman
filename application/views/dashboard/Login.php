@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Bubur Lukman - Dashboard</title>
+    <title>Bubur Lukman - Login</title>
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,7 +54,7 @@
   </head>
   <body class="text-center">
     <form action="" method="POST" class="form-signin">
-      <img class="mb-4" src="" alt="" width="72" height="72">
+      <img class="mb-4" src="<?php echo base_url('assets/picture') ?>/logo.png" alt="Bubur Lukman" width="256px" height="256px">
       <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
       <label for="inputEmail" class="sr-only">Username</label>
       <input type="username" id="inputEmail" class="form-control" placeholder="Username" name="inputUsername" required autofocus>
