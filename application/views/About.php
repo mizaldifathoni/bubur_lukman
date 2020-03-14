@@ -45,14 +45,7 @@
 						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Home') ?> ">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Menu') ?>">Menu</a></li>
 						<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('About') ?> ">About</a></li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="#">Reservation</a>
-								<a class="dropdown-item" href="#">Gallery</a>
-							</div>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
 					</ul>
 				</div>
 			</div>
