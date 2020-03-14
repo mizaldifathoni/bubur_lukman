@@ -16,7 +16,7 @@ class Home extends CI_Controller
 			if(null !== $this->input->post('inputLogout')){
 				$this->logout();
 			}else{
-				$this->load->view('dashboard/Home');
+				$this->load->view('dashboard/home');
 			}
 		}else{
 			redirect(base_url('dashboard/login'));

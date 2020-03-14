@@ -8,13 +8,12 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Bubur Lukman - Dashboard</title>
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
     <!-- Site Metas -->
-    <title>Bubur Lukman</title>  
+    <title>Bubur Lukman - Dashboard</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -36,7 +35,7 @@
 
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark p-0">
-      <div id="navbar_container" class="container flex-md-nowrap p-0">
+      <div id="navbar_container" class="container-fluid flex-md-nowrap p-0">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Bubur Lukman</a>
         <input class="form-control form-control-dark w-100 awesome-transition" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
@@ -50,43 +49,43 @@
     </nav>
     
 
-    <div id="content_container" class="container">
+    <div id="content_container" class="container-fluid">
       <div class="row">
-        <nav id="side_navbar" class="col-md-2 d-none d-md-block bg-light">
+        <nav id="side_navbar" class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
-            <ul class="nav flex-column">
+          <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link active" href="home">
                   <span data-feather="home"></span>
                   Ikhtisar <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="post">
                   <span data-feather="file"></span>
                   Posting
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="menu">
                   <span data-feather="shopping-cart"></span>
                   Menu Restoran
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="ulasan">
                   <span data-feather="users"></span>
                   Ulasan
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="statistik">
                   <span data-feather="bar-chart-2"></span>
                   Statistik
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="profil">
                   <span data-feather="edit"></span>
                   Edit Profil
                 </a>
