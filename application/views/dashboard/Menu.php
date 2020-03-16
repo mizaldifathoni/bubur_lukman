@@ -38,21 +38,21 @@
     <nav class="navbar navbar-dark sticky-top bg-dark p-0">
       <div id="navbar_container" class="container-fluid flex-md-nowrap p-0">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Bubur Lukman</a>
-        <input class="form-control form-control-dark w-100 awesome-transition" type="text" placeholder="Search" aria-label="Search">
+        <button type="button" id="menu-toggle" class="btn btn-link float-left"><i class="fas fa-bars"></i></button>
         <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap">
+          <li class="nav-item text-nowrap">
             <form action="" method="POST">
               <button type="submit" class="btn btn-link nav-link" href="#" name="inputLogout">Log out</button>
             </form>
-            </li>
+          </li>
         </ul>
       </div>
     </nav>
     
 
-    <div id="content_container" class="container-fluid">
+    <div id="wrapper" class="container-fluid">
       <div class="row">
-        <nav id="side_navbar" class="col-md-2 d-none d-md-block bg-light sidebar">
+        <nav id="sidebar-wrapper" class="col-md-2 d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -128,23 +128,24 @@
           </div>
         </nav>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 pb-4 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Edit Menu</h1>
           </div>
-
+          <?php echo $accordions ?>
+          <!--
           <div class="accordion" id="accordionExample">
             <div class="card">
-              <div class="card-header" id="headingOne">
+              <a class="card-header p-0" href="#" id="headingOne" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseOne">
                 <h2 class="mb-0 p-0">
-                  <button class="btn btn-link btn-lg" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Bubur Lukman 1
+                  <button class="btn btn-link btn-lg" type="button">
+                    <i id="accordion1" class="fas fa-chevron-down mr-1 accordion-icon"></i> Bubur Lukman 1
                   </button>
                 </h2>
-              </div>
+              </a>
 
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample" style="">
-                <div class="card-body">
+              <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body pb-0">
                   <div class="row">
                     <div class="col-md-4 mb-4">
                       <div class="card mb-4 shadow-sm h-100 ">
@@ -152,7 +153,7 @@
                           <div class="row justify-content-center align-self-center w-100 m-1">
                             <div class="col-md-12">
                               <center>
-                                <a class="card-text" href="#" data-toggle="modal" data-target="#addMenuModal"><i class="fas fa-plus-circle fa-7x"></i></a>
+                                <a class="card-text" href="#" data-toggle="modal" data-target="#addMenuModal" data-id-toko="1" data-nama-toko="Bubur Lukman 1"><i class="fas fa-plus-circle fa-7x"></i></a>
                               </center>
                             </div>
                           </div>
@@ -161,32 +162,153 @@
                     </div>
                     <div class="col-md-4 mb-4">
                       <div class="card mb-4 shadow-sm h-100">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        <img src="../assets/picture/menu-toko/ayam.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
                         <div class="card-body">
                           <h4 class="font-weight-bold">Bubur Ayam</h4>
                           <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <a href="" class="text-secondary p-2"><i class="fas fa-pencil-square-o"></i> Edit</a>
-                              <a href=""class="text-danger p-2"><i class="fas fa-trash"></i> Hapus</a>
+                        </div>
+                        <div class="card-body d-flex justify-content-between align-items-end">
+                          <div class="btn-group">
+                            <a href="" class="text-secondary mr-4"><i class="fas fa-pencil-square-o"></i> Edit</a>
+                            <a href=""class="text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                          </div>
+                          <span class="text-muted">RP 10.000</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <div class="card mb-4 shadow-sm h-100">
+                        <img src="../assets/picture/menu-toko/hijau.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+                        <div class="card-body">
+                          <h4 class="font-weight-bold">Boeboer Katjang Idjo</h4>
+                          <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk. Saya siapa, dimana, kapan, bagaimana, mengapa?</p>
+                        </div>
+                        <div class="card-body d-flex justify-content-between align-items-end">
+                          <div class="btn-group">
+                            <a href="" class="text-secondary mr-4"><i class="fas fa-pencil-square-o"></i> Edit</a>
+                            <a href=""class="text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                          </div>
+                          <span class="text-muted">RP 10.000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <a class="card-header p-0" id="headingTwo" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapseTwo">
+                <h2 class="mb-0 p-0">
+                  <button class="btn btn-link collapsed" type="button" >
+                    <i id="accordion2" class="fas fa-chevron-right mr-2 accordion-icon"></i> Bubur Lukman 2
+                  </button>
+                </h2>
+              </a>
+              <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body pb-0">
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <div class="card mb-4 shadow-sm h-100 ">
+                        <div class="card-body align-middle d-flex h-almost-100">
+                          <div class="row justify-content-center align-self-center w-100 m-1">
+                            <div class="col-md-12">
+                              <center>
+                                <a class="card-text" href="#" data-toggle="modal" data-target="#addMenuModal" data-id-toko="2" data-nama-toko="Bubur Lukman 2"><i class="fas fa-plus-circle fa-7x"></i></a>
+                              </center>
                             </div>
-                            <span class="text-muted">RP 10.000</span>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
                       <div class="card mb-4 shadow-sm h-100">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        <img src="../assets/picture/menu-toko/ayam.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
                         <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
+                          <h4 class="font-weight-bold">Bubur Ayam</h4>
+                          <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk.</p>
+                        </div>
+                        <div class="card-body d-flex justify-content-between align-items-end">
+                          <div class="btn-group">
+                            <a href="" class="text-secondary mr-4"><i class="fas fa-pencil-square-o"></i> Edit</a>
+                            <a href=""class="text-danger"><i class="fas fa-trash"></i> Hapus</a>
                           </div>
+                          <span class="text-muted">RP 10.000</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <div class="card mb-4 shadow-sm h-100">
+                        <img src="../assets/picture/menu-toko/hijau.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+                        <div class="card-body">
+                          <h4 class="font-weight-bold">Boeboer Katjang Idjo</h4>
+                          <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk. Saya siapa, dimana, kapan, bagaimana, mengapa?</p>
+                        </div>
+                        <div class="card-body d-flex justify-content-between align-items-end">
+                          <div class="btn-group">
+                            <a href="" class="text-secondary mr-4"><i class="fas fa-pencil-square-o"></i> Edit</a>
+                            <a href=""class="text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                          </div>
+                          <span class="text-muted">RP 10.000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            </div>
+            <div class="card">
+              <a class="card-header p-0" id="headingThree" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseThree">
+                <h2 class="mb-0 p-0">
+                  <button class="btn btn-link collapsed" type="button" >
+                  <i id="accordion3" class="fas fa-chevron-right mr-2 accordion-icon"></i> Bubur Lukman 3
+                  </button>
+                </h2>
+              </a>
+              <div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body pb-0">
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <div class="card mb-4 shadow-sm h-100 ">
+                        <div class="card-body align-middle d-flex h-almost-100">
+                          <div class="row justify-content-center align-self-center w-100 m-1">
+                            <div class="col-md-12">
+                              <center>
+                                <a class="card-text" href="#" data-toggle="modal" data-target="#addMenuModal" data-id-toko="3" data-nama-toko="Bubur Lukman 3"><i class="fas fa-plus-circle fa-7x"></i></a>
+                              </center>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <div class="card mb-4 shadow-sm h-100">
+                        <img src="../assets/picture/menu-toko/ayam.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+                        <div class="card-body">
+                          <h4 class="font-weight-bold">Bubur Ayam</h4>
+                          <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk.</p>
+                        </div>
+                        <div class="card-body d-flex justify-content-between align-items-end">
+                          <div class="btn-group">
+                            <a href="" class="text-secondary mr-4"><i class="fas fa-pencil-square-o"></i> Edit</a>
+                            <a href=""class="text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                          </div>
+                          <span class="text-muted">RP 10.000</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <div class="card mb-4 shadow-sm h-100">
+                        <img src="../assets/picture/menu-toko/hijau.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+                        <div class="card-body">
+                          <h4 class="font-weight-bold">Boeboer Katjang Idjo</h4>
+                          <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk. Saya siapa, dimana, kapan, bagaimana, mengapa?</p>
+                        </div>
+                        <div class="card-body d-flex justify-content-between align-items-end">
+                          <div class="btn-group">
+                            <a href="" class="text-secondary mr-4"><i class="fas fa-pencil-square-o"></i> Edit</a>
+                            <a href=""class="text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                          </div>
+                          <span class="text-muted">RP 10.000</span>
                         </div>
                       </div>
                     </div>
@@ -194,174 +316,8 @@
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header" id="headingTwo">
-                <h2 class="mb-0 p-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Bubur Lukman 2
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <h2 class="mb-0 p-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Bubur Lukman 3
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-              </div>
-            </div>
           </div>
-          
-          <div class="row">
-            <div class="col-md-4 mb-4">
-              <div class="card mb-4 shadow-sm h-100 ">
-                <div class="card-body align-middle d-flex h-almost-100">
-                  <div class="row justify-content-center align-self-center w-100 m-1">
-                    <div class="col-md-12">
-                      <center>
-                        <a class="card-text" href="#" data-toggle="modal" data-target="#addMenuModal"><i class="fas fa-plus-circle fa-7x"></i></a>
-                      </center>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card mb-4 shadow-sm h-100">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <h4 class="font-weight-bold">Bubur Ayam</h4>
-                  <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <a href="" class="text-secondary p-2"><i class="fas fa-pencil-square-o"></i> Edit</a>
-                      <a href=""class="text-danger p-2"><i class="fas fa-trash"></i> Hapus</a>
-                    </div>
-                    <span class="text-muted">RP 10.000</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card mb-4 shadow-sm h-100">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        -->
         </main>
       </div>
     </div>
@@ -370,13 +326,67 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addMenuModalTitle">Tambah Menu</h5>
+            <h3 class="modal-title pb-0" id="addMenuModalTitle">Tambah Menu</h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            ...
+            <div class="row">
+              <input type="text" id="id_toko" value="" hidden>
+              <div class="col-md-12 mb-3">
+                <label for="nama_menu">Nama Menu</label>
+                <input type="text" class="form-control rounded" id="nama_menu" name="nama_menu" placeholder="cth. Bubur Ayam" value="" required="">
+                <div class="invalid-feedback">
+                  Nama menu tidak boleh kosong.
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <p>Tipe Menu</p>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-light active">
+                    <input type="radio" name="tipe_menu" id="tipe_menu_makanan" autocomplete="off" value="makanan" checked> Makanan
+                  </label>
+                  <label class="btn btn-light">
+                    <input type="radio" name="tipe_menu" id="tipe_menu_minuman" autocomplete="off" value="minuman"> Minuman
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="harga_menu">Harga</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Rp </span>
+                  </div>
+                  <input type="number" class="form-control rounded-right" id="harga_menu" name="harga_menu" onchange="showPriceAfterDiscount()" min="500" max="1000000" step="500" value="10000" required="">
+                  <div class="invalid-feedback">
+                    Harga tidak boleh kosong.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="diskon_menu">Diskon</label>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control rounded-left" id="diskon_menu" name="diskon_menu" onchange="showPriceAfterDiscount()" aria-label="Diskon"  aria-describedby="percent_discount" min="0" max="100" step="5" value="0" required="">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="percent_discount">%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="diskon_menu">Harga Setelah Diskon</label>
+                <input type="text" id="price_after_discount" class="form-control rounded text-center" value="Rp 10000" disabled>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label for="unggah_foto">Unggah Foto</label>
+                <div class="input-group d-flex justify-contents-center align-items-center">
+                  <input type="file" id="unggah_foto" name="unggah_foto" style="display: none">
+                  <label type="button" class="btn btn-light mr-4" for="unggah_foto">Pilih</label>
+                  <span>Tidak ada foto yang dipilih.</span>
+                </div>
+              </div>
+              
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -389,7 +399,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Popper.JS -->
     <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/popper.min.js"></script>
     <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/bootstrap.min.js"></script>
     <!-- Icons -->
@@ -399,6 +412,7 @@
     </script>
 
     <script>
+      /*
       function responsify() {
         if(window.innerWidth > 1920){
           document.querySelector("#navbar_container").setAttribute("class", "container flex-md-nowrap p-0");
@@ -415,6 +429,42 @@
 
       window.addEventListener('resize', function(event) {
         responsify();
+      });
+      */
+
+      $(document).ready(function(){
+        // Add minus icon for collapse element which is open by default
+        $(".collapse.show").each(function(){
+        	$(this).prev(".card-header").find(".fas").addClass("fa-chevron-down").removeClass("fa-chevron-right");
+        });
+        
+        // Toggle plus minus icon on show hide of collapse element
+        $(".collapse").on('show.bs.collapse', function(){
+        	$(this).prev(".card-header").find(".fas").removeClass("fa-chevron-right").addClass("fa-chevron-down");
+        }).on('hide.bs.collapse', function(){
+        	$(this).prev(".card-header").find(".fas").removeClass("fa-chevron-down").addClass("fa-chevron-right");
+        });
+    });
+
+      function showPriceAfterDiscount(){
+        harga_menu = document.getElementById("harga_menu").value;
+        diskon_menu = document.getElementById("diskon_menu").value;
+        document.getElementById("price_after_discount").value = "Rp " + (harga_menu - (harga_menu * diskon_menu / 100));
+      }
+
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+
+      $('#addMenuModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var idToko = button.data('id-toko')
+        var namaToko = button.data('nama-toko');
+
+        var modal = $(this)
+        modal.find('.modal-title').text('Tambah Menu pada Toko ' + namaToko)
+        document.getElementById('id_toko').value = idToko;
       });
     </script>
   </body>
