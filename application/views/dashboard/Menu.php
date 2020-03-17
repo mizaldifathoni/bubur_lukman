@@ -322,79 +322,205 @@
       </div>
     </div>
 
+    <!-- Modal Tambah Menu -->
     <div class="modal fade" id="addMenuModal" tabindex="-1" role="dialog" aria-labelledby="addMenuModal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title pb-0" id="addMenuModalTitle">Tambah Menu</h3>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <input type="text" id="id_toko" value="" hidden>
-              <div class="col-md-12 mb-3">
-                <label for="nama_menu">Nama Menu</label>
-                <input type="text" class="form-control rounded" id="nama_menu" name="nama_menu" placeholder="cth. Bubur Ayam" value="" required="">
-                <div class="invalid-feedback">
-                  Nama menu tidak boleh kosong.
-                </div>
-              </div>
-              <div class="col-md-12 mb-3">
-                <p>Tipe Menu</p>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                  <label class="btn btn-light active">
-                    <input type="radio" name="tipe_menu" id="tipe_menu_makanan" autocomplete="off" value="makanan" checked> Makanan
-                  </label>
-                  <label class="btn btn-light">
-                    <input type="radio" name="tipe_menu" id="tipe_menu_minuman" autocomplete="off" value="minuman"> Minuman
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="harga_menu">Harga</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Rp </span>
-                  </div>
-                  <input type="number" class="form-control rounded-right" id="harga_menu" name="harga_menu" onchange="showPriceAfterDiscount()" min="500" max="1000000" step="500" value="10000" required="">
-                  <div class="invalid-feedback">
-                    Harga tidak boleh kosong.
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="diskon_menu">Diskon</label>
-                <div class="input-group mb-3">
-                  <input type="number" class="form-control rounded-left" id="diskon_menu" name="diskon_menu" onchange="showPriceAfterDiscount()" aria-label="Diskon"  aria-describedby="percent_discount" min="0" max="100" step="5" value="0" required="">
-                  <div class="input-group-append">
-                    <span class="input-group-text" id="percent_discount">%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="diskon_menu">Harga Setelah Diskon</label>
-                <input type="text" id="price_after_discount" class="form-control rounded text-center" value="Rp 10000" disabled>
-              </div>
-              <div class="col-md-12 mb-3">
-                <label for="unggah_foto">Unggah Foto</label>
-                <div class="input-group d-flex justify-contents-center align-items-center">
-                  <input type="file" id="unggah_foto" name="unggah_foto" style="display: none">
-                  <label type="button" class="btn btn-light mr-4" for="unggah_foto">Pilih</label>
-                  <span>Tidak ada foto yang dipilih.</span>
-                </div>
-              </div>
-              
+          <form action="" method="POST" enctype="multipart/form-data">
+            <div class="modal-header">
+              <h3 class="modal-title pb-0" id="addMenuModalTitle">Tambah Menu</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+            <div class="modal-body">
+              <div class="row">
+                <input type="text" id="tambah_id_toko" name="tambah_id_toko" value="" hidden>
+                <input type="text" id="tambah_nama_toko" name="tambah_nama_toko" value="" hidden>
+                <div class="col-md-12 mb-3">
+                  <label for="tambah_nama_menu">Nama Menu</label>
+                  <input type="text" class="form-control rounded" id="tambah_nama_menu" name="tambah_nama_menu" placeholder="cth. Bubur Ayam" value="" required="">
+                  <div class="invalid-feedback">
+                    Nama menu tidak boleh kosong.
+                  </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label for="tambah_deskripsi_menu">Deskripsi Menu</label>
+                  <textarea type="text" class="form-control rounded" id="tambah_deskripsi_menu" name="tambah_deskripsi_menu" rows="2" required=""></textarea>
+                  <div class="invalid-feedback">
+                    Deskripsi menu tidak boleh kosong.
+                  </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <p>Tipe Menu</p>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-light active">
+                      <input type="radio" name="tambah_tipe_menu" id="tambah_tipe_menu_makanan" autocomplete="off" value="makanan" checked> Makanan
+                    </label>
+                    <label class="btn btn-light">
+                      <input type="radio" name="tambah_tipe_menu" id="tambah_tipe_menu_minuman" autocomplete="off" value="minuman"> Minuman
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="tambah_harga_menu">Harga</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Rp </span>
+                    </div>
+                    <input type="number" class="form-control rounded-right" id="tambah_harga_menu" name="tambah_harga_menu" onchange="showPriceAfterDiscountInTambahMenuModal()" min="500" max="1000000" step="500" value="10000" required="">
+                    <div class="invalid-feedback">
+                      Harga tidak boleh kosong.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="tambah_diskon_menu">Diskon</label>
+                  <div class="input-group mb-3">
+                    <input type="number" class="form-control rounded-left" id="tambah_diskon_menu" name="tambah_diskon_menu" onchange="showPriceAfterDiscountInTambahMenuModal()" aria-label="Diskon"  aria-describedby="percent_discount" min="0" max="100" step="5" value="0" required="">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="tambah_percent_discount">%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="tambah_price_after_discount">Harga Setelah Diskon</label>
+                  <input type="text" id="tambah_price_after_discount" class="form-control rounded text-center" value="Rp 10000" disabled>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label for="tambah_foto_menu">Unggah Foto</label>
+                  <div class="input-group d-flex justify-contents-center align-items-center">
+                    <input type="file" id="tambah_foto_menu" name="tambah_foto_menu" accept="image/*" onchange="readURL(this, 'tambahPreviewImage', 'tambahUploadButton', 'tambahImageIndicator');" style="display: none" required>
+                    <label type="button" id="tambahUploadButton" class="btn btn-light mr-4" for="tambah_foto_menu">Pilih</label>
+                    <span id="tambahImageIndicator">Tidak ada foto yang dipilih.</span>
+                    <img id="tambahPreviewImage" src="#" style="max-width: 100%; max-height: 200px; width: auto; height: auto;display: none" onerror="this.style.display = 'none'"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+              <button type="submit" class="btn btn-primary" id="tambahMenu" name="tambahMenu">Tambah</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
+
+    <!-- Modal Edit Menu -->
+    <div class="modal fade" id="editMenuModal" tabindex="-1" role="dialog" aria-labelledby="editMenuModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form action="" method="POST" enctype="multipart/form-data">
+            <div class="modal-header">
+              <h3 class="modal-title pb-0" id="editMenuModalTitle">Edit Menu</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+              <input type="text" id="edit_id_toko" name="edit_id_toko" value="" hidden>
+                <input type="text" id="edit_nama_toko" name="edit_nama_toko" value="" hidden>
+                <input type="text" id="edit_id_menu_toko" name="edit_id_menu_toko" value="" hidden>
+                <div class="col-md-12 mb-3">
+                  <label for="edit_nama_menu">Nama Menu</label>
+                  <input type="text" class="form-control rounded" id="edit_nama_menu" name="edit_nama_menu" placeholder="cth. Bubur Ayam" value="" required="">
+                  <div class="invalid-feedback">
+                    Nama menu tidak boleh kosong.
+                  </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label for="edit_deskripsi_menu">Deskripsi Menu</label>
+                  <textarea type="text" class="form-control rounded" id="edit_deskripsi_menu" name="edit_deskripsi_menu" rows="2" required=""></textarea>
+                  <div class="invalid-feedback">
+                    Deskripsi menu tidak boleh kosong.
+                  </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <p>Tipe Menu</p>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="edit_tipe_menu_makanan_button" class="btn btn-light active">
+                      <input type="radio" name="edit_tipe_menu" id="edit_tipe_menu_makanan" autocomplete="off" value="makanan" checked> Makanan
+                    </label>
+                    <label id="edit_tipe_menu_minuman_button" class="btn btn-light">
+                      <input type="radio" name="edit_tipe_menu" id="edit_tipe_menu_minuman" autocomplete="off" value="minuman"> Minuman
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="edit_harga_menu">Harga</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Rp </span>
+                    </div>
+                    <input type="number" class="form-control rounded-right" id="edit_harga_menu" name="edit_harga_menu" onchange="showPriceAfterDiscountInEditMenuModal()" min="500" max="1000000" step="500" value="10000" required="">
+                    <div class="invalid-feedback">
+                      Harga tidak boleh kosong.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="edit_diskon_menu">Diskon</label>
+                  <div class="input-group mb-3">
+                    <input type="number" class="form-control rounded-left" id="edit_diskon_menu" name="edit_diskon_menu" onchange="showPriceAfterDiscountInEditMenuModal()" aria-label="Diskon"  aria-describedby="percent_discount" min="0" max="100" step="5" value="0" required="">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="edit_percent_discount">%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="edit_price_after_discount">Harga Setelah Diskon</label>
+                  <input type="text" id="edit_price_after_discount" class="form-control rounded text-center" value="Rp 10000" disabled>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label for="edit_foto_menu">Unggah Foto</label>
+                  <div class="input-group d-flex justify-contents-center align-items-center">
+                    <input type="file" id="edit_foto_menu" name="edit_foto_menu" accept="image/*" onchange="readURL(this, 'editPreviewImage', 'editUploadButton', 'editImageIndicator');" style="display: none">
+                    <label type="button" id="editUploadButton" class="btn btn-light mr-4" for="edit_foto_menu">Pilih</label>
+                    <span id="editImageIndicator">Tidak ada foto yang dipilih.</span>
+                    <img id="editPreviewImage" src="#" style="max-width: 100%; max-height: 200px; width: auto; height: auto;display: none" onerror="this.style.display = 'none'"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+              <button type="submit" class="btn btn-primary" id="editMenu" name="editMenu">Simpan</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Hapus Menu-->
+    <div class="modal fade" id="deleteMenuModal" tabindex="-1" role="dialog" aria-labelledby="deleteMenuModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form action="" method="POST">
+            <div class="modal-header">
+              <h3 class="modal-title" id="deleteMenuModalTitle">Hapus Menu</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input type="text" id="hapus_id_menu_toko" name="hapus_id_menu_toko" value="" hidden>
+              <input type="text" id="hapus_nama_menu" name="hapus_nama_menu" value="" hidden>
+              <input type="text" id="hapus_nama_toko" name="hapus_nama_toko" value="" hidden>
+              <span id="pesan_hapus">Apakah Anda yakin untuk menghapus menu X pada toko Y?</span>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-outline-danger" name="hapusMenu"><i class="fas fa-trash"></i> Hapus</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Message -->
+    
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -410,6 +536,8 @@
     <script>
       feather.replace()
     </script>
+
+    <?php echo ((isset($messageModal))? $messageModal : ''); ?>
 
     <script>
       /*
@@ -444,12 +572,18 @@
         }).on('hide.bs.collapse', function(){
         	$(this).prev(".card-header").find(".fas").removeClass("fa-chevron-down").addClass("fa-chevron-right");
         });
-    });
+      });
 
-      function showPriceAfterDiscount(){
-        harga_menu = document.getElementById("harga_menu").value;
-        diskon_menu = document.getElementById("diskon_menu").value;
-        document.getElementById("price_after_discount").value = "Rp " + (harga_menu - (harga_menu * diskon_menu / 100));
+      function showPriceAfterDiscountInTambahMenuModal(){
+        harga_menu = document.getElementById("tambah_harga_menu").value;
+        diskon_menu = document.getElementById("tambah_diskon_menu").value;
+        document.getElementById("tambah_price_after_discount").value = "Rp " + (harga_menu - (harga_menu * diskon_menu / 100));
+      }
+
+      function showPriceAfterDiscountInEditMenuModal(){
+        harga_menu = document.getElementById("edit_harga_menu").value;
+        diskon_menu = document.getElementById("edit_diskon_menu").value;
+        document.getElementById("edit_price_after_discount").value = "Rp " + (harga_menu - (harga_menu * diskon_menu / 100));
       }
 
       $("#menu-toggle").click(function(e) {
@@ -464,8 +598,90 @@
 
         var modal = $(this)
         modal.find('.modal-title').text('Tambah Menu pada Toko ' + namaToko)
-        document.getElementById('id_toko').value = idToko;
+        document.getElementById('tambah_id_toko').value = idToko;
+        document.getElementById('tambah_nama_toko').value = namaToko;
       });
+
+      $('#editMenuModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var idToko = button.data('id-toko')
+        var idMenuToko = button.data('id-menu-toko')
+        var namaToko = button.data('nama-toko');
+        var namaMenu = button.data('nama-menu')
+        var deskripsiMenu = button.data('deskripsi-menu')
+        var tipeMenu = button.data('tipe-menu')
+        var hargaMenu = button.data('harga-menu')
+        var diskonMenu = button.data('diskonMenu')
+        var urlFotoMenu = button.data('foto-thumbnail')
+
+        var modal = $(this)
+        modal.find('.modal-title').text('Edit Menu ' + namaMenu + ' pada Toko ' + namaToko)
+        document.getElementById('edit_id_toko').value = idToko;
+        document.getElementById('edit_nama_toko').value = namaToko;
+        document.getElementById('edit_id_menu_toko').value = idMenuToko;
+        document.getElementById('edit_nama_menu').value = namaMenu;
+        document.getElementById('edit_deskripsi_menu').value = deskripsiMenu;
+        if(tipeMenu == 'makanan'){
+          document.getElementById('edit_tipe_menu_makanan').setAttribute('checked', 'true');
+          document.getElementById('edit_tipe_menu_minuman').setAttribute('checked', 'false');
+          document.getElementById('edit_tipe_menu_makanan_button').className = 'btn btn-light active';
+          document.getElementById('edit_tipe_menu_minuman_button').className = 'btn btn-light';
+        }else if(tipeMenu == 'minuman'){
+          document.getElementById('edit_tipe_menu_makanan').setAttribute('checked', 'false');
+          document.getElementById('edit_tipe_menu_minuman').setAttribute('checked', 'true');
+          document.getElementById('edit_tipe_menu_makanan_button').className = 'btn btn-light';
+          document.getElementById('edit_tipe_menu_minuman_button').className = 'btn btn-light active';
+        }
+        document.getElementById('edit_harga_menu').value = hargaMenu;
+        document.getElementById('edit_diskon_menu').value = diskonMenu;
+
+        //jalannin fungsi diskon
+        showPriceAfterDiscountInEditMenuModal()
+          
+        //memuat foto yang sudah ada
+        document.getElementById('editPreviewImage').style.display = "block";
+        document.getElementById('editPreviewImage').setAttribute('src', '<?php echo base_url('assets/picture/menu-toko/'); ?>' + idToko + '/' + urlFotoMenu);
+
+        document.getElementById('editImageIndicator').style.display = 'none';
+        document.getElementById('editUploadButton').innerHTML = 'Pilih foto lain...';
+      });
+
+      $('#deleteMenuModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var idMenu = button.data('id-menu-toko')
+        var namaMenu = button.data('nama-menu');
+        var namaToko = button.data('nama-toko');
+
+        var modal = $(this)
+
+        document.getElementById('hapus_id_menu_toko').value = idMenu;
+        document.getElementById('hapus_nama_menu').value = namaMenu;
+        document.getElementById('hapus_nama_toko').value = namaToko;
+        document.getElementById('pesan_hapus').innerHTML = 'Apakah Anda yakin menghapus menu <i>' + namaMenu + '</i> pada toko <i>' + namaToko + '</i> ?';
+      });
+
+      function readURL(input, preview, tombol, indikator) {
+        //Thanks Paolo Forgia and Ivan Baev
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function(e) {
+            document.getElementById(preview).style.display = "block";
+            document.getElementById(preview).setAttribute('src', e.target.result);
+          }
+
+          reader.readAsDataURL(input.files[0]);
+          document.getElementById(indikator).style.display = 'none';
+          document.getElementById(tombol).innerHTML = 'Pilih foto lain...';
+        }else{
+          document.getElementById(indikator).style.display = 'block';
+          document.getElementById(tombol).innerHTML = 'Pilih foto...';
+          document.getElementById(preview).setAttribute('src', '');
+          document.getElementById(preview).style.display = 'none';
+
+          //document.getElementById(preview).style.display = '<?php //if($linkgambar != "" ){echo "block";}else{echo "none";} ?>';
+        }
+      }
     </script>
   </body>
 </html>
