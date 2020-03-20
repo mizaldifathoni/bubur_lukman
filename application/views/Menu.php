@@ -23,7 +23,9 @@
 	<!-- Site CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/style.css">    
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/responsive.css">
+		<link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/responsive.css">
+		<!-- FontAwesome CSS -->
+    <link href="<?php echo base_url('assets/fontawesome') ?>/css/all.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/custom.css">
 
@@ -60,11 +62,13 @@
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
 						</br></br></br><h2>Special Menu</h2>
-						<p>Belajarlah dari zombie, walaupun dia makan orang tapi dia gak pernah makan temen.</p>
+						<!-- <p>Belajarlah dari zombie, walaupun dia makan orang tapi dia gak pernah makan temen.</p> -->
 					</div>
 				</div>
 			</div>
-			<div class="row">
+
+			<?php echo ((isset($accordions))? $accordions : ''); ?>
+			<!-- <div class="row">
 				<div class="col-lg-12">
 					<div class="special-menu text-center">
 						<div class="button-group filter-button-group">
@@ -152,7 +156,7 @@
 							<h5> Rp 8.000,-</h5>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				
 				
 						</div>
@@ -251,7 +255,51 @@
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/isotope.min.js"></script>
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/baguetteBox.min.js"></script>
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/form-validator.min.js"></script>
-    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/contact-form-script.js"></script>
-    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/custom.js"></script>
+  <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/contact-form-script.js"></script>
+	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/custom.js"></script>
+		
+	<script>
+    $(document).ready(function(){
+      // Add minus icon for collapse element which is open by default
+      $(".collapse.show").each(function(){
+      	$(this).prev(".card-header").find(".fas").addClass("fa-chevron-down").removeClass("fa-chevron-right");
+      });
+      
+      // Toggle plus minus icon on show hide of collapse element
+      $(".collapse").on('show.bs.collapse', function(){
+      	$(this).prev(".card-header").find(".fas").removeClass("fa-chevron-right").addClass("fa-chevron-down");
+      }).on('hide.bs.collapse', function(){
+      	$(this).prev(".card-header").find(".fas").removeClass("fa-chevron-down").addClass("fa-chevron-right");
+      });
+    });
+
+		function tokoOnClick(idToko) {
+			if(idToko != 0){
+				//semua
+				document.getElementById('allMenu').setAttribute('data-filter', '.toko' + idToko);
+				document.getElementById('allMenu').className = 'active';
+
+				//makanan
+				document.getElementById('dishes').setAttribute('data-filter', '.dishes.toko' + idToko);
+				document.getElementById('dishes').className = '';
+
+				//minuman
+				document.getElementById('beverages').setAttribute('data-filter', '.beverages.toko' + idToko);
+				document.getElementById('beverages').className = '';
+			}else{
+				//semua
+				document.getElementById('allMenu').setAttribute('data-filter', '*');
+				document.getElementById('allMenu').className = 'active';
+
+				//makanan
+				document.getElementById('dishes').setAttribute('data-filter', '.dishes');
+				document.getElementById('dishes').className = '';
+
+				//minuman
+				document.getElementById('beverages').setAttribute('data-filter', '.beverages');
+				document.getElementById('beverages').className = '';
+			}
+		}
+	</script>
 </body>
 </html>

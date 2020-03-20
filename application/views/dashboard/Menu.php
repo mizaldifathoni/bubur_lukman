@@ -339,7 +339,7 @@
                 <input type="text" id="tambah_nama_toko" name="tambah_nama_toko" value="" hidden>
                 <div class="col-md-12 mb-3">
                   <label for="tambah_nama_menu">Nama Menu</label>
-                  <input type="text" class="form-control rounded" id="tambah_nama_menu" name="tambah_nama_menu" placeholder="cth. Bubur Ayam" value="" required="">
+                  <input type="text" class="form-control rounded" id="tambah_nama_menu" name="tambah_nama_menu" placeholder="cth. Bubur Ayam" value="" minlength="3" maxlength="32" required="">
                   <div class="invalid-feedback">
                     Nama menu tidak boleh kosong.
                   </div>
@@ -425,7 +425,7 @@
                 <input type="text" id="edit_id_menu_toko" name="edit_id_menu_toko" value="" hidden>
                 <div class="col-md-12 mb-3">
                   <label for="edit_nama_menu">Nama Menu</label>
-                  <input type="text" class="form-control rounded" id="edit_nama_menu" name="edit_nama_menu" placeholder="cth. Bubur Ayam" value="" required="">
+                  <input type="text" class="form-control rounded" id="edit_nama_menu" name="edit_nama_menu" placeholder="cth. Bubur Ayam" value="" minlength="3" maxlength="32" required="">
                   <div class="invalid-feedback">
                     Nama menu tidak boleh kosong.
                   </div>

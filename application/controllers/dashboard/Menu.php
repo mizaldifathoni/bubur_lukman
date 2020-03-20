@@ -105,20 +105,23 @@ class Menu extends CI_Controller
 					<div class="accordion" id="accordion">
 		';
 
-		$firstTime = true;
+		$i = 0;
+		$tokoCount = count($allToko);
+		$lastToko = false;
 		foreach($allToko as $toko){
+			if(++$i === $tokoCount) $lastToko = true;
 			$html .=
 			'
 						<div class="card">
               <a class="card-header p-0" href="#" id="heading' . $toko->id_toko . '" data-toggle="collapse" data-target="#collapse' . $toko->id_toko . '" aria-expanded="true" aria-controls="collapse' . $toko->id_toko . '">
                 <h2 class="mb-0 p-0">
                   <button class="btn btn-link btn-lg" type="button">
-                    <i id="accordion' . $toko->id_toko . '" class="fas ' . (($firstTime)? 'fa-chevron-down' : 'fa-chevron-right' ) . ' mr-1 accordion-icon"></i> ' . $toko->nama_toko . '
+                    <i id="accordion' . $toko->id_toko . '" class="fas ' . (($lastToko)? 'fa-chevron-down' : 'fa-chevron-right' ) . ' mr-1 accordion-icon"></i> ' . $toko->nama_toko . '
                   </button>
                 </h2>
               </a>
 
-              <div id="collapse' . $toko->id_toko . '" class="collapse ' . (($firstTime)? 'show' : '' ). '" aria-labelledby="heading' . $toko->id_toko . '" data-parent="#accordion">
+              <div id="collapse' . $toko->id_toko . '" class="collapse ' . (($lastToko)? 'show' : '' ). '" aria-labelledby="heading' . $toko->id_toko . '" data-parent="#accordion">
                 <div class="card-body pb-0">
 			';
 			
@@ -130,8 +133,6 @@ class Menu extends CI_Controller
               </div>
             </div>
 			';	
-
-			$firstTime = false;
 		}
 
 		$html .=
