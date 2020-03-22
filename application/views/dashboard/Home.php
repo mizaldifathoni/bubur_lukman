@@ -58,7 +58,7 @@
             <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link active" href="home">
-                  <span data-feather="home"></span>
+                  <span data-feather="bar-chart-2"></span>
                   Ikhtisar <span class="sr-only">(current)</span>
                 </a>
               </li>
@@ -66,6 +66,12 @@
                 <a class="nav-link" href="post">
                   <span data-feather="file"></span>
                   Posting
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="shop">
+                  <span data-feather="home"></span>
+                  Toko/Cabang
                 </a>
               </li>
               <li class="nav-item">
@@ -81,15 +87,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="statistik">
-                  <span data-feather="bar-chart-2"></span>
-                  Statistik
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="profil">
-                  <span data-feather="edit"></span>
-                  Edit Profil
+                <a class="nav-link" href="settings">
+                  <span data-feather="settings"></span>
+                  Pengaturan
                 </a>
               </li>
             </ul>

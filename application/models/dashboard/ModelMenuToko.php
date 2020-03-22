@@ -52,6 +52,12 @@ class ModelMenuToko extends CI_Model
     return $query->result();
   }
 
+  function getIdTokoWithMaxMenuTokoCount() 
+  {
+    $query = $this->db->query('SELECT * FROM menu_toko GROUP BY id_toko ORDER BY COUNT(id_toko) DESC LIMIT 1');
+    return $query->result()[0]->id_toko;
+  }
+
   function insertMenu($menu)
   {
     return $this->db->insert('menu_toko', $menu);

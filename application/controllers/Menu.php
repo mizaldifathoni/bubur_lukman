@@ -108,33 +108,8 @@ class Menu extends CI_Controller
 
 		$isFirstToko = true;
 		foreach($allToko as $toko){
-			
-			// $html .=
-			// '
-			// 		<div class="accordion" id="accordion' . $toko->id_toko . '">
-			// 			<div class="card">
-      //         <a class="card-header p-0" href="#" id="heading' . $toko->id_toko . '" data-toggle="collapse" data-target="#collapse' . $toko->id_toko . '" aria-expanded="true" aria-controls="collapse' . $toko->id_toko . '">
-      //           <h2 class="mb-0 p-0">
-      //             <button class="btn btn-link btn-lg" type="button">
-      //               <i id="accordion' . $toko->id_toko . '" class="fas ' . (($lastToko)? 'fa-chevron-down' : 'fa-chevron-right' ) . ' mr-1 accordion-icon"></i> ' . $toko->nama_toko . '
-      //             </button>
-      //           </h2>
-      //         </a>
-
-      //         <div id="collapse' . $toko->id_toko . '" class="collapse ' . (($lastToko)? 'show' : '' ). '" aria-labelledby="heading' . $toko->id_toko . '" data-parent="#accordion">
-      //           <div class="card-body pb-0">
-			// ';
-			
 			$html .= $this->getAllMenusHtml($toko->id_toko, $isFirstToko);
 			$isFirstToko = false;
-
-			// $html .=
-			// '
-      //           </div>
-      //         </div>
-			// 			</div>
-			// 		</div>
-			// ';
 		}
 
 		return $html;

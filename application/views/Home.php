@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/style.css">    
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/responsive.css">
+		<!-- FontAwesome CSS -->
+    <link href="<?php echo base_url('assets/fontawesome') ?>/css/all.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/custom.css">
 
@@ -135,7 +137,13 @@
 					</div>
 				</div>
 			</div>
+			<?php echo ((isset($menus))? $menus : ''); ?>
 			<div class="row">
+				<div class="col-lg-12">
+					<center><h2><a href="<?php echo base_url('menu') ?>">LIHAT SELENGKAPNYA</a></h2></center>
+				</div>
+			</div> 
+			<!-- <div class="row">
 				<div class="col-lg-12">
 					<div class="special-menu text-center">
 						<div class="button-group filter-button-group">
@@ -223,7 +231,7 @@
 							<h5> Rp 8.000,-</h5>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				
 				
 						</div>

@@ -74,9 +74,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="menu">
+                <a class="nav-link" href="menu">
                   <span data-feather="shopping-cart"></span>
-                  Menu Restoran <span class="sr-only">(current)</span>
+                  Menu Restoran
                 </a>
               </li>
               <li class="nav-item">
@@ -86,9 +86,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="settings">
+                <a class="nav-link active" href="settings">
                   <span data-feather="settings"></span>
-                  Pengaturan
+                  Pengaturan <span class="sr-only">(current)</span>
                 </a>
               </li>
             </ul>
@@ -130,16 +130,14 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 pb-4 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Edit Menu</h1>
+            <h1 class="h2">Pengaturan</h1>
           </div>
-          <?php echo $accordions ?>
-          <!--
           <div class="accordion" id="accordionExample">
             <div class="card">
               <a class="card-header p-0" href="#" id="headingOne" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseOne">
                 <h2 class="mb-0 p-0">
                   <button class="btn btn-link btn-lg" type="button">
-                    <i id="accordion1" class="fas fa-chevron-down mr-1 accordion-icon"></i> Bubur Lukman 1
+                    <i id="accordion1" class="fas fa-chevron-down mr-1 accordion-icon"></i> Pengaturan Dasar Web
                   </button>
                 </h2>
               </a>
@@ -147,48 +145,26 @@
               <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body pb-0">
                   <div class="row">
-                    <div class="col-md-4 mb-4">
-                      <div class="card mb-4 shadow-sm h-100 ">
-                        <div class="card-body align-middle d-flex h-almost-100">
-                          <div class="row justify-content-center align-self-center w-100 m-1">
-                            <div class="col-md-12">
-                              <center>
-                                <a class="card-text" href="#" data-toggle="modal" data-target="#addMenuModal" data-id-toko="1" data-nama-toko="Bubur Lukman 1"><i class="fas fa-plus-circle fa-7x"></i></a>
-                              </center>
-                            </div>
-                          </div>
+                    <div class="col-md-12">
+                      <div class="row mb-3">
+                        <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                          <label class="">Judul</label>
+                        </div>
+                        <div class="col-xl-4">
+                          <input type="text" class="form-control rounded" id="judul_web" name="judul_web" placeholder="cth. Bubur Lukman" value="" minlength="3" maxlength="32" required="">
                         </div>
                       </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                      <div class="card mb-4 shadow-sm h-100">
-                        <img src="../assets/picture/menu-toko/ayam.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
-                        <div class="card-body">
-                          <h4 class="font-weight-bold">Bubur Ayam</h4>
-                          <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk.</p>
+                      <div class="row mb-3">
+                        <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                          <label class="">Logo</label>
                         </div>
-                        <div class="card-body d-flex justify-content-between align-items-end">
-                          <div class="btn-group">
-                            <a href="" class="text-secondary mr-4"><i class="fas fa-pencil-square-o"></i> Edit</a>
-                            <a href=""class="text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                        <div class="col-xl-4">
+                          <div class="input-group d-flex justify-contents-center align-items-center">
+                            <input type="file" id="logo" name="logo" accept="image/*" onchange="readURL(this, 'editPreviewImage', 'editUploadButton', 'editImageIndicator');" style="display: none">
+                            <label type="button" id="logoUploadButton" class="btn btn-light mr-4" for="logo">Pilih</label>
+                            <span id="logoIndicator">Tidak ada foto yang dipilih.</span>
+                            <img id="logoPreview" src="#" style="max-width: 100%; max-height: 200px; width: auto; height: auto;display: none" onerror="this.style.display = 'none'"/>
                           </div>
-                          <span class="text-muted">RP 10.000</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                      <div class="card mb-4 shadow-sm h-100">
-                        <img src="../assets/picture/menu-toko/hijau.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
-                        <div class="card-body">
-                          <h4 class="font-weight-bold">Boeboer Katjang Idjo</h4>
-                          <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk. Saya siapa, dimana, kapan, bagaimana, mengapa?</p>
-                        </div>
-                        <div class="card-body d-flex justify-content-between align-items-end">
-                          <div class="btn-group">
-                            <a href="" class="text-secondary mr-4"><i class="fas fa-pencil-square-o"></i> Edit</a>
-                            <a href=""class="text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                          </div>
-                          <span class="text-muted">RP 10.000</span>
                         </div>
                       </div>
                     </div>
@@ -196,128 +172,77 @@
                 </div>
               </div>
             </div>
+
             <div class="card">
-              <a class="card-header p-0" id="headingTwo" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapseTwo">
+              <a class="card-header p-0" href="#" id="headingTwo" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseTwo">
                 <h2 class="mb-0 p-0">
-                  <button class="btn btn-link collapsed" type="button" >
-                    <i id="accordion2" class="fas fa-chevron-right mr-2 accordion-icon"></i> Bubur Lukman 2
+                  <button class="btn btn-link btn-lg" type="button">
+                    <i id="accordion1" class="fas fa-chevron-down mr-1 accordion-icon"></i> Pengaturan Halaman Depan
                   </button>
                 </h2>
               </a>
-              <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+
+              <div id="collapse2" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body pb-0">
                   <div class="row">
-                    <div class="col-md-4 mb-4">
-                      <div class="card mb-4 shadow-sm h-100 ">
-                        <div class="card-body align-middle d-flex h-almost-100">
-                          <div class="row justify-content-center align-self-center w-100 m-1">
-                            <div class="col-md-12">
-                              <center>
-                                <a class="card-text" href="#" data-toggle="modal" data-target="#addMenuModal" data-id-toko="2" data-nama-toko="Bubur Lukman 2"><i class="fas fa-plus-circle fa-7x"></i></a>
-                              </center>
-                            </div>
+                    <div class="col-md-12">
+                      <div class="row mt-3 mb-3">
+                        <div class="col d-flex align-items-center">
+                          <h2>Bagian Jumbotron</h2>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                          <label class="">Pesan Selamat Datang</label>
+                        </div>
+                        <div class="col-xl-4">
+                          <input type="text" class="form-control rounded" id="pesan_selamat_datang" name="pesan_selamat_datang" placeholder="cth. Welcome to Bubur Lukman" value="" minlength="3" maxlength="64" required="">
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                          <label class="">Deskripsi Pesan Selamat Datang</label>
+                        </div>
+                        <div class="col-xl-4">
+                          <textarea class="form-control rounded" id="deskripsi_pesan_selamat_datang" name="deskripsi_pesan_selamat_datang" placeholder="cth. Bubur Lukman adalah salah satu pengracik bubur terbaik di Lampung" value="" rows="3" required=""></textarea>
+                        </div>
+                      </div>
+
+                      <div class="row mt-5 mb-3">
+                        <div class="col d-flex align-items-center">
+                          <h2>Bagian Sejarah</h2>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                          <label class="">Foto</label>
+                        </div>
+                        <div class="col-xl-4">
+                          <div class="input-group d-flex justify-contents-center align-items-center">
+                            <input type="file" id="foto_toko" name="foto_toko" accept="image/*" onchange="readURL(this, 'editPreviewImage', 'editUploadButton', 'editImageIndicator');" style="display: none">
+                            <label type="button" id="logoUploadButton" class="btn btn-light mr-4" for="foto_toko">Pilih</label>
+                            <span id="fotoTokoIndicator">Tidak ada foto yang dipilih.</span>
+                            <img id="fotoTokoPreview" src="#" style="max-width: 100%; max-height: 200px; width: auto; height: auto;display: none" onerror="this.style.display = 'none'"/>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                      <div class="card mb-4 shadow-sm h-100">
-                        <img src="../assets/picture/menu-toko/ayam.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
-                        <div class="card-body">
-                          <h4 class="font-weight-bold">Bubur Ayam</h4>
-                          <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk.</p>
+                      <div class="row mb-3">
+                        <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                          <label class="">Sejarah Toko</label>
                         </div>
-                        <div class="card-body d-flex justify-content-between align-items-end">
-                          <div class="btn-group">
-                            <a href="" class="text-secondary mr-4"><i class="fas fa-pencil-square-o"></i> Edit</a>
-                            <a href=""class="text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                          </div>
-                          <span class="text-muted">RP 10.000</span>
+                        <div class="col-xl-6">
+                          <textarea class="form-control rounded" id="sejarah_toko" name="sejarah_toko" placeholder="cth. Bubur Lukman adalah salah satu pengracik bubur terbaik di Lampung" value="" rows="4" required=""></textarea>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                      <div class="card mb-4 shadow-sm h-100">
-                        <img src="../assets/picture/menu-toko/hijau.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
-                        <div class="card-body">
-                          <h4 class="font-weight-bold">Boeboer Katjang Idjo</h4>
-                          <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk. Saya siapa, dimana, kapan, bagaimana, mengapa?</p>
-                        </div>
-                        <div class="card-body d-flex justify-content-between align-items-end">
-                          <div class="btn-group">
-                            <a href="" class="text-secondary mr-4"><i class="fas fa-pencil-square-o"></i> Edit</a>
-                            <a href=""class="text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                          </div>
-                          <span class="text-muted">RP 10.000</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>  
-            </div>
-            <div class="card">
-              <a class="card-header p-0" id="headingThree" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseThree">
-                <h2 class="mb-0 p-0">
-                  <button class="btn btn-link collapsed" type="button" >
-                  <i id="accordion3" class="fas fa-chevron-right mr-2 accordion-icon"></i> Bubur Lukman 3
-                  </button>
-                </h2>
-              </a>
-              <div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div class="card-body pb-0">
-                  <div class="row">
-                    <div class="col-md-4 mb-4">
-                      <div class="card mb-4 shadow-sm h-100 ">
-                        <div class="card-body align-middle d-flex h-almost-100">
-                          <div class="row justify-content-center align-self-center w-100 m-1">
-                            <div class="col-md-12">
-                              <center>
-                                <a class="card-text" href="#" data-toggle="modal" data-target="#addMenuModal" data-id-toko="3" data-nama-toko="Bubur Lukman 3"><i class="fas fa-plus-circle fa-7x"></i></a>
-                              </center>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                      <div class="card mb-4 shadow-sm h-100">
-                        <img src="../assets/picture/menu-toko/ayam.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
-                        <div class="card-body">
-                          <h4 class="font-weight-bold">Bubur Ayam</h4>
-                          <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk.</p>
-                        </div>
-                        <div class="card-body d-flex justify-content-between align-items-end">
-                          <div class="btn-group">
-                            <a href="" class="text-secondary mr-4"><i class="fas fa-pencil-square-o"></i> Edit</a>
-                            <a href=""class="text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                          </div>
-                          <span class="text-muted">RP 10.000</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                      <div class="card mb-4 shadow-sm h-100">
-                        <img src="../assets/picture/menu-toko/hijau.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
-                        <div class="card-body">
-                          <h4 class="font-weight-bold">Boeboer Katjang Idjo</h4>
-                          <p class="card-text">Ketika nasi sudah menjadi bubur, tinggal tambahkan ayam, telur, kecap dan kerupuk. Saya siapa, dimana, kapan, bagaimana, mengapa?</p>
-                        </div>
-                        <div class="card-body d-flex justify-content-between align-items-end">
-                          <div class="btn-group">
-                            <a href="" class="text-secondary mr-4"><i class="fas fa-pencil-square-o"></i> Edit</a>
-                            <a href=""class="text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                          </div>
-                          <span class="text-muted">RP 10.000</span>
-                        </div>
-                      </div>
+
+                      
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            
           </div>
-        -->
         </main>
       </div>
     </div>
