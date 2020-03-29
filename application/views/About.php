@@ -45,7 +45,7 @@
 						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Home') ?> ">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Menu') ?>">Menu</a></li>
 						<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('About') ?> ">About</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
+						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Berita') ?>">Berita</a></li>
 					</ul>
 				</div>
 			</div>
