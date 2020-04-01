@@ -412,6 +412,19 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/custom.js"></script>
 
+    <!-- ALL JS FILES -->
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/jquery-3.2.1.min.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/popper.min.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/jquery.superslides.min.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/images-loded.min.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/isotope.min.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/baguetteBox.min.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/form-validator.min.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/contact-form-script.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/custom.js"></script>
+
     <script src="assets/assets_yamifood/assets_berita/js/jquery.min.js"></script>
     <script src="assets/assets_yamifood/assets_berita/js/tether.min.js"></script>
     <script src="assets/assets_yamifood/assets_berita/js/bootstrap.min.js"></script>
