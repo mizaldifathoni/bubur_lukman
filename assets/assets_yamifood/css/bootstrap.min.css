@@ -2892,8 +2892,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-light {
-	color: #f8f9fa;
-	background-color: #50AA00;
+	color: #212529;
+	background-color: #dae0e5;
 	border-color: #007bff
 }
 
@@ -2915,11 +2915,12 @@ fieldset:disabled a.btn {
 	border-color: #f8f9fa
 }
 
+
 .btn-light:not(:disabled):not(.disabled).active,
 .btn-light:not(:disabled):not(.disabled):active,
 .show>.btn-light.dropdown-toggle {
-	color: #212529;
-	background-color: #dae0e5;
+	color: #f8f9fa;
+	background-color: #50AA00;
 	border-color: #d3d9df
 }
 
