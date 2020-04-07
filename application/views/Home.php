@@ -343,8 +343,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<p class="company-name">All Rights Reserved. &copy; 2020 <a href="#">Bubur Lukman</a> Design By : 
-					<a href="https://html.design/">AMAN</a></p>
+						<p class="company-name">All Rights Reserved. &copy; <a href="#">Bubur Lukman.</a> v07032020</a></p>
 					</div>
 				</div>
 			</div>
