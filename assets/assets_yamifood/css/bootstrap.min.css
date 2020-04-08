@@ -2920,8 +2920,8 @@ fieldset:disabled a.btn {
 .btn-light:not(:disabled):not(.disabled):active,
 .show>.btn-light.dropdown-toggle {
 	color: #f8f9fa;
-	background-color: #50AA00;
-	border-color: #d3d9df
+	background-color: #72C02C;
+	border-color: #72C02C
 }
 
 .btn-light:not(:disabled):not(.disabled).active:focus,
