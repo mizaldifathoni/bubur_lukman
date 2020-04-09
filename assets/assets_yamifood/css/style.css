@@ -53,6 +53,14 @@ h6 {
 	margin: 0
 }
 
+label {
+	color: black;
+}
+
+.form-control {
+	margin-bottom: 5px;
+}
+
 h1 {
 	font-size: 24px
 }
@@ -1461,3 +1469,95 @@ blockquote {
 	transition: opacity 0.2s ease-out;
 	font-size: 30px;
 }
+
+#ulasan {
+	position: fixed;
+	margin-top: 40px;
+	top: 100px;
+	right: 40px;
+	z-index: 9999;
+	text-align: center;
+	color: #72C02C;
+	cursor: pointer;
+	border: 0;
+	border-radius: 2px;
+	text-decoration: none;
+	transition: opacity 0.2s ease-out;
+}
+
+#ulasModal {
+	z-index: 9999;
+	color: floralwhite;
+}
+
+/*-------------------ini ranting untuk toko-------------------------------- */
+.starrating>input {
+	display: none;
+}
+
+/* Remove radio buttons */
+.starrating>label:before {
+	content: "\f005";
+	/* Star */
+	margin: 2px;
+	font-size: 2em;
+	font-family: FontAwesome;
+	display: inline-block;
+}
+
+.starrating>label {
+	color: #807e7e;
+	/* Start color when not clicked */
+}
+
+.starrating>input:checked~label {
+	color: #72C02C;
+}
+
+/* Set yellow color when star checked */
+.starrating>input:hover~label {
+	color: #72C02C;
+}
+
+/* Set yellow color when star hover */
+/* --------------------------------------------------------------- */
+.modal-header {
+	background-color: #72C02C;
+}
+
+.modal-title {
+	color: floralwhite;
+}
+
+
+/*-------------------ini ranting untuk menu -------------------------------- */
+.starratingMenu>input {
+	display: none;
+}
+
+/* Remove radio buttons */
+.starratingMenu>label:before {
+	content: "\f005";
+	/* Star */
+	margin: 2px;
+	font-size: 1em;
+	font-family: FontAwesome;
+	display: inline-block;
+}
+
+.starratingMenu>label {
+	color: #807e7e;
+	/* Start color when not clicked */
+}
+
+.starratingMenu>input:checked~label {
+	color: floralwhite;
+}
+
+/* Set yellow color when star checked */
+.starratingMenu>input:hover~label {
+	color: floralwhite;
+}
+
+/* Set yellow color when star hover */
+/* --------------------------------------------------------------- */

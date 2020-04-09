@@ -51,8 +51,19 @@ class Home extends CI_Controller
 						<div class="why-text">
 							<h4>' . $food->nama_menu . '</h4>
 							<p>' . $food->deskripsi_menu . '</p>
-							<h5> Rp ' . $food->harga_menu . '</h5>
-						</div>
+								<div class="row">
+									<div class="col-7">
+										<h5> Rp ' . $food->harga_menu . '</h5>
+									</div>
+									<div id="bintangMenu" class="starratingMenu risingstar d-flex justify-content-center flex-row-reverse class="col-5">
+										<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Sangat Bagus"> </label>
+										<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Bagus"> </label>
+										<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Biasa Saja"> </label>
+										<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Buruk"> </label>
+										<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sangat Buruk"> </label>
+									</div>
+								</div>	
+							</div>	
 					</div>
 				</div>
 			';

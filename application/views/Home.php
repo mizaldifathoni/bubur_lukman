@@ -350,6 +350,56 @@
 	<!-- End Footer -->
 	
 	<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+	<a class="" id="ulasan" data-toggle="modal" data-target="#ulasModal">
+		<svg class="bi bi-chat-dots" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  			<path fill-rule="evenodd" d="M2.678 11.894a1 1 0 01.287.801 10.97 10.97 0 01-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 01.71-.074A8.06 8.06 0 008 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 01-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 00.244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 01-2.347-.306c-.52.263-1.639.742-3.468 1.105z" clip-rule="evenodd"/>
+ 			 <path d="M5 8a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+			</svg> Ulasan 
+	</a>
+
+	<div class="modal fade" id="ulasModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" >Beri Toko Kami Ulasan</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+			<div class="form-group-sm row">
+				<label class="col-4 col-form-label-lg"  for="notel" >No. Telepon</label>
+				<input id="notel" type="tel" class="form-control col-6" placeholder="Masukkan Nomor">
+			</div>
+			
+			<div class="form-group row">
+				<label class="col-4 col-form-label-lg" for="textUlasan" > Ulasan</label>
+				<textarea name="ulasan" id="textUlasan" class="form-control col-6"  rows="3" placeholder="Masukkan Ulasan"></textarea>
+			</div>
+			<div class="form-group row">
+				<label class="col-4 col-form-label" for="bintang">Beri Bintang Untuk Pelayanan Kami</label>
+				<div id="bintang" class="starrating risingstar d-flex justify-content-center flex-row-reverse col-6">
+					<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Sangat Bagus"> </label>
+					<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Bagus"> </label>
+					<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Biasa Saja"> </label>
+					<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Buruk"> </label>
+					<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sangat Buruk"> </label>
+        		</div>
+
+			</div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		<button type="submit" class="btn btn-primary">Kirim</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	
+
 
 	<!-- ALL JS FILES -->
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/jquery-3.2.1.min.js"></script>
