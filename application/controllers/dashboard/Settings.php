@@ -21,16 +21,16 @@ class Settings extends CI_Controller
 			if(null !== $this->input->post('inputLogout')){
 				$this->logout();
 			}elseif(null !== $this->input->post('updateBaseSettings')){
+				unset($_POST['updateBaseSettings']);
 				$this->updateBaseSettings();
-			}elseif(null !== $this->input->post('editMenu')){
-				unset($_POST['editMenu']);
-				$this->editMenu();
-			}elseif(null !== $this->input->post('hapusMenu')){
-				unset($_POST['hapusMenu']);
-				$this->deleteMenu();
+			}elseif(null !== $this->input->post('updateContactSettings')){
+				unset($_POST['updateContactSettings']);
+				$this->updateContactSettings();
+			}elseif(null !== $this->input->post('updateOpeningHoursSettings')){
+				unset($_POST['updateOpeningHoursSettings']);
+				$this->updateOpeningHoursSettings();
 			}else{
 				$data = array(
-					'accordions'	=> $this->getMenuTokoAccordionsHtml(),
 					'settings'		=> $this->ModelPengaturan->getAllSettings()
 				);
 				
@@ -46,269 +46,143 @@ class Settings extends CI_Controller
 		$this->ModelLogin->destroyAccess();
 	}
 
-	private function getMenuCardsHtml($idToko)
+	public function updateBaseSettings()
 	{
-		$namaToko = $this->ModelToko->getNamaTokoByIdToko($idToko);
+		$isLogoNotNull = isset($_FILES['logo']['name']) && $_FILES['logo']['name'] !== '';
+		$isPhotoNotNull = isset($_FILES['foto_toko']['name']) && $_FILES['foto_toko']['name'] !== '';
 
-		$html = '
-									<div class="row">
-                    <div class="col-md-6 col-lg-4 mb-4">
-                      <div class="card mb-4 shadow-sm h-100 ">
-                        <div class="card-body align-middle d-flex h-almost-100">
-                          <div class="row justify-content-center align-self-center w-100 m-1">
-                            <div class="col-md-12">
-                              <center>
-                                <a class="card-text" href="#" data-toggle="modal" data-target="#addMenuModal" data-id-toko="' . $idToko .  '" data-nama-toko="' . $namaToko . '"><i class="fas fa-plus-circle fa-7x"></i></a>
-                              </center>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-		';
+		$isLogoUploadSuccess = true;
+		$isPhotoUploadSuccess = true;
 
-		$allMenus = $this->ModelMenuToko->getAllMenusByIdToko($idToko);
-		foreach($allMenus as $menu){
-			$html .=
-			'
-										<div class="col-md-6 col-lg-4 mb-4">
-                      <div class="card mb-4 shadow-sm h-100">
-                        <img src="' . base_url('assets/picture/menu-toko/' . $idToko . '/') . $menu->nama_thumbnail_menu . '" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
-                        <div class="card-body">
-                          <h4 class="font-weight-bold">' . $menu->nama_menu . '</h4>
-                          <p class="card-text">' . $menu->deskripsi_menu . '</p>
-                        </div>
-                        <div class="card-body d-flex justify-content-between align-items-end">
-                          <div class="btn-group">
-                            <a href="" class="text-secondary mr-4" data-toggle="modal" data-target="#editMenuModal" data-id-toko="' . $idToko . '" data-id-menu-toko="' . $menu->id_menu_toko .  '" data-nama-menu="' . $menu->nama_menu . '" data-nama-toko="' . $namaToko . '" data-deskripsi-menu="' . $menu->deskripsi_menu . '" data-tipe-menu="' . $this->ModelKamus->getKamusById($menu->id_tipe_menu) . '" data-harga-menu="' . $menu->harga_menu . '" data-diskon-menu="' . $menu->diskon_menu . '" data-foto-thumbnail="' . $menu->nama_thumbnail_menu . '"><i class="fas fa-pencil-square-o"></i> Edit</a>
-                            <a href="" class="text-danger" data-toggle="modal" data-target="#deleteMenuModal" data-id-menu-toko="' . $menu->id_menu_toko .  '" data-nama-menu="' . $menu->nama_menu . '" data-nama-toko="' . $namaToko . '"><i class="fas fa-trash"></i> Hapus</a>
-                          </div>
-                          <span class="text-muted">Rp ' . $menu->harga_menu . '</span>
-                        </div>
-                      </div>
-                    </div>
-			';
-		}
-
-		$html .= '
-                  </div>
-		';
-
-		return $html;
-	}
-
-	private function getMenuTokoAccordionsHtml()
-	{
-		$allToko = $this->ModelToko->getAllToko();
-
-		$html =
-		'
-					<div class="accordion" id="accordion">
-		';
-
-		$i = 0;
-		$tokoCount = count($allToko);
-		$lastToko = false;
-		foreach($allToko as $toko){
-			if(++$i === $tokoCount) $lastToko = true;
-			$html .=
-			'
-						<div class="card">
-              <a class="card-header p-0" href="#" id="heading' . $toko->id_toko . '" data-toggle="collapse" data-target="#collapse' . $toko->id_toko . '" aria-expanded="true" aria-controls="collapse' . $toko->id_toko . '">
-                <h2 class="mb-0 p-0">
-                  <button class="btn btn-link btn-lg" type="button">
-                    <i id="accordion' . $toko->id_toko . '" class="fas ' . (($lastToko)? 'fa-chevron-down' : 'fa-chevron-right' ) . ' mr-1 accordion-icon"></i> ' . $toko->nama_toko . '
-                  </button>
-                </h2>
-              </a>
-
-              <div id="collapse' . $toko->id_toko . '" class="collapse ' . (($lastToko)? 'show' : '' ). '" aria-labelledby="heading' . $toko->id_toko . '" data-parent="#accordion">
-                <div class="card-body pb-0">
-			';
-			
-			$html .= $this->getMenuCardsHtml($toko->id_toko);
-
-			$html .=
-			'
-                </div>
-              </div>
-            </div>
-			';	
-		}
-
-		$html .=
-		'
-					</div>
-		';
-
-		return $html;
-	}
-
-	public function updateBaseSettings(){
-		if(isset($_FILES['logo']['name']) && $_FILES['logo']['name'] !== ''){
-			$arrayImageName = explode('.', $_FILES['logo']['name']);
-			$imageExtension = strtolower(end($arrayImageName));
-			$namaLogo = uniqid() . '.' . $imageExtension;
+		$title = $this->input->post('judul_web');
+		$shopHistory = $this->input->post('sejarah_toko');
+		$pathLogo = '';
+		$pathPhoto = '';
+		
+		if($isLogoNotNull){
+			$arrayLogoName = explode('.', $_FILES['logo']['name']);
+			$logoExtension = strtolower(end($arrayLogoName));
+			$namaLogo = 'logo_' . str_replace(' ', '_', $title) . '_' . uniqid() . '.' . $logoExtension;
 			$pathLogo = 'assets/picture/base/' . $namaLogo;
-			$logo = $this->input->post('logo');
-
-			$update = array(
-				'judul_web'	=> $this->input->post('judul_web'),
-				'logo'			=> $pathLogo
-			);
 
 			if (!file_exists('./assets/picture/base/')) {
 				mkdir('./assets/picture/base/', 0777, true);
 			}
 
-			$config['upload_path']    = './assets/picture/base/';
-			$config['allowed_types']  = 'gif|jpg|png';
-			$config['file_name']			= $namaLogo;
-			
-			$this->load->library('upload', $config);
-			
-			if ($this->upload->do_upload('logo')){
-				if($this->ModelPengaturan->updateTitle($update['judul_web']) && $this->ModelPengaturan->updateLogoPath($update['logo'])){
-					$data = array(
-						'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-						'settings'		=> $this->ModelPengaturan->getAllSettings(),
-						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Pengaturan dasar berhasil diperbaharui!')
-					);
-					$this->load->view('dashboard/settings', $data);
-				}else{
-					$data = array(
-						'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-						'settings'		=> $this->ModelPengaturan->getAllSettings(),
-						'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui pengaturan, silakan coba lagi nanti.')
-					);
-					$this->load->view('dashboard/settings', $data);
-				}
-			}else{
-				$data = array(
-					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-					'settings'		=> $this->ModelPengaturan->getAllSettings(),
-					'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya logo yang diunggah tidak sesuai, pastikan logo yang diupload berekstensi png, gif, atau jpg!')
-				);
-				$this->load->view('dashboard/settings', $data);
-			}
-		}else{
-			$update = array(
-				'judul_web'	=> $this->input->post('judul_web')
-			);
+			$configUploadLogo['upload_path']    = './assets/picture/base/';
+			$configUploadLogo['allowed_types']  = 'gif|jpg|png';
+			$configUploadLogo['file_name']			= $namaLogo;
+				
+			$this->load->library('upload', $configUploadLogo);
 
-			if($this->ModelPengaturan->updateTitle($update['judul_web'])){
-				$data = array(
-					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-					'settings'		=> $this->ModelPengaturan->getAllSettings(),
-					'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Pengaturan dasar berhasil diperbaharui!')
-				);
-				$this->load->view('dashboard/settings', $data);
+			if($this->upload->do_upload('logo')){
+				$isLogoUploadSuccess = true;
+
 			}else{
-				$data = array(
-					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-					'settings'		=> $this->ModelPengaturan->getAllSettings(),
-					'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui pengaturan, silakan coba lagi nanti.')
-				);
-				$this->load->view('dashboard/settings', $data);
+				$isLogoUploadSuccess = false;
 			}
 		}
-	}
 
-	public function editMenu(){
-		if(isset($_FILES['edit_foto_menu']['name']) && $_FILES['edit_foto_menu']['name'] !== ''){
-			$arrayImageName = explode('.', $_FILES['edit_foto_menu']['name']);
-			$imageExtension = strtolower(end($arrayImageName));
-			$namaFotoMenu = uniqid() . '.' . $imageExtension;
-			
-			$idToko 	= $this->input->post('edit_id_toko');
-			$namaToko = $this->input->post('edit_nama_toko');
-			$idMenu		= $this->input->post('edit_id_menu_toko');
+		if($isPhotoNotNull){
+			$arrayPhotoName = explode('.', $_FILES['foto_toko']['name']);
+			$photoExtension = strtolower(end($arrayPhotoName));
+			$namaPhoto = 'foto_' . str_replace(' ', '_', $title) . '_' . uniqid() . '.' . $photoExtension;
+			$pathPhoto = 'assets/picture/base/' . $namaPhoto;
 
-			$menu = array(
-				'id_tipe_menu'					=> $this->ModelKamus->getIdKamusInKategori($this->input->post('edit_tipe_menu'), 'tipe_menu_toko'),
-				'nama_menu'							=> $this->input->post('edit_nama_menu'),
-				'deskripsi_menu' 				=> $this->input->post('edit_deskripsi_menu'),
-				'harga_menu'						=> $this->input->post('edit_harga_menu'),
-				'diskon_menu'						=> $this->input->post('edit_diskon_menu'),
-				'nama_thumbnail_menu'		=> $namaFotoMenu
-			);
-
-			$config['upload_path']    = './assets/picture/menu-toko/' . $idToko . '/';
-			$config['allowed_types']  = 'gif|jpg|png';
-			$config['file_name']			= $namaFotoMenu;
-			
-			$this->load->library('upload', $config);
-			
-			if ($this->upload->do_upload('edit_foto_menu')){
-				if($this->ModelMenuToko->editMenu($idMenu, $menu)){
-					$data = array(
-						'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Menu pada toko <i>' . $namaToko . '</i> berhasil diperbaharui!')
-					);
-					$this->load->view('dashboard/menu', $data);
-				}else{
-					$data = array(
-						'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-						'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Menu', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui menu, silakan coba lagi nanti.')
-					);
-					$this->load->view('dashboard/menu', $data);
-				}
-			}else{
-				$data = array(
-					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-					'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Menu', 'Whoops! Nampaknya foto yang diunggah tidak sesuai, pastikan foto yang diupload berekstensi png, gif, atau jpg!')
-				);
-				$this->load->view('dashboard/menu', $data);
+			if (!file_exists('./assets/picture/base/')) {
+				mkdir('./assets/picture/base/', 0777, true);
 			}
-		}else{
-			$namaToko = $this->input->post('edit_nama_toko');
-			$idMenu		= $this->input->post('edit_id_menu_toko');
 
-			$menu = array(
-				'id_tipe_menu'					=> $this->ModelKamus->getIdKamusInKategori($this->input->post('edit_tipe_menu'), 'tipe_menu_toko'),
-				'nama_menu'							=> $this->input->post('edit_nama_menu'),
-				'deskripsi_menu' 				=> $this->input->post('edit_deskripsi_menu'),
-				'harga_menu'						=> $this->input->post('edit_harga_menu'),
-				'diskon_menu'						=> $this->input->post('edit_diskon_menu'),
-			);
+			$configUploadPhoto['upload_path']    = './assets/picture/base/';
+			$configUploadPhoto['allowed_types']  = 'gif|jpg|png';
+			$configUploadPhoto['file_name']			= $namaPhoto;
 			
-			if($this->ModelMenuToko->editMenu($idMenu, $menu)){
-				$data = array(
-					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-					'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Menu pada toko <i>' . $namaToko . '</i> berhasil diperbaharui!')
-				);
-				$this->load->view('dashboard/menu', $data);
+			if(isset($this->upload)) unset($this->upload);
+			$this->load->library('upload', $configUploadPhoto);
+
+			if($this->upload->do_upload('foto_toko')){
+				$isPhotoUploadSuccess = true;
 			}else{
-				$data = array(
-					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-					'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Menu', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui menu, silakan coba lagi nanti.')
-				);
-				$this->load->view('dashboard/menu', $data);
+				$isPhotoUploadSuccess = false;
 			}
 		}
-	}
 
-	private function deleteMenu()
-	{		
-		$idMenu = $this->input->post('hapus_id_menu_toko');
+		$isUpdateSuccess = false;
+		if($isLogoNotNull && $isLogoUploadSuccess && $isPhotoNotNull && $isPhotoUploadSuccess){
+			$isUpdateSuccess = ($this->ModelPengaturan->updateTitle($title) && $this->ModelPengaturan->updateShopHistory($shopHistory) && $this->ModelPengaturan->updateLogoPath($pathLogo) && $this->ModelPengaturan->updateShopPhotoPath($pathPhoto));
+		}else if($isLogoNotNull && $isLogoUploadSuccess && !$isPhotoNotNull){
+			$isUpdateSuccess = ($this->ModelPengaturan->updateTitle($title) && $this->ModelPengaturan->updateShopHistory($shopHistory) && $this->ModelPengaturan->updateLogoPath($pathLogo));
+		}else if(!$isLogoNotNull && $isPhotoNotNull && $isPhotoUploadSuccess){
+			$isUpdateSuccess = ($this->ModelPengaturan->updateTitle($title) && $this->ModelPengaturan->updateShopHistory($shopHistory) && $this->ModelPengaturan->updateShopPhotoPath($pathPhoto));
+		}else{
+			$isUpdateSuccess = ($this->ModelPengaturan->updateTitle($title) && $this->ModelPengaturan->updateShopHistory($shopHistory));
+		}
 
-		if($this->ModelMenuToko->deleteMenu($idMenu)){
+		if($isUpdateSuccess){
 			$data = array(
-				'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Berhasil menghapus menu <i>' . $this->input->post('hapus_nama_menu') . '</i> dari toko <i>' . $this->input->post('hapus_nama_toko') . '</i>.')
+				'settings'		=> $this->ModelPengaturan->getAllSettings(),
+				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Pengaturan dasar berhasil diperbaharui.')
 			);
-			
-			$this->load->view('dashboard/menu', $data);
+			$this->load->view('dashboard/settings', $data);
+		}else{
+			if(!$isLogoUploadSuccess || !$isPhotoUploadSuccess){
+				$data = array(
+					'settings'		=> $this->ModelPengaturan->getAllSettings(),
+					'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya gambar yang diunggah tidak sesuai, pastikan gambar yang diupload berekstensi png, gif, atau jpg.')
+				);
+				$this->load->view('dashboard/settings', $data);
+			}else{
+				$data = array(
+					'settings'		=> $this->ModelPengaturan->getAllSettings(),
+					'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui pengaturan dasar, silakan coba lagi nanti.')
+				);
+				$this->load->view('dashboard/settings', $data);
+			}
+		}
+	}
+
+	function updateContactSettings()
+	{
+		$phoneNumber		= $this->input->post('nomor_hp');
+		$email					= $this->input->post('email');
+		$location				=	$this->input->post('lokasi');
+		$facebookLink 	= $this->input->post('link_facebook');
+		$instagramLink	= $this->input->post('link_instagram');
+
+		if($this->ModelPengaturan->updatePhoneNumber($phoneNumber) && $this->ModelPengaturan->updateEmail($email) && $this->ModelPengaturan->updateLocation($location) && $this->ModelPengaturan->updateFacebookLink($facebookLink) && $this->ModelPengaturan->updateInstagramLink($instagramLink)){
+			$data = array(
+				'settings'		=> $this->ModelPengaturan->getAllSettings(),
+				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Pengaturan kontak dan media sosial berhasil diperbaharui.')
+			);
+			$this->load->view('dashboard/settings', $data);
 		}else{
 			$data = array(
-				'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-				'messageModal'	=> $this->Modal->createMessageModal('Gagal Menghapus Menu', 'Whoops! Nampaknya ada kesalahan dalam menghapus foto, silakan coba lagi nanti.')
+				'settings'		=> $this->ModelPengaturan->getAllSettings(),
+				'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui pengaturan kontak dan media sosial, silakan coba lagi nanti.')
 			);
-			
-			$this->load->view('dashboard/menu', $data);
+			$this->load->view('dashboard/settings', $data);
 		}
-		
 	}
+
+	function updateOpeningHoursSettings()
+	{
+		$openingHours	= $this->input->post('waktu_buka');
+
+		if($this->ModelPengaturan->updateOpeningHours($openingHours)){
+			$data = array(
+				'settings'		=> $this->ModelPengaturan->getAllSettings(),
+				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Pengaturan waktu buka berhasil diperbaharui.')
+			);
+			$this->load->view('dashboard/settings', $data);
+		}else{
+			$data = array(
+				'settings'		=> $this->ModelPengaturan->getAllSettings(),
+				'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui pengaturan waktu buka, silakan coba lagi nanti.')
+			);
+			$this->load->view('dashboard/settings', $data);
+		}
+	}
+	
 }
 
  ?>

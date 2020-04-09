@@ -42,12 +42,17 @@
   -moz-transform: scale(0.8, 0.8); /* Firefox */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*!
  * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
  body {
+  
   overflow-x: hidden;
 }
 
