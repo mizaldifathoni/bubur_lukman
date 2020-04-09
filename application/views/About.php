@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
      <!-- Site Metas -->
-    <title>Bubur Lukman</title>  
+    <title><?php echo $settings['title'] ?></title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -35,7 +35,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
 				<a class="navbar-brand" href="<?php echo base_url('Home') ?>">
-					<img src="assets/assets_yamifood/images/bubur_lukman.png" width="60px" height="60px" />
+					<img src="<?php echo base_url() . $settings['logo_path'] ?>" width="60px" height="60px" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
@@ -62,9 +62,9 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
 					<div class="inner-column">
-						</br></br></br><h1>Bubur Lukman</h1>
+						</br></br></br><h1><?php echo $settings['title'] ?></h1>
 						<h2>Tentang Kami</h2>
-						<p>Bubur Lukman berdiri sejak tahun 1997, dan didirikan oleh bapak abubakar yang mana bermula bapak abubakar yang menyukai bubur ayam kemudian beliau akhirnya membuat suatu usaha keluarga, yang mana nama usaha tersebut terinspirasi oleh nama anak pertama beliau. </p>
+						<p><?php echo $settings['shop_history'] ?></p>
 						<h4>Saat ini Bubur Lukman memiliki 3 outlet, yang terletak di : </h4>
 						<ul>
 							<li>Jl. Pulau Legundi No.202, Sukarame, Kota Bandar Lampung</li>
@@ -139,7 +139,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<p class="company-name">All Rights Reserved. &copy; <a href="#">Bubur Lukman.</a> v07032020</p>
+						<p class="company-name">All Rights Reserved. &copy; <a href="#"><?php echo $settings['title'] ?>.</a> v07032020</p>
 					</div>
 				</div>
 			</div>

@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
     <!-- Site Metas -->
-    <title>Bubur Lukman - Dashboard</title>  
+    <title><?php echo $settings['title'] ?> - Dashboard</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -33,12 +33,13 @@
     <link href="<?php echo base_url('assets/fontawesome') ?>/css/all.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/custom.css">
+    <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/custom-dashboard.css">
   </head>
 
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark p-0">
       <div id="navbar_container" class="container-fluid flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Bubur Lukman</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><?php echo $settings['title'] ?></a>
         <button type="button" id="menu-toggle" class="btn btn-link float-left"><i class="fas fa-bars"></i></button>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">

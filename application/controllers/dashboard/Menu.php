@@ -12,6 +12,7 @@ class Menu extends CI_Controller
 		$this->load->model('dashboard/ModelLogin');
 		$this->load->model('dashboard/ModelMenuToko');
 		$this->load->model('dashboard/ModelToko');
+		$this->load->model('dashboard/ModelPengaturan');
   }
 
 	public function index()
@@ -30,7 +31,8 @@ class Menu extends CI_Controller
 				$this->deleteMenu();
 			}else{
 				$data = array(
-					'accordions' => $this->getMenuTokoAccordionsHtml()
+					'accordions' => $this->getMenuTokoAccordionsHtml(),
+					'settings'		=> $this->ModelPengaturan->getAllSettings()
 				);
 				
 				$this->load->view('dashboard/menu', $data);
@@ -174,12 +176,14 @@ class Menu extends CI_Controller
 				if($this->ModelMenuToko->insertMenu($menu)){
 					$data = array(
 						'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+						'settings'		=> $this->ModelPengaturan->getAllSettings(),
 						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Menu <i>' . $menu['nama_menu'] . '</i> berhasil ditambahkan ke toko <i>' . $namaToko . '</i>.')
 					);
 					$this->load->view('dashboard/menu', $data);
 				}else{
 					$data = array(
 						'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+						'settings'		=> $this->ModelPengaturan->getAllSettings(),
 						'messageModal'	=> $this->Modal->createMessageModal('Gagal Menambah Menu', 'Whoops! Nampaknya ada kesalahan dalam menambah menu, silakan coba lagi nanti.')
 					);
 					$this->load->view('dashboard/menu', $data);
@@ -187,6 +191,7 @@ class Menu extends CI_Controller
 			}else{
 				$data = array(
 					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+					'settings'		=> $this->ModelPengaturan->getAllSettings(),
 					'messageModal'	=> $this->Modal->createMessageModal('Gagal Menambah Menu', 'Whoops! Nampaknya foto yang diunggah tidak sesuai, pastikan foto yang diupload berekstensi png, gif, atau jpg!')
 				);
 				$this->load->view('dashboard/menu', $data);
@@ -194,6 +199,7 @@ class Menu extends CI_Controller
 		}else{
 			$data = array(
 				'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+				'settings'		=> $this->ModelPengaturan->getAllSettings(),
 				'messageModal'	=> $this->Modal->createMessageModal('Gagal Menambah Menu', 'Whoops! Nampaknya Anda belum mengunggah foto menu, foto menu tidak boleh kosong.')
 			);
 			$this->load->view('dashboard/menu', $data);
@@ -230,12 +236,14 @@ class Menu extends CI_Controller
 				if($this->ModelMenuToko->editMenu($idMenu, $menu)){
 					$data = array(
 						'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+						'settings'		=> $this->ModelPengaturan->getAllSettings(),
 						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Menu pada toko <i>' . $namaToko . '</i> berhasil diperbaharui!')
 					);
 					$this->load->view('dashboard/menu', $data);
 				}else{
 					$data = array(
 						'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+						'settings'		=> $this->ModelPengaturan->getAllSettings(),
 						'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Menu', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui menu, silakan coba lagi nanti.')
 					);
 					$this->load->view('dashboard/menu', $data);
@@ -243,6 +251,7 @@ class Menu extends CI_Controller
 			}else{
 				$data = array(
 					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+					'settings'		=> $this->ModelPengaturan->getAllSettings(),
 					'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Menu', 'Whoops! Nampaknya foto yang diunggah tidak sesuai, pastikan foto yang diupload berekstensi png, gif, atau jpg!')
 				);
 				$this->load->view('dashboard/menu', $data);
@@ -262,12 +271,14 @@ class Menu extends CI_Controller
 			if($this->ModelMenuToko->editMenu($idMenu, $menu)){
 				$data = array(
 					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+					'settings'		=> $this->ModelPengaturan->getAllSettings(),
 					'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Menu pada toko <i>' . $namaToko . '</i> berhasil diperbaharui!')
 				);
 				$this->load->view('dashboard/menu', $data);
 			}else{
 				$data = array(
 					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+					'settings'		=> $this->ModelPengaturan->getAllSettings(),
 					'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Menu', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui menu, silakan coba lagi nanti.')
 				);
 				$this->load->view('dashboard/menu', $data);
@@ -282,6 +293,7 @@ class Menu extends CI_Controller
 		if($this->ModelMenuToko->deleteMenu($idMenu)){
 			$data = array(
 				'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+				'settings'		=> $this->ModelPengaturan->getAllSettings(),
 				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Berhasil menghapus menu <i>' . $this->input->post('hapus_nama_menu') . '</i> dari toko <i>' . $this->input->post('hapus_nama_toko') . '</i>.')
 			);
 			
@@ -289,6 +301,7 @@ class Menu extends CI_Controller
 		}else{
 			$data = array(
 				'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+				'settings'		=> $this->ModelPengaturan->getAllSettings(),
 				'messageModal'	=> $this->Modal->createMessageModal('Gagal Menghapus Menu', 'Whoops! Nampaknya ada kesalahan dalam menghapus foto, silakan coba lagi nanti.')
 			);
 			

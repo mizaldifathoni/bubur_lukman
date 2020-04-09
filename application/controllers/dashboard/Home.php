@@ -7,7 +7,8 @@ class Home extends CI_Controller
 	function __construct()
   {
     parent::__construct();
-    $this->load->model('dashboard/ModelLogin');
+		$this->load->model('dashboard/ModelLogin');
+		$this->load->model('dashboard/ModelPengaturan');
   }
 
 	public function index()
@@ -16,7 +17,10 @@ class Home extends CI_Controller
 			if(null !== $this->input->post('inputLogout')){
 				$this->logout();
 			}else{
-				$this->load->view('dashboard/home');
+				$data = array(
+					'settings'		=> $this->ModelPengaturan->getAllSettings()
+				);
+				$this->load->view('dashboard/home', $data);
 			}
 		}else{
 			redirect(base_url('dashboard/login'));

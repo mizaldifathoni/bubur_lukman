@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
      <!-- Site Metas -->
-    <title>Bubur Lukman</title>  
+    <title><?php echo $settings['title'] ?></title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -37,7 +37,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
 				<a class="navbar-brand" href="#">
-					<img src="assets/assets_yamifood/images/bubur_lukman.png" width="60px" height="60px" />
+					<img src="<?php echo base_url() . $settings['logo_path'] ?>" width="60px" height="60px" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
@@ -63,9 +63,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h1 class="m-b-20"><strong>Welcome To <br> Bubur Lukman</strong></h1>
-							<p class="m-b-40">See how your users experience your website in realtime or view  <br> 
-							trends to see any changes in performance over time.</p>
+							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
+							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
 						</div>
 					</div>
 				</div>
@@ -75,9 +74,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h1 class="m-b-20"><strong>Welcome To <br> Bubur Lukman</strong></h1>
-							<p class="m-b-40">See how your users experience your website in realtime or view  <br> 
-							trends to see any changes in performance over time.</p>
+							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
+							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
 						</div>
 					</div>
 				</div>
@@ -87,9 +85,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h1 class="m-b-20"><strong>Welcome To <br> Bubur Lukman</strong></h1>
-							<p class="m-b-40">See how your users experience your website in realtime or view  <br> 
-							trends to see any changes in performance over time.</p>
+							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
+							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
 						</div>
 					</div>
 				</div>
@@ -111,8 +108,8 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
 					<div class="inner-column">
-						<h1>Bubur Lukman</h1>
-						<p>Bubur Lukman berdiri sejak tahun 1997, dan didirikan oleh bapak abubakar yang mana bermula bapak abubakar yang menyukai bubur ayam kemudian beliau akhirnya membuat suatu usaha keluarga, dan nama usaha tersebut terinspirasi oleh nama anak pertama beliau. </p>
+						<h1><?php echo $settings['title'] ?></h1>
+						<p><?php echo $settings['shop_history'] ?></p>
 						<h4>Saat ini Bubur Lukman memiliki 3 outlet, yang terletak di : </h4>
 						<ul>
 							<li>Jl. Pulau Legundi No.202, Sukarame, Kota Bandar Lampung</li>
@@ -320,7 +317,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-6">
 					<h3>About Us</h3>
-					<p>Bubur Lukman berdiri sejak tahun 1997, dan didirikan oleh bapak abubakar yang mana bermula bapak abubakar yang menyukai bubur ayam kemudian beliau akhirnya membuat suatu usaha keluarga, yang mana nama usaha tersebut terinspirasi oleh nama anak pertama beliau.</p>
+					<p><?php echo $settings['shop_history'] ?></p>
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<h3>Opening hours</h3>
@@ -343,7 +340,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<p class="company-name">All Rights Reserved. &copy; <a href="#">Bubur Lukman.</a> v07032020</a></p>
+						<p class="company-name">All Rights Reserved. &copy; <a href="#"><?php echo $settings['title'] ?>.</a> v07032020</a></p>
 					</div>
 				</div>
 			</div>

@@ -9,6 +9,7 @@ class Login extends CI_Controller
     parent::__construct();
     $this->load->model('dashboard/ModelLogin');
     $this->load->model('component/Modal');
+    $this->load->model('dashboard/ModelPengaturan');
   }
 
 	public function index()
@@ -20,7 +21,10 @@ class Login extends CI_Controller
 			if(null !== ($this->input->post('inputLogin'))){
         $this->login($this->input->post('inputUsername'), $this->input->post('inputPassword'));
       }else{
-        $this->load->view('dashboard/Login');
+        $data = array(
+          'settings'		=> $this->ModelPengaturan->getAllSettings()
+        );
+        $this->load->view('dashboard/Login', $data);
       }
 		}
   }

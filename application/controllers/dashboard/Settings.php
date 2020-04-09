@@ -12,6 +12,7 @@ class Settings extends CI_Controller
 		$this->load->model('dashboard/ModelLogin');
 		$this->load->model('dashboard/ModelMenuToko');
 		$this->load->model('dashboard/ModelToko');
+		$this->load->model('dashboard/ModelPengaturan');
   }
 
 	public function index()
@@ -19,9 +20,8 @@ class Settings extends CI_Controller
 		if($this->ModelLogin->isAccessable()){
 			if(null !== $this->input->post('inputLogout')){
 				$this->logout();
-			}elseif(null !== $this->input->post('tambahMenu')){
-				unset($_POST['tambahMenu']);
-				$this->addMenu();
+			}elseif(null !== $this->input->post('updateBaseSettings')){
+				$this->updateBaseSettings();
 			}elseif(null !== $this->input->post('editMenu')){
 				unset($_POST['editMenu']);
 				$this->editMenu();
@@ -30,7 +30,8 @@ class Settings extends CI_Controller
 				$this->deleteMenu();
 			}else{
 				$data = array(
-					'accordions' => $this->getMenuTokoAccordionsHtml()
+					'accordions'	=> $this->getMenuTokoAccordionsHtml(),
+					'settings'		=> $this->ModelPengaturan->getAllSettings()
 				);
 				
 				$this->load->view('dashboard/settings', $data);
@@ -143,62 +144,74 @@ class Settings extends CI_Controller
 		return $html;
 	}
 
-	public function addMenu(){
-		if(isset($_FILES['tambah_foto_menu'])){
-			$arrayImageName = explode('.', $_FILES['tambah_foto_menu']['name']);
+	public function updateBaseSettings(){
+		if(isset($_FILES['logo']['name']) && $_FILES['logo']['name'] !== ''){
+			$arrayImageName = explode('.', $_FILES['logo']['name']);
 			$imageExtension = strtolower(end($arrayImageName));
-			$namaFotoMenu = uniqid() . '.' . $imageExtension;
-			$namaToko = $this->input->post('tambah_nama_toko');
+			$namaLogo = uniqid() . '.' . $imageExtension;
+			$pathLogo = 'assets/picture/base/' . $namaLogo;
+			$logo = $this->input->post('logo');
 
-			$menu = array(
-				'id_toko'								=> $this->input->post('tambah_id_toko'),
-				'id_tipe_menu'					=> $this->ModelKamus->getIdKamusInKategori($this->input->post('tambah_tipe_menu'), 'tipe_menu_toko'),
-				'nama_menu'							=> $this->input->post('tambah_nama_menu'),
-				'deskripsi_menu' 				=> $this->input->post('tambah_deskripsi_menu'),
-				'harga_menu'						=> $this->input->post('tambah_harga_menu'),
-				'diskon_menu'						=> $this->input->post('tambah_diskon_menu'),
-				'nama_thumbnail_menu'		=> $namaFotoMenu
+			$update = array(
+				'judul_web'	=> $this->input->post('judul_web'),
+				'logo'			=> $pathLogo
 			);
 
-			if (!file_exists('./assets/picture/menu-toko/' . $menu['id_toko'] . '/')) {
-				mkdir('./assets/picture/menu-toko/' . $menu['id_toko'] . '/', 0777, true);
+			if (!file_exists('./assets/picture/base/')) {
+				mkdir('./assets/picture/base/', 0777, true);
 			}
 
-			$config['upload_path']    = './assets/picture/menu-toko/' . $menu['id_toko'] . '/';
+			$config['upload_path']    = './assets/picture/base/';
 			$config['allowed_types']  = 'gif|jpg|png';
-			$config['file_name']			= $namaFotoMenu;
+			$config['file_name']			= $namaLogo;
 			
 			$this->load->library('upload', $config);
 			
-			if ($this->upload->do_upload('tambah_foto_menu')){
-				if($this->ModelMenuToko->insertMenu($menu)){
+			if ($this->upload->do_upload('logo')){
+				if($this->ModelPengaturan->updateTitle($update['judul_web']) && $this->ModelPengaturan->updateLogoPath($update['logo'])){
 					$data = array(
 						'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Menu <i>' . $menu['nama_menu'] . '</i> berhasil ditambahkan ke toko <i>' . $namaToko . '</i>.')
+						'settings'		=> $this->ModelPengaturan->getAllSettings(),
+						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Pengaturan dasar berhasil diperbaharui!')
 					);
-					$this->load->view('dashboard/menu', $data);
+					$this->load->view('dashboard/settings', $data);
 				}else{
 					$data = array(
 						'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-						'messageModal'	=> $this->Modal->createMessageModal('Gagal Menambah Menu', 'Whoops! Nampaknya ada kesalahan dalam menambah menu, silakan coba lagi nanti.')
+						'settings'		=> $this->ModelPengaturan->getAllSettings(),
+						'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui pengaturan, silakan coba lagi nanti.')
 					);
-					$this->load->view('dashboard/menu', $data);
+					$this->load->view('dashboard/settings', $data);
 				}
 			}else{
 				$data = array(
 					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-					'messageModal'	=> $this->Modal->createMessageModal('Gagal Menambah Menu', 'Whoops! Nampaknya foto yang diunggah tidak sesuai, pastikan foto yang diupload berekstensi png, gif, atau jpg!')
+					'settings'		=> $this->ModelPengaturan->getAllSettings(),
+					'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya logo yang diunggah tidak sesuai, pastikan logo yang diupload berekstensi png, gif, atau jpg!')
 				);
-				$this->load->view('dashboard/menu', $data);
+				$this->load->view('dashboard/settings', $data);
 			}
 		}else{
-			$data = array(
-				'accordions'		=> $this->getMenuTokoAccordionsHtml(),
-				'messageModal'	=> $this->Modal->createMessageModal('Gagal Menambah Menu', 'Whoops! Nampaknya Anda belum mengunggah foto menu, foto menu tidak boleh kosong.')
+			$update = array(
+				'judul_web'	=> $this->input->post('judul_web')
 			);
-			$this->load->view('dashboard/menu', $data);
+
+			if($this->ModelPengaturan->updateTitle($update['judul_web'])){
+				$data = array(
+					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+					'settings'		=> $this->ModelPengaturan->getAllSettings(),
+					'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Pengaturan dasar berhasil diperbaharui!')
+				);
+				$this->load->view('dashboard/settings', $data);
+			}else{
+				$data = array(
+					'accordions'		=> $this->getMenuTokoAccordionsHtml(),
+					'settings'		=> $this->ModelPengaturan->getAllSettings(),
+					'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui pengaturan, silakan coba lagi nanti.')
+				);
+				$this->load->view('dashboard/settings', $data);
+			}
 		}
-		
 	}
 
 	public function editMenu(){

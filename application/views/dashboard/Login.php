@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
     <!-- Site Metas -->
-    <title>Bubur Lukman</title>  
+    <title><?php echo $settings['title'] ?></title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/custom.css">
+    <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/custom-dashboard.css">
 
 
     <style>
@@ -54,7 +55,7 @@
   </head>
   <body class="text-center">
     <form action="" method="POST" class="form-signin">
-      <img class="mb-4" src="<?php echo base_url('assets/picture') ?>/logo.png" alt="Bubur Lukman" width="256px" height="256px">
+      <img class="mb-4" src="<?php echo base_url() . $settings['logo_path'] ?>" alt="Bubur Lukman" width="256px" height="256px">
       <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
       <label for="inputEmail" class="sr-only">Username</label>
       <input type="username" id="inputEmail" class="form-control" placeholder="Username" name="inputUsername" required autofocus>

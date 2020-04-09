@@ -10,12 +10,14 @@ class Menu extends CI_Controller
 		$this->load->model('dashboard/ModelKamus');
 		$this->load->model('dashboard/ModelMenuToko');
 		$this->load->model('dashboard/ModelToko');
+		$this->load->model('dashboard/ModelPengaturan');
   }
 	
 	public function index()
 	{
 		$data = array(
-			'accordions' => $this->getMenuTokoAccordionsHtml()
+			'accordions' => $this->getMenuTokoAccordionsHtml(),
+			'settings' => $this->ModelPengaturan->getAllSettings()
 		);
 		$this->load->view('menu', $data);
 	}
