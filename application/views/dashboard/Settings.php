@@ -138,12 +138,12 @@
               <a class="card-header p-0" href="#" id="headingOne" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseOne">
                 <h2 class="mb-0 p-0">
                   <button class="btn btn-link btn-lg" type="button">
-                    <i id="accordion1" class="fas fa-chevron-down mr-1 accordion-icon"></i> Pengaturan Dasar
+                    <i id="accordion1" class="fas fa-chevron-right mr-1 accordion-icon"></i> Pengaturan Dasar
                   </button>
                 </h2>
               </a>
 
-              <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div id="collapse1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body pb-0">
                   <form action="" method="POST" enctype="multipart/form-data">
                     <div class="row">
@@ -154,6 +154,14 @@
                           </div>
                           <div class="col-xl-9">
                             <input type="text" class="form-control rounded" id="judul_web" name="judul_web" placeholder="cth. Bubur Lukman" value="<?php echo $settings['title'] ?>" minlength="3" maxlength="32" required="">
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                            <label class="">Sejarah Toko</label>
+                          </div>
+                          <div class="col-xl-9">
+                            <textarea class="form-control rounded" id="sejarah_toko" name="sejarah_toko" placeholder="cth. Bubur Lukman adalah salah satu pengracik bubur terbaik di Lampung" rows="4" required=""><?php echo $settings['shop_history'] ?></textarea>
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -170,8 +178,21 @@
                           </div>
                         </div>
                         <div class="row mb-3">
+                          <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                            <label class="">Foto Toko</label>
+                          </div>
+                          <div class="col-xl-9">
+                            <div class="input-group d-flex justify-contents-center align-items-center">
+                              <input type="file" id="foto_toko" name="foto_toko" accept="image/*" onchange="readURL(this, 'fotoTokoPreview', 'fotoTokoUploadButton', 'fotoTokoIndicator');" style="display: none">
+                              <label type="button" id="fotoTokoUploadButton" class="btn btn-light mr-4" for="foto_toko">Pilih Foto Lain...</label>
+                              <span id="fotoTokoIndicator" style="display: none">Tidak ada foto yang dipilih.</span>
+                              <img id="fotoTokoPreview" src="<?php echo base_url() . $settings['shop_photo_path'] ?>" style="max-width: 100%; max-height: 200px; width: auto; height: auto;" onerror="this.style.display = 'none'"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
                           <div class="col-xl-12 d-flex align-items-center justify-content-end">
-                            <button class="btn btn-primary" type="submit" name="updateBaseSettings" id="inputBaseSettings">Simpan</button>
+                            <button class="btn btn-primary" type="submit" name="updateBaseSettings" id="updateBaseSettings">Simpan</button>
                           </div>
                         </div>
                       </div>
@@ -185,74 +206,104 @@
               <a class="card-header p-0" href="#" id="headingTwo" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseTwo">
                 <h2 class="mb-0 p-0">
                   <button class="btn btn-link btn-lg" type="button">
-                    <i id="accordion1" class="fas fa-chevron-right mr-1 accordion-icon"></i> Pengaturan Halaman Depan
+                    <i id="accordion1" class="fas fa-chevron-right mr-1 accordion-icon"></i> Pengaturan Kontak dan Media Sosial
                   </button>
                 </h2>
               </a>
 
               <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body pb-0">
-                  <form action="" method="POST">
+                  <form action="" method="POST" enctype="multipart/form-data">
                     <div class="row">
                       <div class="col-md-12">
-                        <div class="row mt-3 mb-3">
-                          <div class="col d-flex align-items-center">
-                            <h2>Bagian Jumbotron</h2>
+                        <div class="row mb-3">
+                          <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                            <label class="">Nomor HP</label>
+                          </div>
+                          <div class="col-xl-9">
+                            <input type="text" class="form-control rounded" id="nomor_hp" name="nomor_hp" pattern="[+]{0,1}[0-9]{10,17}" placeholder="cth. 081269803000" value="<?php echo $settings['phone_number'] ?>" minlength="10" maxlength="16" required="">
                           </div>
                         </div>
                         <div class="row mb-3">
                           <div class="col-xl-3 d-flex align-items-center justify-content-start">
-                            <label class="">Pesan Selamat Datang</label>
+                            <label class="">Email</label>
                           </div>
                           <div class="col-xl-9">
-                            <input type="text" class="form-control rounded" id="pesan_selamat_datang" name="pesan_selamat_datang" placeholder="cth. Welcome to Bubur Lukman" value="<?php echo $settings['welcome_message'] ?>" minlength="3" maxlength="64" required="">
+                            <input type="email" class="form-control rounded" id="email" name="email" placeholder="cth. admin@buburlukman.com" value="<?php echo $settings['email'] ?>" minlength="7" maxlength="64" required="">
                           </div>
                         </div>
                         <div class="row mb-3">
                           <div class="col-xl-3 d-flex align-items-center justify-content-start">
-                            <label class="">Deskripsi Pesan Selamat Datang</label>
+                            <label class="">Alamat Singkat</label>
                           </div>
                           <div class="col-xl-9">
-                            <textarea class="form-control rounded" id="deskripsi_pesan_selamat_datang" name="deskripsi_pesan_selamat_datang" placeholder="cth. Bubur Lukman adalah salah satu pengracik bubur terbaik di Lampung" rows="3" required=""><?php echo $settings['welcome_message_description'] ?></textarea>
-                          </div>
-                        </div>
-
-                        <div class="row mt-5 mb-3">
-                          <div class="col d-flex align-items-center">
-                            <h2>Bagian Sejarah</h2>
+                            <input type="text" class="form-control rounded" id="lokasi" name="lokasi" placeholder="cth. Jl. Pulau Legundi No.202" value="<?php echo $settings['location'] ?>" minlength="5" maxlength="32" required="">
                           </div>
                         </div>
                         <div class="row mb-3">
                           <div class="col-xl-3 d-flex align-items-center justify-content-start">
-                            <label class="">Foto</label>
+                            <label class="">Link Facebook</label>
                           </div>
-                          <div class="col-xl-9">
-                            <div class="input-group d-flex justify-contents-center align-items-center">
-                              <input type="file" id="foto_toko" name="foto_toko" accept="image/*" onchange="readURL(this, 'fotoTokoPreview', 'fotoTokoUploadButton', 'fotoTokoIndicator');" style="display: none">
-                              <label type="button" id="fotoTokoUploadButton" class="btn btn-light mr-4" for="foto_toko">Pilih Foto Lain...</label>
-                              <span id="fotoTokoIndicator" style="display: none">Tidak ada foto yang dipilih.</span>
-                              <img id="fotoTokoPreview" src="<?php echo base_url() . $settings['shop_photo_path'] ?>" style="max-width: 100%; max-height: 200px; width: auto; height: auto;" onerror="this.style.display = 'none'"/>
+                          <div class="col-xl-9 input-group">
+                            <input type="text" class="form-control rounded-left" id="link_facebook" name="link_facebook" placeholder="cth. https://www.facebook.com/buburlukman" value="<?php echo $settings['facebook_link'] ?>" maxlength="256" aria-describedby="open_facebook">
+                            <div class="input-group-append">
+                              <a class="input-group-text" id="open_facebook" onclick="openLinkInInputBox('link_facebook');" href="#"><i class="fas fa-link mr-2"></i>Buka Link</a>
                             </div>
                           </div>
                         </div>
                         <div class="row mb-3">
                           <div class="col-xl-3 d-flex align-items-center justify-content-start">
-                            <label class="">Sejarah Toko</label>
+                            <label class="">Link Instagram</label>
                           </div>
-                          <div class="col-xl-9">
-                            <textarea class="form-control rounded" id="sejarah_toko" name="sejarah_toko" placeholder="cth. Bubur Lukman adalah salah satu pengracik bubur terbaik di Lampung" rows="4" required=""><?php echo $settings['shop_history'] ?></textarea>
+                          <div class="col-xl-9 input-group">
+                            <input type="text" class="form-control rounded-left" id="link_instagram" name="link_instagram" placeholder="cth. https://www.instagram.com/buburlukman" value="<?php echo $settings['instagram_link'] ?>" maxlength="256" aria-describedby="open_instagram">
+                            <div class="input-group-append">
+                              <a class="input-group-text" id="open_instagram" onclick="openLinkInInputBox('link_instagram');" href="#"><i class="fas fa-link mr-2"></i>Buka Link</a>
+                            </div>
                           </div>
                         </div>
                         <div class="row mb-3">
                           <div class="col-xl-12 d-flex align-items-center justify-content-end">
-                            <button class="btn btn-primary" type="submit" name="updateHomeSettings" id="inputBaseSettings">Simpan</button>
+                            <button class="btn btn-primary" type="submit" name="updateContactSettings" id="updateContactSettings">Simpan</button>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </form>
+                  </form> 
                 </div>
-              </div>
+            </div>
+
+            <div class="card">
+              <a class="card-header p-0" href="#" id="headingThree" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapseThree">
+                <h2 class="mb-0 p-0">
+                  <button class="btn btn-link btn-lg" type="button">
+                    <i id="accordion3" class="fas fa-chevron-down mr-1 accordion-icon"></i> Pengaturan Waktu Buka
+                  </button>
+                </h2>
+              </a>
+
+              <div id="collapse3" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body pb-0">
+                  <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="row mb-3">
+                          <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                            <label class="">Waktu Buka</label>
+                          </div>
+                          <div class="col-xl-9">
+                            <input type="text" class="form-control rounded" id="waktu_buka" name="waktu_buka" placeholder="cth. Senin-Sabtu: 09.00-21.00 WIB" value="<?php echo $settings['opening_hours'] ?>" minlength="10" maxlength="48" required="">
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col-xl-12 d-flex align-items-center justify-content-end">
+                            <button class="btn btn-primary" type="submit" name="updateOpeningHoursSettings" id="updateOpeningHoursSettings">Simpan</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form> 
+                </div>
             </div>
             
           </div>
@@ -312,90 +363,9 @@
         });
       });
 
-      function showPriceAfterDiscountInTambahMenuModal(){
-        harga_menu = document.getElementById("tambah_harga_menu").value;
-        diskon_menu = document.getElementById("tambah_diskon_menu").value;
-        document.getElementById("tambah_price_after_discount").value = "Rp " + (harga_menu - (harga_menu * diskon_menu / 100));
-      }
-
-      function showPriceAfterDiscountInEditMenuModal(){
-        harga_menu = document.getElementById("edit_harga_menu").value;
-        diskon_menu = document.getElementById("edit_diskon_menu").value;
-        document.getElementById("edit_price_after_discount").value = "Rp " + (harga_menu - (harga_menu * diskon_menu / 100));
-      }
-
       $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
-      });
-
-      $('#addMenuModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget)
-        var idToko = button.data('id-toko')
-        var namaToko = button.data('nama-toko');
-
-        var modal = $(this)
-        modal.find('.modal-title').text('Tambah Menu pada Toko ' + namaToko)
-        document.getElementById('tambah_id_toko').value = idToko;
-        document.getElementById('tambah_nama_toko').value = namaToko;
-      });
-
-      $('#editMenuModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget)
-        var idToko = button.data('id-toko')
-        var idMenuToko = button.data('id-menu-toko')
-        var namaToko = button.data('nama-toko');
-        var namaMenu = button.data('nama-menu')
-        var deskripsiMenu = button.data('deskripsi-menu')
-        var tipeMenu = button.data('tipe-menu')
-        var hargaMenu = button.data('harga-menu')
-        var diskonMenu = button.data('diskonMenu')
-        var urlFotoMenu = button.data('foto-thumbnail')
-
-        var modal = $(this)
-        modal.find('.modal-title').text('Edit Menu ' + namaMenu + ' pada Toko ' + namaToko)
-        document.getElementById('edit_id_toko').value = idToko;
-        document.getElementById('edit_nama_toko').value = namaToko;
-        document.getElementById('edit_id_menu_toko').value = idMenuToko;
-        document.getElementById('edit_nama_menu').value = namaMenu;
-        document.getElementById('edit_deskripsi_menu').value = deskripsiMenu;
-        if(tipeMenu == 'makanan'){
-          document.getElementById('edit_tipe_menu_makanan').setAttribute('checked', 'true');
-          document.getElementById('edit_tipe_menu_minuman').setAttribute('checked', 'false');
-          document.getElementById('edit_tipe_menu_makanan_button').className = 'btn btn-light active';
-          document.getElementById('edit_tipe_menu_minuman_button').className = 'btn btn-light';
-        }else if(tipeMenu == 'minuman'){
-          document.getElementById('edit_tipe_menu_makanan').setAttribute('checked', 'false');
-          document.getElementById('edit_tipe_menu_minuman').setAttribute('checked', 'true');
-          document.getElementById('edit_tipe_menu_makanan_button').className = 'btn btn-light';
-          document.getElementById('edit_tipe_menu_minuman_button').className = 'btn btn-light active';
-        }
-        document.getElementById('edit_harga_menu').value = hargaMenu;
-        document.getElementById('edit_diskon_menu').value = diskonMenu;
-
-        //jalannin fungsi diskon
-        showPriceAfterDiscountInEditMenuModal()
-          
-        //memuat foto yang sudah ada
-        document.getElementById('editPreviewImage').style.display = "block";
-        document.getElementById('editPreviewImage').setAttribute('src', '<?php echo base_url('assets/picture/menu-toko/'); ?>' + idToko + '/' + urlFotoMenu);
-
-        document.getElementById('editImageIndicator').style.display = 'none';
-        document.getElementById('editUploadButton').innerHTML = 'Pilih foto lain...';
-      });
-
-      $('#deleteMenuModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget)
-        var idMenu = button.data('id-menu-toko')
-        var namaMenu = button.data('nama-menu');
-        var namaToko = button.data('nama-toko');
-
-        var modal = $(this)
-
-        document.getElementById('hapus_id_menu_toko').value = idMenu;
-        document.getElementById('hapus_nama_menu').value = namaMenu;
-        document.getElementById('hapus_nama_toko').value = namaToko;
-        document.getElementById('pesan_hapus').innerHTML = 'Apakah Anda yakin menghapus menu <i>' + namaMenu + '</i> pada toko <i>' + namaToko + '</i> ?';
       });
 
       function readURL(input, preview, tombol, indikator) {
@@ -419,6 +389,11 @@
 
           //document.getElementById(preview).style.display = '<?php //if($linkgambar != "" ){echo "block";}else{echo "none";} ?>';
         }
+      }
+
+      function openLinkInInputBox(id){
+        var win = window.open(document.getElementById(id).value, '_blank');
+        win.focus();
       }
     </script>
   </body>

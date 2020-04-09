@@ -58,7 +58,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-12">
-					</br></br></br><img src="assets/assets_yamifood/images/legundi.jpg" alt="" class="img-thumbnail" width="1000px" height="1000px">
+					</br></br></br><img src="<?php echo base_url() . $settings['shop_photo_path'] ?>" alt="" class="img-thumbnail" width="1000px" height="1000px">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
 					<div class="inner-column">
@@ -87,7 +87,7 @@
 					<div class="overflow-hidden">
 						<h4>Phone</h4>
 						<p class="lead">
-							+628xxxxxxxxxx
+							<?php echo $settings['phone_number'] ?>
 						</p>
 					</div>
 				</div>
@@ -96,7 +96,7 @@
 					<div class="overflow-hidden">
 						<h4>Email</h4>
 						<p class="lead">
-							buburlukman@gmail.com
+							<?php echo $settings['email'] ?>
 						</p>
 					</div>
 				</div>
@@ -105,7 +105,7 @@
 					<div class="overflow-hidden">
 						<h4>Location</h4>
 						<p class="lead">
-							Jl. Pulau Legundi No.202
+							<?php echo $settings['location'] ?>
 						</p>
 					</div>
 				</div>
@@ -121,15 +121,15 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-6">
 					<h3>Opening hours</h3>
-					<p><span class="text-color">Senin-Minggu :</span> 05.30 WIB - 21.00 WIB</p>
+					<p><?php echo $settings['opening_hours'] ?></p>
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<h3>Contact information</h3>
-					<p class="lead"><a href="#">+62xxxxxxxxxxx</a></p>
-					<p><a href="#"> info@admin.com</a></p>
+					<p class="lead"><a href="tel:<?php echo $settings['phone_number'] ?>"><i class="fa fa-phone mr-2"></i><?php echo $settings['phone_number'] ?></a></p>
+					<p><a href="mailto:<?php echo $settings['email'] ?>"><i class="fa fa-envelope mr-2"></i><?php echo $settings['email'] ?></a></p>
 					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						<li class="list-inline-item"><a href="<?php echo $settings['facebook_link'] ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li class="list-inline-item"><a href="<?php echo $settings['instagram_link'] ?>" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
 					</ul>
 				</div>
 			</div>
