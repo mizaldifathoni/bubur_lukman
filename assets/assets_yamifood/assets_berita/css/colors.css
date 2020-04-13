@@ -24,7 +24,7 @@ a:focus,
 .navbar-inverse .navbar-nav .nav-link.active,
 .navbar-inverse .navbar-nav .nav-link.open,
 .navbar-inverse .navbar-nav .open > .nav-link {
-    color: #72C02C ;
+    color: #00AAB5 ;
 }
 
 .dmtop,
@@ -32,7 +32,7 @@ a:focus,
 .search-form .btn:focus,
 .search-form .btn {
     color: #ffffff;
-    background-color: #72C02C;
+    background-color: #00AAB5;
 }
 
 .tag-cloud-single span,
@@ -42,15 +42,15 @@ a:focus,
 .btn:focus,
 .navbar-inverse .navbar-toggler {
     color: #ffffff;
-    background-color: #72C02C;
+    background-color: #00AAB5;
 }
 
 .blockquote {
-    border-left-color: #72C02C;
+    border-left-color: #00AAB5;
 }
 
 .footer .widget-title {
-    border-color: #72C02C;
+    border-color: #00AAB5;
 }
 
 

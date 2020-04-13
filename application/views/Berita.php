@@ -292,7 +292,7 @@
 
                                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                                             <div class="w-100 justify-content-between">
-                                                <img src="assets/assets_yamifood/assets_berita/images/hijau.jpg" alt="" class="img-fluid float-left" width="90px" height="90px">
+                                                <img src="assets/assets_yamifood/assets_berita/images/hijau1.jpg" alt="" class="img-fluid float-left" width="90px" height="90px">
                                                 <h3 class="mb-1">Promo</h3>
                                                 <h5>  Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
                                                 <small>11 Jan, 2016</small>
@@ -390,7 +390,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <p class="company-name">All Rights Reserved. &copy; <a href="#"><?php echo $settings['title'] ?>.</a> v07032020</p>
+                        <p class="company-name">Copyright &copy; 2020 <a href="#"><?php echo $settings['title'] ?>.</a> v07032020</a></p>
                     </div>
                 </div>
             </div>
