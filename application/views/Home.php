@@ -75,6 +75,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
 							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
+							<a class="btn btn-light mt-3" href="#special_menu">Lihat Promo</a>
 						</div>
 					</div>
 				</div>
@@ -86,6 +87,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
 							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
+							<a class="btn btn-light mt-3" href="#special_menu">Lihat Promo</a>
 						</div>
 					</div>
 				</div>
