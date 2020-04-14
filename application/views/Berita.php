@@ -113,7 +113,7 @@
                                     <div class="col-md-4">
                                         <div class="post-media">
                                             <a href="#" title="">
-                                                <img src="assets/assets_yamifood/assets_berita/images/hijau.jpg" alt="" class="img-fluid">
+                                                <img src="assets/assets_yamifood/assets_berita/images/hijau1.jpg" alt="" class="img-fluid">
                                                 <div class="hovereffect"></div>
                                             </a>
                                         </div><!-- end media -->
@@ -309,16 +309,6 @@
                                         </a>
                                     </div>
                                 </div><!-- end blog-list -->
-                            </div><!-- end widget -->
-
-                            <div class="widget">
-                                <br><h2 class="widget-title">Instagram Feed</h2>
-                                <div class="instagram-wrapper clearfix">
-                                    <a href="assets/assets_yamifood/assets_berita/images/hitam.jpg"><img src="assets/assets_yamifood/assets_berita/images/hitam.jpg" alt="" class="img-fluid" width="123px" height="160px"></a>
-                                    <a href="assets/assets_yamifood/assets_berita/images/hijau.jpg"><img src="assets/assets_yamifood/assets_berita/images/hijau1.jpg" alt="" class="img-fluid" width="123px" height="130px"></a>
-                                    <a href="assets/assets_yamifood/assets_berita/images/kopi.jpg"><img src="assets/assets_yamifood/assets_berita/images/kopi.jpg" alt="" class="img-fluid" width="123px" height="160px"></a>
-                                    <a href="assets/assets_yamifood/assets_berita/images/img-02.jpg"><img src="assets/assets_yamifood/assets_berita/images/img-02.jpg" alt="" class="img-fluid" width="123px" height="130px"></a>
-                                </div><!-- end Instagram wrapper -->
                             </div><!-- end widget -->
                         </div><!-- end sidebar -->
                     </div><!-- end col -->
