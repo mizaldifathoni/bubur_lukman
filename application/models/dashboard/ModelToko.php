@@ -33,6 +33,27 @@ class ModelToko extends CI_Model
     $query = $this->db->select('id_toko')->from('toko')->where('nama_toko', $namaToko)->limit(1)->get();
     return ($query->result() != null)? $query->result()[0]->id_toko : null;
   }
+
+  function getLokasiTokoByIdToko($idToko)
+  {
+    $query = $this->db->select('lokasi_toko')->from('toko')->where('id_toko', $idToko)->limit(1)->get();
+    return ($query->result() != null)? $query->result()[0]->lokasi_toko : null;
+  }
+
+  function addToko($toko)
+  {
+    return $this->db->insert('toko', $toko);
+  }
+
+  function editToko($idToko, $toko)
+  {
+    return $this->db->where('id_toko', $idToko)->update('toko', $toko);
+  }
+
+  function deleteToko($idToko)
+  {
+    return $this->db->where('id_toko', $idToko)->delete('toko');
+  }
   
 }
 

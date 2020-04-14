@@ -17,7 +17,8 @@ class Menu extends CI_Controller
 	{
 		$data = array(
 			'accordions' => $this->getMenuTokoAccordionsHtml(),
-			'settings' => $this->ModelPengaturan->getAllSettings()
+			'settings' => $this->ModelPengaturan->getAllSettings(),
+			'locations' => $this->getLokasiTokoHtml()
 		);
 		$this->load->view('menu', $data);
 	}
@@ -71,6 +72,8 @@ class Menu extends CI_Controller
 
 	private function getMenuTokoAccordionsHtml()
 	{
+		$allToko = $this->ModelToko->getAllToko();
+
 		$html = '
 		<div class="row">
 			<div class="col-lg-12">
@@ -79,7 +82,7 @@ class Menu extends CI_Controller
 						<button id="toko0" class="active" onclick="tokoOnClick(\'0\')" data-filter="*">Semua Toko</button>
 		';
 
-		$allToko = $this->ModelToko->getAllToko();
+		
 
 		$firstTime = true;
 		foreach($allToko as $toko){
@@ -116,6 +119,28 @@ class Menu extends CI_Controller
 
 		return $html;
 	}
+
+	public function getLokasiTokoHtml()
+	{
+		$allToko = $this->ModelToko->getAllToko();
+
+		$html = '
+		<div class="alert alert-success pt-4 pb-4">
+			<center><h2><strong>Lokasi</strong></h2></center>
+		';
+
+		foreach($allToko as $toko){
+			$html .= '
+			<center><h4 class="p-1"><strong>' . $toko->nama_toko . ':</strong> ' . $toko->lokasi_toko . '</h4></center>
+			';
+		}
+
+		$html .= '
+		</div>
+		';
+
+		return $html;
+	} 
 }
 
  ?>

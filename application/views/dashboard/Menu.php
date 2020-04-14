@@ -421,7 +421,7 @@
             </div>
             <div class="modal-body">
               <div class="row">
-              <input type="text" id="edit_id_toko" name="edit_id_toko" value="" hidden>
+                <input type="text" id="edit_id_toko" name="edit_id_toko" value="" hidden>
                 <input type="text" id="edit_nama_toko" name="edit_nama_toko" value="" hidden>
                 <input type="text" id="edit_id_menu_toko" name="edit_id_menu_toko" value="" hidden>
                 <div class="col-md-12 mb-3">

@@ -58,8 +58,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
+					</br></br></br><?php echo ((isset($locations))? $locations : ''); ?>
+				</div>
+				<div class="col-lg-12">
 					<div class="heading-title text-center">
-						</br></br></br><h2>Special Menu</h2>
+						</br></br><h2>Special Menu</h2>
 						<!-- <p>Belajarlah dari zombie, walaupun dia makan orang tapi dia gak pernah makan temen.</p> -->
 					</div>
 				</div>
