@@ -53,7 +53,7 @@ class Menu extends CI_Controller
 
 		$html = '
 									<div class="row">
-                    <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="col-md-6 col-lg-4 mb-4" style="min-height: 446px">
                       <div class="card mb-4 shadow-sm h-100 ">
                         <div class="card-body align-middle d-flex h-almost-100">
                           <div class="row justify-content-center align-self-center w-100 m-1">
@@ -76,7 +76,7 @@ class Menu extends CI_Controller
                       <div class="card mb-4 shadow-sm h-100">
                         <img src="' . base_url('assets/picture/menu-toko/' . $idToko . '/') . $menu->nama_thumbnail_menu . '" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
                         <div class="card-body">
-                          <h4 class="font-weight-bold">' . $menu->nama_menu . '</h4>
+												<a href="" data-toggle="modal" data-target="#editMenuModal" data-id-toko="' . $idToko . '" data-id-menu-toko="' . $menu->id_menu_toko .  '" data-nama-menu="' . $menu->nama_menu . '" data-nama-toko="' . $namaToko . '" data-deskripsi-menu="' . $menu->deskripsi_menu . '" data-tipe-menu="' . $this->ModelKamus->getKamusById($menu->id_tipe_menu) . '" data-harga-menu="' . $menu->harga_menu . '" data-diskon-menu="' . $menu->diskon_menu . '" data-foto-thumbnail="' . $menu->nama_thumbnail_menu . '"><h4 class="font-weight-bold mb-3">' . $menu->nama_menu . '</h4></a>
                           <p class="card-text">' . $menu->deskripsi_menu . '</p>
                         </div>
                         <div class="card-body d-flex justify-content-between align-items-end">
@@ -302,7 +302,7 @@ class Menu extends CI_Controller
 			$data = array(
 				'accordions'		=> $this->getMenuTokoAccordionsHtml(),
 				'settings'		=> $this->ModelPengaturan->getAllSettings(),
-				'messageModal'	=> $this->Modal->createMessageModal('Gagal Menghapus Menu', 'Whoops! Nampaknya ada kesalahan dalam menghapus foto, silakan coba lagi nanti.')
+				'messageModal'	=> $this->Modal->createMessageModal('Gagal Menghapus Menu', 'Whoops! Nampaknya ada kesalahan dalam menghapus menu, silakan coba lagi nanti.')
 			);
 			
 			$this->load->view('dashboard/menu', $data);
