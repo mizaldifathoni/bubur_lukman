@@ -75,6 +75,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
 							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
+							<a class="btn btn-light mt-3" href="#special_menu">Lihat Promo</a>
 						</div>
 					</div>
 				</div>
@@ -86,6 +87,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
 							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
+							<a class="btn btn-light mt-3" href="#special_menu">Lihat Promo</a>
 						</div>
 					</div>
 				</div>
@@ -338,7 +340,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<p class="company-name">All Rights Reserved. &copy; <a href="#"><?php echo $settings['title'] ?>.</a> v07032020</a></p>
+						<p class="company-name">Copyright &copy; 2020 <a href="#"><?php echo $settings['title'] ?>.</a> v07032020</a></p>
 					</div>
 				</div>
 			</div>
