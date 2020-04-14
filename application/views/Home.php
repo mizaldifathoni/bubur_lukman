@@ -256,7 +256,7 @@
 				<div class="row">
 					<div class="col-sm-6 col-md-4 col-lg-4">
 						<a class="lightbox" href="assets/assets_yamifood/images/buburrr.jpg">
-							<img class="img-fluid" src="assets/assets_yamifood/images/buburrr.jpg" alt="Gallery Images" width="100px">
+							<img class="img-fluid" src="assets/assets_yamifood/images/buburrr.jpg" alt="Gallery Images">
 						</a>
 					</div>
 					<div class="col-sm-6 col-md-4 col-lg-4">
@@ -329,7 +329,7 @@
 					<p class="lead"><a href="tel:<?php echo $settings['phone_number'] ?>"><i class="fa fa-phone mr-2"></i><?php echo $settings['phone_number'] ?></a></p>
 					<p><a href="mailto:<?php echo $settings['email'] ?>"><i class="fa fa-envelope mr-2"></i><?php echo $settings['email'] ?></a></p>
 					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="<?php echo $settings['facebook_link'] ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i>   Bubur Ayam Lukman</a></li>
+						<li class="list-inline-item"><a href="<?php echo $settings['facebook_link'] ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i>  Bubur Ayam Lukman</a></li>
 						<li class="list-inline-item"><a href="<?php echo $settings['instagram_link'] ?>" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i> @bubur.lukman</a></li>
 					</ul>
 				</div>
