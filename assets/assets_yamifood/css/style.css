@@ -224,7 +224,7 @@ button:focus {
 }
 
 .slides-navigation a {
-	background: transparent;
+	background: #00858D;
 	position: absolute;
 	height: 70px;
 	width: 70px;
@@ -242,7 +242,7 @@ button:focus {
 }
 
 .slides-navigation a:hover {
-	background: transparent;
+	background: #00AAB5;
 }
 
 .cover-slides .container {
