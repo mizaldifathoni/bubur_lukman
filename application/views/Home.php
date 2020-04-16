@@ -111,11 +111,9 @@
 					<div class="inner-column">
 						<h1><?php echo $settings['title'] ?></h1>
 						<p><?php echo $settings['shop_history'] ?></p>
-						<h4>Saat ini Bubur Lukman memiliki 3 outlet, yang terletak di : </h4>
+						<h4>Saat ini Bubur Lukman memiliki <?php echo count($shop_locations) ?> outlet, yang terletak di : </h4>
 						<ul>
-							<li>Jl. Pulau Legundi No.202, Sukarame, Kota Bandar Lampung</li>
-							<li>Jl. Al Hikmah, Sukabumi Indah, Sukabumi, Kota Bandar Lampung</li>
-							<li>Jl. Pulau Singkep, Sukarame, Kota Bandar Lampung</li>
+							<?php foreach($shop_locations as $loc) echo $loc . '<br>' ?>
 						</ul>
 					</div>
 				</div>
@@ -361,14 +359,50 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" >Beri Toko Kami Ulasan</h1>
+        <h3 class="modal-title pb-0" >Beri Toko Kami Ulasan</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="">
-			<div class="form-group-sm row">
+        <form action="" method="POST">
+					<div class="row">
+						<div class="col-md-12 mb-3">
+              <label for="nama_pengulas">Nama Lengkap</label>
+              <input type="text" class="form-control rounded" id="nama_pengulas" name="nama_pengulas" placeholder="cth. Muhammad Muttaqin" value="" minlength="3" maxlength="32" required="">
+              <div class="invalid-feedback">
+                Nama lengkap tidak boleh kosong.
+              </div>
+						</div>
+						<div class="col-md-12 mb-3">
+              <label for="no_telepon_pengulas">No. HP</label>
+              <input type="text" class="form-control rounded" id="no_telepon_pengulas" name="no_telepon_pengulas" placeholder="cth. 081288701234" value="" minlength="10" maxlength="16" required="">
+              <div class="invalid-feedback">
+                No. HP tidak boleh kosong.
+              </div>
+						</div>
+						<div class="col-md-12 mb-3">
+              <label for="isi_ulasan_toko">Ulasan</label>
+              <textarea type="text" class="form-control rounded" id="isi_ulasan_toko" name="isi_ulasan_toko" placeholder="cth. Pelayanan baik, tempatnya cozy, buburnya enak sekali pas di kantong" rows="3" minlength="3" maxlength="64" required=""></textarea>
+              <div class="invalid-feedback">
+                Ulasan tidak boleh kosong.
+              </div>
+						</div>
+						<div class="col-md-12 mb-3">
+							<label for="rating_toko">Beri Rating untuk Kami</label>
+							<div id="rating_toko" class="starrating risingstar d-flex justify-content-center flex-row-reverse col-6">
+								<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Sangat Bagus"> </label>
+								<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Bagus"> </label>
+								<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Biasa Saja"> </label>
+								<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Buruk"> </label>
+								<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sangat Buruk"> </label>
+							</div>
+							<div class="invalid-feedback">
+                Rating tidak boleh kosong.
+              </div>
+						</div>
+					</div>
+			<!--<div class="form-group-sm row">
 				<label class="col-4 col-form-label-lg"  for="notel" >No. Telepon</label>
 				<input id="notel" type="tel" class="form-control col-6" placeholder="Masukkan Nomor">
 			</div>
@@ -388,6 +422,7 @@
         		</div>
 
 			</div>
+-->
 		</form>
       </div>
       <div class="modal-footer">

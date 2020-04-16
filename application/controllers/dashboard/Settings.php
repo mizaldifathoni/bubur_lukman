@@ -94,7 +94,7 @@ class Settings extends CI_Controller
 			}
 
 			$configUploadPhoto['upload_path']    = './assets/picture/base/';
-			$configUploadPhoto['allowed_types']  = 'gif|jpg|png';
+			$configUploadPhoto['allowed_types']  = 'gif|jpg|jpeg|png';
 			$configUploadPhoto['file_name']			= $namaPhoto;
 			
 			if(isset($this->upload)) unset($this->upload);

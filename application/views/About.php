@@ -65,11 +65,14 @@
 						</br></br></br><h1><?php echo $settings['title'] ?></h1>
 						<h2>Tentang Kami</h2>
 						<p><?php echo $settings['shop_history'] ?></p>
-						<h4>Saat ini Bubur Lukman memiliki 3 outlet, yang terletak di : </h4>
+						<h4>Saat ini Bubur Lukman memiliki <?php echo count($shop_locations) ?> outlet, yang terletak di : </h4>
 						<ul>
+							<?php foreach($shop_locations as $loc) echo $loc . '<br>' ?>
+							<!--
 							<li>Jl. Pulau Legundi No.202, Sukarame, Kota Bandar Lampung</li>
 							<li>Jl. Al Hikmah, Sukabumi Indah, Sukabumi, Kota Bandar Lampung</li>
 							<li>Jl. Pulau Singkep, Sukarame, Kota Bandar Lampung</li>
+							-->
 						</ul>
 					</div>
 				</div>

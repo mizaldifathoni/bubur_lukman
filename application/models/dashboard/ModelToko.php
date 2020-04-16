@@ -40,6 +40,21 @@ class ModelToko extends CI_Model
     return ($query->result() != null)? $query->result()[0]->lokasi_toko : null;
   }
 
+  function getSemuaLokasiToko()
+  {
+    $query = $this->db->select('lokasi_toko')->from('toko')->get();
+
+    $results = null;
+    if($query->result() != null){
+      $results = array();
+      foreach($query->result() as $result){
+        $results[] = $result->lokasi_toko;
+      }
+    }
+
+    return $results;
+  }
+
   function addToko($toko)
   {
     return $this->db->insert('toko', $toko);

@@ -17,7 +17,8 @@ class Home extends CI_Controller
 	{
 		$data = array(
 			'menus' => $this->getAllMenusHtml(),
-			'settings' => $this->ModelPengaturan->getAllSettings()
+			'settings' => $this->ModelPengaturan->getAllSettings(),
+			'shop_locations'	=> $this->ModelToko->getSemuaLokasiToko()
 		);
 		$this->load->view('home', $data);
 	}
