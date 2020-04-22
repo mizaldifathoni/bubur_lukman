@@ -14,6 +14,7 @@ class Home extends CI_Controller
 		$this->load->model('dashboard/ModelToko');
 		$this->load->model('dashboard/ModelPengaturan');
 		$this->load->model('dashboard/ModelUlasan');
+		$this->load->model('dashboard/ModelStatistik');
   }
 	
 	public function index()
@@ -28,6 +29,7 @@ class Home extends CI_Controller
 				'reviews' => $this->getRecentReviewsHtml(),
 				'ratings' => $this->getOverallRatingsHtml()
 			);
+			$this->ModelStatistik->addStatistics(base_url() . 'Home');
 			$this->load->view('home', $data);
 		}
 	}

@@ -58,6 +58,12 @@ class ModelMenuToko extends CI_Model
     return $query->result()[0]->id_toko;
   }
 
+  function getMenuCounts()
+  {
+    $query = $this->db->select('COUNT(id_menu_toko) as total_menu')->from('menu_toko')->get();
+    return ($query->result() !== null)? $query->result()[0]->total_menu : 0;
+  }
+
   function insertMenu($menu)
   {
     return $this->db->insert('menu_toko', $menu);

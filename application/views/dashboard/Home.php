@@ -132,149 +132,85 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 pb-4 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Dashboard</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Share</button>
-                <button class="btn btn-sm btn-outline-secondary">Export</button>
+            <h1 class="h2">Ikhtisar</h1>
+          </div>
+
+          <div class="row mb-5">
+            <div class="col-lg-3">
+              <div class="card alert alert-info">
+                <div class="card-body text-center">
+                  <h3 class="mb-3"><a href="<?php echo base_url() ?>dashboard/Shop">Jumlah Toko</a></h3>
+                  <h1 class="display-4"><?php echo $shop_counts ?></h1>
+                </div>
               </div>
-              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-                This week
-              </button>
+            </div>
+            <div class="col-lg-3">
+              <div class="card alert alert-info">
+                <div class="card-body text-center">
+                  <h3 class="mb-3"><a href="<?php echo base_url() ?>dashboard/Menu">Jumlah Menu</a></h3>
+                  <h1 class="display-4"><?php echo $menu_counts ?></h1>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card alert alert-info">
+                <div class="card-body text-center">
+                  <h3 class="mb-3"><a href="<?php echo base_url() ?>dashboard/Post">Jumlah Posting</a></h3>
+                  <h1 class="display-4"><?php echo $post_counts ?></h1>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card alert alert-info">
+                <div class="card-body text-center">
+                  <h3 class="mb-3"><a href="<?php echo base_url() ?>dashboard/Review">Jumlah Ulasan</a></h3>
+                  <h1 class="display-4"><?php echo $review_counts ?></h1>
+                </div>
+              </div>
             </div>
           </div>
 
-          <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+          <h1 class="mb-3">Grafik Penayangan</h1>
+          <canvas class="my-4 mb-5" id="myChart" width="900" height="380"></canvas>
 
-          <h2>Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
+          <div class="row">
+            <div class="col-lg-6">
+              <h1 class="mb-3">Penayangan terhadap Waktu</h1>
+              <table class="table table-bordered rounded">
+                <tbody>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
-              </tbody>
-            </table>
+                    <td>Penayangan kemarin</td>
+                    <td><?php echo $all_statistics['yesterday'] ?></td>
+                  </tr>
+                  <tr class="table-info">
+                    <td>Penayangan hari ini</td>
+                    <td><?php echo $all_statistics['today'] ?></td>
+                  </tr>
+                  <tr>
+                    <td>Penayangan minggu ini</td>
+                    <td><?php echo $all_statistics['weekly'] ?></td>
+                  </tr>
+                  <tr>
+                    <td>Penayangan bulan ini</td>
+                    <td><?php echo $all_statistics['monthly'] ?></td>
+                  </tr>
+                  <tr>
+                    <td>Penayangan tahun ini</td>
+                    <td><?php echo $all_statistics['yearly'] ?></td>
+                  </tr>
+                  <tr>
+                    <td>Penayangan sepanjang waktu</td>
+                    <td><?php echo $all_statistics['all_time'] ?></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <h1 class="mb-3">Penayangan terhadap Lokasi</h1>
+              <?php echo $most_visitor_location ?>
+            </div>
           </div>
+          
         </main>
       </div>
     </div>
@@ -298,14 +234,22 @@
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          labels: [<?php
+              for($i=6; $i>=0; $i--){
+                echo ($i == 0)? '"' . $weekly_statistics['days'][$i] . '"' : '"' . $weekly_statistics['days'][$i] . '", ';
+              } 
+              ?>],
           datasets: [{
-            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+            data: [<?php
+              for($i=6; $i>=0; $i--){
+                echo ($i == 0)? $weekly_statistics['views'][$i] : $weekly_statistics['views'][$i] . ', ';
+              } 
+              ?>],
             lineTension: 0,
             backgroundColor: 'transparent',
-            borderColor: '#007bff',
+            borderColor: '#00858D',
             borderWidth: 4,
-            pointBackgroundColor: '#007bff'
+            pointBackgroundColor: '#00858D'
           }]
         },
         options: {
