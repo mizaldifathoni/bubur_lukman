@@ -42,10 +42,10 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Home') ?> ">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Menu') ?>">Menu</a></li>
-						<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('About') ?> ">About</a></li>
-						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Berita') ?>">Berita</a></li>
+						<li class="nav-item mx-1"><a class="nav-link" href="<?php echo base_url('Home') ?> ">Home</a></li>
+						<li class="nav-item mx-1"><a class="nav-link" href="<?php echo base_url('Menu') ?>">Menu</a></li>
+						<li class="nav-item mx-1 active"><a class="nav-link" href="<?php echo base_url('About') ?> ">About</a></li>
+						<li class="nav-item mx-1"><a class="nav-link" href="<?php echo base_url('Berita') ?>">Berita</a></li>
 					</ul>
 				</div>
 			</div>
@@ -56,13 +56,14 @@
 	<!-- Start About -->
 	<div class="about-section-box">
 		<div class="container">
-			<div class="row">
+			<div class="row d-flex align-items-center">
 				<div class="col-lg-6 col-md-6 col-sm-12">
 					</br></br></br><img src="<?php echo base_url() . $settings['shop_photo_path'] ?>" alt="" class="img-thumbnail" width="1000px" height="1000px">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
 					<div class="inner-column">
-						</br></br></br><h1><?php echo $settings['title'] ?></h1>
+						</br></br></br>
+						<h1><?php echo $settings['title'] ?></h1>
 						<h2>Tentang Kami</h2>
 						<p><?php echo $settings['shop_history'] ?></p>
 						<h4>Saat ini Bubur Lukman memiliki <?php echo count($shop_locations) ?> outlet, yang terletak di : </h4>
@@ -131,8 +132,8 @@
 					<p class="lead"><a href="tel:<?php echo $settings['phone_number'] ?>"><i class="fa fa-phone mr-2"></i><?php echo $settings['phone_number'] ?></a></p>
 					<p><a href="mailto:<?php echo $settings['email'] ?>"><i class="fa fa-envelope mr-2"></i><?php echo $settings['email'] ?></a></p>
 					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="<?php echo $settings['facebook_link'] ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i>  Bubur Ayam Lukman</a></li>
-						<li class="list-inline-item"><a href="<?php echo $settings['instagram_link'] ?>" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i> @bubur.lukman</a></li>
+						<li class="list-inline-item"><a href="<?php echo $settings['facebook_link'] ?>" target="_blank"><i class="fa fa-facebook mr-2" aria-hidden="true"></i> <?php echo $settings['title'] ?></a></li>
+						<li class="list-inline-item"><a href="<?php echo $settings['instagram_link'] ?>" target="_blank"><i class="fa fa-instagram mr-1" aria-hidden="true"></i> <?php echo $settings['instagram_username'] ?></a></li>
 					</ul>
 				</div>
 			</div>

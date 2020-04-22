@@ -11,6 +11,7 @@ class Menu extends CI_Controller
 		$this->load->model('dashboard/ModelMenuToko');
 		$this->load->model('dashboard/ModelToko');
 		$this->load->model('dashboard/ModelPengaturan');
+		$this->load->model('dashboard/ModelStatistik');
   }
 	
 	public function index()
@@ -20,6 +21,7 @@ class Menu extends CI_Controller
 			'settings' => $this->ModelPengaturan->getAllSettings(),
 			'locations' => $this->getLokasiTokoHtml()
 		);
+		$this->ModelStatistik->addStatistics(base_url() . 'Menu');
 		$this->load->view('menu', $data);
 	}
 

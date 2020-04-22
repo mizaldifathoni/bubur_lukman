@@ -55,6 +55,12 @@ class ModelToko extends CI_Model
     return $results;
   }
 
+  function getJumlahToko()
+  {
+    $query = $this->db->select('COUNT(id_toko) as jumlah_toko')->from('toko')->get();
+    return ($query->result() != null)? $query->result()[0]->jumlah_toko : 0;
+  }
+
   function addToko($toko)
   {
     return $this->db->insert('toko', $toko);
