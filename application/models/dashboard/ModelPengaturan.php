@@ -10,6 +10,10 @@ class ModelPengaturan extends CI_Model
 
     $allSettings = '';
     if($query->result() != null){
+      $igUsername = $query->result()[11]->value;
+      $igUsername = explode('/', $igUsername);
+      $igUsername = '@' . end($igUsername);
+
       $allSettings = array(
         'title'                       => $query->result()[0]->value,
         'logo_path'                   => $query->result()[1]->value,
@@ -22,7 +26,8 @@ class ModelPengaturan extends CI_Model
         'location'                    => $query->result()[8]->value,
         'opening_hours'               => $query->result()[9]->value,
         'facebook_link'               => $query->result()[10]->value,
-        'instagram_link'              => $query->result()[11]->value
+        'instagram_link'              => $query->result()[11]->value,
+        'instagram_username'          => $igUsername
       );
     }else{
       $allSettings = array(
@@ -37,7 +42,8 @@ class ModelPengaturan extends CI_Model
         'location'                    => '',
         'opening_hours'               => '',
         'facebook_link'               => '#',
-        'instagram_link'              => '#'
+        'instagram_link'              => '#',
+        'instagram_username'          => ''
       );
     }
 

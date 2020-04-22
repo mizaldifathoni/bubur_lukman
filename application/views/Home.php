@@ -42,10 +42,10 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('Home') ?> ">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Menu') ?>">Menu</a></li>
-						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('About') ?> ">About</a></li>
-						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Berita') ?>">Berita</a></li>
+						<li class="nav-item mx-1 active"><a class="nav-link" href="<?php echo base_url('Home') ?> ">Home</a></li>
+						<li class="nav-item mx-1"><a class="nav-link" href="<?php echo base_url('Menu') ?>">Menu</a></li>
+						<li class="nav-item mx-1"><a class="nav-link" href="<?php echo base_url('About') ?> ">About</a></li>
+						<li class="nav-item mx-1"><a class="nav-link" href="<?php echo base_url('Berita') ?>">Berita</a></li>
 					</ul>
 				</div>
 			</div>
@@ -63,7 +63,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
 							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
-							<a class="btn btn-light mt-3" href="#special_menu">Lihat Promo</a>
+							<a class="btn btn-primary mt-3" href="#special_menu">Lihat Promo</a>
 						</div>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
 							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
-							<a class="btn btn-light mt-3" href="#special_menu">Lihat Promo</a>
+							<a class="btn btn-primary mt-3" href="#special_menu">Lihat Promo</a>
 						</div>
 					</div>
 				</div>
@@ -87,7 +87,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
 							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
-							<a class="btn btn-light mt-3" href="#special_menu">Lihat Promo</a>
+							<a class="btn btn-primary mt-3" href="#special_menu">Lihat Promo</a>
 						</div>
 					</div>
 				</div>
@@ -101,16 +101,16 @@
 	<!-- End slides -->
 	
 	<!-- Start About -->
-	<div class="about-section-box">
+	<div class="about-section-box pb-0">
 		<div class="container">
-			<div class="row">
+			<div class="row d-flex align-items-center">
 				<div class="col-lg-6 col-md-6 col-sm-12">
 					<img src="<?php echo base_url() . $settings['shop_photo_path'] ?>" alt="" class="img-thumbnail" width="1000px" height="1000px">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
 					<div class="inner-column">
-						<h1><?php echo $settings['title'] ?></h1>
-						<p><?php echo $settings['shop_history'] ?></p>
+						<h1 class="mb-3"><?php echo $settings['title'] ?></h1>
+						<p class="mb-5"><?php echo $settings['shop_history'] ?></p>
 						<h4>Saat ini Bubur Lukman memiliki <?php echo count($shop_locations) ?> outlet, yang terletak di : </h4>
 						<ul>
 							<?php foreach($shop_locations as $loc) echo $loc . '<br>' ?>
@@ -123,7 +123,7 @@
 	<!-- End About -->
 	
 	<!-- Start Menu -->
-	<div class="menu-box" id="special_menu">
+	<div id="special_menu" class="menu-box" style="padding-top: 140px">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -240,7 +240,7 @@
 	<!-- End Menu -->
 	
 	<!-- Start Gallery -->
-	<div class="gallery-box">
+	<div class="gallery-box pb-0">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-12">
@@ -274,7 +274,7 @@
 	<!-- End Gallery -->
 
 	<!-- Start Review -->
-	<div class="gallery-box">
+	<div id="reviews" class="gallery-box" style="padding-top: 140px">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -291,14 +291,6 @@
 							<div class="carousel-inner">
 								<?php echo $reviews ?>
 							</div>
-							<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								<span class="sr-only">Previous</span>
-							</a>
-							<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-								<span class="carousel-control-next-icon" aria-hidden="true"></span>
-								<span class="sr-only">Next</span>
-							</a>
 						</div>
 					</div>
 					<div class="col-lg-1">
@@ -312,7 +304,7 @@
 			</div>
 			<div class="row mt-5">
 				<div class="col-lg-12">
-					<center><h2><a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#ulasModal">Tulis Ulasan</a></h2></center>
+					<center><h2><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#ulasModal">Tulis Ulasan</a></h2></center>
 				</div>
 			</div> 
 		</div>
@@ -373,8 +365,8 @@
 					<p class="lead"><a href="tel:<?php echo $settings['phone_number'] ?>"><i class="fa fa-phone mr-2"></i><?php echo $settings['phone_number'] ?></a></p>
 					<p><a href="mailto:<?php echo $settings['email'] ?>"><i class="fa fa-envelope mr-2"></i><?php echo $settings['email'] ?></a></p>
 					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="<?php echo $settings['facebook_link'] ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i>  Bubur Ayam Lukman</a></li>
-						<li class="list-inline-item"><a href="<?php echo $settings['instagram_link'] ?>" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i> @bubur.lukman</a></li>
+						<li class="list-inline-item"><a href="<?php echo $settings['facebook_link'] ?>" target="_blank"><i class="fa fa-facebook mr-2" aria-hidden="true"></i> <?php echo $settings['title'] ?></a></li>
+						<li class="list-inline-item"><a href="<?php echo $settings['instagram_link'] ?>" target="_blank"><i class="fa fa-instagram mr-1" aria-hidden="true"></i> <?php echo $settings['instagram_username'] ?></a></li>
 					</ul>
 				</div>
 			</div>
@@ -394,7 +386,7 @@
 	<!-- End Footer -->
 	
 	<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
-	<a class="" id="ulasan" data-toggle="modal" data-target="#ulasModal">
+	<a class="" id="ulasan" href="#reviews">
 		<svg class="bi bi-chat-dots" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   			<path fill-rule="evenodd" d="M2.678 11.894a1 1 0 01.287.801 10.97 10.97 0 01-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 01.71-.074A8.06 8.06 0 008 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 01-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 00.244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 01-2.347-.306c-.52.263-1.639.742-3.468 1.105z" clip-rule="evenodd"/>
  			 <path d="M5 8a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0z"/>
