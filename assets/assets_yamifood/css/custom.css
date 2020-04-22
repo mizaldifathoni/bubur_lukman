@@ -10,6 +10,10 @@
   font-weight: normal;
 }
 
+.cursor-hand {
+  cursor: pointer;
+}
+
 .h-almost-100 {
   height: 95.1% !important;
 }
@@ -32,6 +36,16 @@
 .feather-100 {
   width: 100px;
   height: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .mtm-5 {
+     margin-top: 3rem !important;
+  }
+
+  .mbm-5 {
+    margin-bottom: 3rem !important;
+ }
 }
 
 .small {

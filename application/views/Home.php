@@ -273,6 +273,52 @@
 	</div>
 	<!-- End Gallery -->
 
+	<!-- Start Review -->
+	<div class="gallery-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<h2>Ulasan Pelanggan</h2>
+						<p>Kirim masukan Anda untuk memperbaiki pelayanan kami!</p>
+					</div>
+				</div>
+			</div>
+			<div class="tz-gallery container">
+				<div class="row d-flex align-items-center">
+					<div class="col-lg-8">
+						<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<?php echo $reviews ?>
+							</div>
+							<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							</a>
+							<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-1">
+					</div>
+					<div class="card col-lg-3 pt-3 pb-3 mtm-5">
+						<div class="row">
+							<?php echo $ratings ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-5">
+				<div class="col-lg-12">
+					<center><h2><a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#ulasModal">Tulis Ulasan</a></h2></center>
+				</div>
+			</div> 
+		</div>
+	</div>
+	<!-- End Review -->
+
 	
 	<!-- Start Contact info -->
 	<div class="contact-imfo-box">
@@ -363,72 +409,51 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
-        <form action="" method="POST">
+			</div>
+			<form action="" method="POST">
+				<div class="modal-body">
 					<div class="row">
 						<div class="col-md-12 mb-3">
-              <label for="nama_pengulas">Nama Lengkap</label>
-              <input type="text" class="form-control rounded" id="nama_pengulas" name="nama_pengulas" placeholder="cth. Muhammad Muttaqin" value="" minlength="3" maxlength="32" required="">
-              <div class="invalid-feedback">
-                Nama lengkap tidak boleh kosong.
-              </div>
+							<label for="nama_pengulas">Nama Lengkap</label>
+							<input type="text" class="form-control rounded" id="nama_pengulas" name="nama_pengulas" placeholder="cth. Muhammad Muttaqin" value="" minlength="3" maxlength="32" required="">
+							<div class="invalid-feedback">
+								Nama lengkap tidak boleh kosong.
+							</div>
 						</div>
 						<div class="col-md-12 mb-3">
-              <label for="no_telepon_pengulas">No. HP</label>
-              <input type="text" class="form-control rounded" id="no_telepon_pengulas" name="no_telepon_pengulas" placeholder="cth. 081288701234" value="" minlength="10" maxlength="16" required="">
-              <div class="invalid-feedback">
-                No. HP tidak boleh kosong.
-              </div>
+							<label for="no_telepon_pengulas">No. HP</label>
+							<input type="text" class="form-control rounded" id="no_telepon_pengulas" name="no_telepon_pengulas" placeholder="cth. 081288701234" value="" minlength="10" maxlength="16" required="">
+							<div class="invalid-feedback">
+								No. HP tidak boleh kosong.
+							</div>
 						</div>
 						<div class="col-md-12 mb-3">
-              <label for="isi_ulasan_toko">Ulasan</label>
-              <textarea type="text" class="form-control rounded" id="isi_ulasan_toko" name="isi_ulasan_toko" placeholder="cth. Pelayanan baik, tempatnya cozy, buburnya enak sekali pas di kantong" rows="3" minlength="3" maxlength="64" required=""></textarea>
-              <div class="invalid-feedback">
-                Ulasan tidak boleh kosong.
-              </div>
+							<label for="isi_ulasan_toko">Ulasan</label>
+							<textarea type="text" class="form-control rounded" id="isi_ulasan_toko" name="isi_ulasan_toko" placeholder="cth. Pelayanan baik, tempatnya cozy, buburnya enak sekali pas di kantong" rows="3" minlength="3" maxlength="64" required=""></textarea>
+							<div class="invalid-feedback">
+								Ulasan tidak boleh kosong.
+							</div>
 						</div>
 						<div class="col-md-12 mb-3">
 							<label for="rating_toko">Beri Rating untuk Kami</label>
-							<div id="rating_toko" class="starrating risingstar d-flex justify-content-center flex-row-reverse col-6">
-								<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Sangat Bagus"> </label>
-								<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Bagus"> </label>
-								<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Biasa Saja"> </label>
-								<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Buruk"> </label>
-								<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sangat Buruk"> </label>
+								<div id="rating_toko" class="btn-group btn-group-toggle starrating risingstar d-flex justify-content-end flex-row-reverse col-6 p-0" data-toggle="buttons">
+								<label id="s5" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Sangat Bagus"><input type="radio" id="star5" name="rating_toko" value="5"/> </label>
+								<label id="s4" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Bagus"><input type="radio" id="star4" name="rating_toko" value="4"/> </label>
+								<label id="s3" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Biasa Saja"><input type="radio" id="star3" name="rating_toko" value="3"/> </label>
+								<label id="s2" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Buruk"><input type="radio" id="star2" name="rating_toko" value="2"/> </label>
+								<label id="s1" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Sangat Buruk"><input type="radio" id="star1" name="rating_toko" value="1"/> </label>
 							</div>
 							<div class="invalid-feedback">
-                Rating tidak boleh kosong.
-              </div>
+								Rating tidak boleh kosong.
+							</div>
 						</div>
 					</div>
-			<!--<div class="form-group-sm row">
-				<label class="col-4 col-form-label-lg"  for="notel" >No. Telepon</label>
-				<input id="notel" type="tel" class="form-control col-6" placeholder="Masukkan Nomor">
-			</div>
-			
-			<div class="form-group row">
-				<label class="col-4 col-form-label-lg" for="textUlasan" > Ulasan</label>
-				<textarea name="ulasan" id="textUlasan" class="form-control col-6"  rows="3" placeholder="Masukkan Ulasan"></textarea>
-			</div>
-			<div class="form-group row">
-				<label class="col-4 col-form-label" for="bintang">Beri Bintang Untuk Pelayanan Kami</label>
-				<div id="bintang" class="starrating risingstar d-flex justify-content-center flex-row-reverse col-6">
-					<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Sangat Bagus"> </label>
-					<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Bagus"> </label>
-					<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Biasa Saja"> </label>
-					<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Buruk"> </label>
-					<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sangat Buruk"> </label>
-        		</div>
-
-			</div>
--->
-		</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		<button type="submit" class="btn btn-primary">Kirim</button>
-      </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<input type="submit" class="btn btn-primary" name="tambahUlasan" value="Kirim"/>
+				</div>
+			</form>
     </div>
   </div>
 </div>
@@ -447,6 +472,42 @@
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/baguetteBox.min.js"></script>
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/form-validator.min.js"></script>
     <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/contact-form-script.js"></script>
-    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/custom.js"></script>
+		<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/custom.js"></script>
+
+		<?php echo ((isset($messageModal))? $messageModal : ''); ?>
+		
+	<script>
+		checkedRatingId = 0;
+
+		function rate(id) {
+			star = id.slice(-1);
+			checkedRatingId = star;
+
+			for(i=1; i<=5; i++) {
+				if(i <= star) {
+					document.getElementById('s' + i).setAttribute('class', 'btn btn-link p-0 cursor-hand text-primary')
+				}else{
+					document.getElementById('s' + i).setAttribute('class', 'btn btn-link p-0 cursor-hand')
+				}
+			}
+		}
+
+		function starHover(id) {
+			star = id.slice(-1);
+
+			for(i=1; i<=5; i++) {
+				if(i <= star) {
+					document.getElementById('s' + i).setAttribute('class', 'btn btn-link p-0 cursor-hand text-primary')
+				}else{
+					document.getElementById('s' + i).setAttribute('class', 'btn btn-link p-0 cursor-hand')
+				}
+			}
+		}
+
+		function starLeave() {
+			rate('s' + checkedRatingId);
+		}
+	</script>
+
 </body>
 </html>

@@ -7,20 +7,29 @@ class Home extends CI_Controller
 	function __construct()
   {
 		parent::__construct();
+		$this->load->model('component/Modal');
+		$this->load->model('component/Time');
 		$this->load->model('dashboard/ModelKamus');
 		$this->load->model('dashboard/ModelMenuToko');
 		$this->load->model('dashboard/ModelToko');
 		$this->load->model('dashboard/ModelPengaturan');
+		$this->load->model('dashboard/ModelUlasan');
   }
 	
 	public function index()
 	{
-		$data = array(
-			'menus' => $this->getAllMenusHtml(),
-			'settings' => $this->ModelPengaturan->getAllSettings(),
-			'shop_locations'	=> $this->ModelToko->getSemuaLokasiToko()
-		);
-		$this->load->view('home', $data);
+		if(null !== $this->input->post('tambahUlasan')){
+			$this->addReview();
+		}else{
+			$data = array(
+				'menus' => $this->getAllMenusHtml(),
+				'settings' => $this->ModelPengaturan->getAllSettings(),
+				'shop_locations'	=> $this->ModelToko->getSemuaLokasiToko(),
+				'reviews' => $this->getRecentReviewsHtml(),
+				'ratings' => $this->getOverallRatingsHtml()
+			);
+			$this->load->view('home', $data);
+		}
 	}
 
 	private function getAllMenusHtml()
@@ -93,6 +102,114 @@ class Home extends CI_Controller
 
 		return $html;
 	}
+
+	private function addReview() {
+
+		$review = array(
+			'nama_pengulas' => $this->input->post('nama_pengulas'),
+			'rating_toko'	=> $this->input->post('rating_toko'),
+			'isi_ulasan_toko' => $this->input->post('isi_ulasan_toko'),
+			'no_telepon_pengulas' => $this->input->post('no_telepon_pengulas'),
+			'token_ulasan_toko' => uniqid(),
+			'tanggal_ulasan_toko' => date('Y-m-d h:i:sa')
+		);
+
+		if($this->ModelUlasan->insertReview($review)){
+			$data = array(
+				'menus' => $this->getAllMenusHtml(),
+				'settings' => $this->ModelPengaturan->getAllSettings(),
+				'shop_locations'	=> $this->ModelToko->getSemuaLokasiToko(),
+				'reviews' => $this->getRecentReviewsHtml(),
+				'ratings' => $this->getOverallRatingsHtml(),
+				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Ulasan Anda berhasil ditambahkan, terimakasih sudah mengulas toko kami :)')
+			);
+			$this->load->view('home', $data);
+		}else{
+			$data = array(
+				'menus' => $this->getAllMenusHtml(),
+				'settings' => $this->ModelPengaturan->getAllSettings(),
+				'shop_locations'	=> $this->ModelToko->getSemuaLokasiToko(),
+				'reviews' => $this->getRecentReviewsHtml(),
+				'ratings' => $this->getOverallRatingsHtml(),
+				'messageModal'	=> $this->Modal->createMessageModal('Gagal Menambah Ulasan', 'hoops! Nampaknya ada kesalahan dalam menambahkan ulasan, silahkan coba lagi.')
+			);
+			$this->load->view('home', $data);
+		}
+
+	}
+
+	private function getRecentReviewsHtml()
+	{
+		$html = '';
+
+		$reviews = $this->ModelUlasan->getRecentReviews();
+		$isFirstTime = true;
+		foreach($reviews as $review) {
+			$html .= 
+			'
+			<div class="carousel-item' . (($isFirstTime)? ' active' : '') . '">
+				<div class="row">
+					<div class="col-lg-3 d-flex justify-content-center align-items-start">
+						<div class="rounded-circle mbm-5" width="140" height="140">
+							<i class="fa fa-user fa-5x"></i>
+						</div>
+					</div>
+					<div class="col-lg-9 d-flex flex-column align-items-start">
+						<strong class="d-inline-block mb-2">' . $review->nama_pengulas . '</strong>
+						<p class="mb-auto">' . $review->isi_ulasan_toko . '</p>
+						<div class="row w-100 d-flex justify-content-between pl-3">
+							<div class="col-xs-6">
+								<span class="mb-1 text-primary">';
+								
+			for($star=1; $star<= $review->rating_toko; $star++){
+					$html .= '<i class="fa fa-star"></i>';
+			}
+
+			$html .= '</span><span class="mb-1 text-muted>';
+
+			for($star=$review->rating_toko; $star<=5; $star++){
+				$html .= '<i class="fa fa-star"></i>';
+			}
+
+			$reviewTime = strtotime($review->tanggal_ulasan_toko);
+							
+			$html .=
+			'
+								</span>
+							</div>
+							<div class="col-xs-6">
+								<small class="mb-1 text-muted">' . $this->Time->relativeTime($reviewTime) . '</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			';
+
+			$isFirstTime = false;
+		}
+
+		return $html;
+	}
+
+	private function getOverallRatingsHtml()
+	{
+		$html = 
+		'
+							<div class="col-12 d-flex justify-content-center">
+								<strong class="d-inline-block mb-3">Total Rating</strong>
+							</div>
+							<div class="col-12 d-flex justify-content-center ">
+								<h1 class="text-primary d-flex align-items-center"><i class="fa fa-star fa-3x mr-3"></i> <span class="display-4">' . $this->ModelUlasan->getOverallRatings() . '</span></h1>
+							</div>
+							<div class="col-12 d-flex justify-content-center">
+								<small class="text-muted">dari ' . $this->ModelUlasan->getReviewCounts() . ' ulasan</small>
+							</div>
+		';
+
+		return $html;
+	}
+
 }
 
 
