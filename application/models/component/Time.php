@@ -33,8 +33,8 @@ class Time extends CI_Model
     
     }
     
-    $return .= ($diff>0)?"yang lalu":"lagi";
-    return $return;
+    $return .= ($diff>=0)?"yang lalu":"lagi";
+    return ($return != 'yang lalu')? $return : 'beberapa detik yang lalu';
     
     //thanks to https://stackoverflow.com/users/600600/xdebug
   }

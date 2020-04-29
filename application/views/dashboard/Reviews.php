@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
     <!-- Site Metas -->
-    <title><?php echo $settings['title'] ?> - Toko/Cabang</title>  
+    <title><?php echo $settings['title'] ?> - Ulasan</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -69,9 +69,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="shop">
+                <a class="nav-link" href="shop">
                   <span data-feather="home"></span>
-                  Toko/Cabang <span class="sr-only">(current)</span>
+                  Toko/Cabang </span>
                 </a>
               </li>
               <li class="nav-item">
@@ -81,9 +81,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="reviews">
+                <a class="nav-link active" href="reviews">
                   <span data-feather="users"></span>
-                  Ulasan
+                  Ulasan <span class="sr-only"> (current)
                 </a>
               </li>
               <li class="nav-item">
@@ -131,9 +131,175 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 pb-4 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Edit Toko/Cabang</h1>
+            <h1 class="h2">Ulasan</h1>
           </div>
-          <?php echo $accordions ?>
+
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="btn btn-link nav-link rounded-tab active" onclick="document.getElementById('allShopReviews').click()" id="shop-tab" data-toggle="tab" href="#shop" role="tab" aria-controls="home" aria-selected="true" data-filter="*">Ulasan Toko</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-link nav-link rounded-tab" onclick="document.getElementById('allMenuReviews').click()" id="menu-tab" data-toggle="tab" href="#menu" role="tab" aria-controls="profile" aria-selected="false" data-filter="*">Ulasan Menu</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade pt-4 px-4 show active" id="shop" role="tabpanel" aria-labelledby="shop-tab">
+              <div class="row">
+                <div class="col-lg-12 pt-3 pb-5">
+                  <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                      <strong class="d-inline-block mb-3">Total Rating</strong>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center mb-3">
+                      <h1 class="text-primary d-flex align-items-center"><i class="fa fa-star fa-3x mr-3"></i> <span class="display-4">4.5</span></h1>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                      <small class="text-muted">dari 4 ulasan</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 mb-5">
+                  <div class="text-center">
+                    <button id="allShopReviews" class="btn btn-light active" onclick="filterButtonClicked(this)" data-filter="shop*">Semua</button>
+                    <button id="positiveShopReviews" onclick="filterButtonClicked(this)" class="btn btn-light" data-filter="shoppositive">Positif</button>
+                    <button id="negativeShopReviews" onclick="filterButtonClicked(this)" class="btn btn-light" data-filter="shopnegative">Negatif</button>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 mb-4 shoppositive">
+                  <div class="card shadow-sm rounded">
+                    <div class="card-body align-middle d-flex h-almost-100">
+                      <div class="row justify-content-center align-self-center w-100 m-1">
+                        <div class="col-lg-2 d-flex justify-content-center align-items-center">
+                          <div class="rounded-circle mtm-5 mbm-5" width="140" height="140">
+                            <i class="fa fa-user fa-5x"></i>
+                          </div>
+                        </div>
+                        <div class="col-lg-10 d-flex flex-column align-items-start pr-0">
+                          <strong class="d-inline-block mb-2">Yusuf Rizaldi</strong>
+                          <p class="mb-3">Mantap gan</p>
+                          <div class="row w-100 d-flex justify-content-between pl-3">
+                            <div class="col-xs-6">
+                              <span class="mb-1 text-primary"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span><span class="mb-1 text-muted><i class=" fa="" fa-star"="">
+                              </span>
+                            </div>
+                            <div class="col-xs-6">
+                              <small class="mb-1 text-muted">5 hari yang lalu</small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 mb-4 shopnegative">
+                  <div class="card shadow-sm rounded">
+                    <div class="card-body align-middle d-flex h-almost-100">
+                      <div class="row justify-content-center align-self-center w-100 m-1">
+                        <div class="col-lg-2 d-flex justify-content-center align-items-center">
+                          <div class="rounded-circle mtm-5 mbm-5" width="140" height="140">
+                            <i class="fa fa-user fa-5x"></i>
+                          </div>
+                        </div>
+                        <div class="col-lg-10 d-flex flex-column align-items-start pr-0">
+                          <strong class="d-inline-block mb-2">Mambo Pinku</strong>
+                          <p class="mb-3">APALO JELEK</p>
+                          <div class="row w-100 d-flex justify-content-between pl-3">
+                            <div class="col-xs-6">
+                              <span class="mb-1 text-primary"><i class="fa fa-star"></i></span><span class="mb-1 text-muted><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                              </span>
+                            </div>
+                            <div class="col-xs-6">
+                              <small class="mb-1 text-muted">4 hari yang lalu</small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade pt-4 px-4" id="menu" role="tabpanel" aria-labelledby="menu-tab">
+              <div class="row">
+                <div class="col-lg-12 pt-3 pb-5">
+                  <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                      <strong class="d-inline-block mb-3">Total Rating</strong>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center mb-3">
+                      <h1 class="text-primary d-flex align-items-center"><i class="fa fa-star fa-3x mr-3"></i> <span class="display-4">4.5</span></h1>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                      <small class="text-muted">dari 4 ulasan</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 mb-5">
+                  <div class="text-center">
+                  <button id="allMenuReviews" class="btn btn-light active" onclick="filterButtonClicked(this)" data-filter="menu*">Semua</button>
+                    <button id="positiveMenuReviews" onclick="filterButtonClicked(this)" class="btn btn-light" data-filter="menupositive">Positif</button>
+                    <button id="negativeMenuReviews" onclick="filterButtonClicked(this)" class="btn btn-light" data-filter="menunegative">Negatif</button>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 mb-4 menupositive">
+                  <div class="card shadow-sm rounded">
+                    <div class="card-body align-middle d-flex h-almost-100">
+                      <div class="row justify-content-center align-self-center w-100 m-1">
+                        <div class="col-lg-2 d-flex justify-content-center align-items-center">
+                          <div class="rounded-circle mtm-5 mbm-5" width="140" height="140">
+                            <i class="fa fa-user fa-5x"></i>
+                          </div>
+                        </div>
+                        <div class="col-lg-10 d-flex flex-column align-items-start pr-0">
+                          <strong class="d-inline-block mb-2">Yusuf Rizaldi</strong>
+                          <p class="mb-3">Mantap gan</p>
+                          <div class="row w-100 d-flex justify-content-between pl-3">
+                            <div class="col-xs-6">
+                              <span class="mb-1 text-primary"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span><span class="mb-1 text-muted><i class=" fa="" fa-star"="">
+                              </span>
+                            </div>
+                            <div class="col-xs-6">
+                              <small class="mb-1 text-muted">5 hari yang lalu</small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 mb-4 menunegative">
+                  <div class="card shadow-sm rounded">
+                    <div class="card-body align-middle d-flex h-almost-100">
+                      <div class="row justify-content-center align-self-center w-100 m-1">
+                        <div class="col-lg-2 d-flex justify-content-center align-items-center">
+                          <div class="rounded-circle mtm-5 mbm-5" width="140" height="140">
+                            <i class="fa fa-user fa-5x"></i>
+                          </div>
+                        </div>
+                        <div class="col-lg-10 d-flex flex-column align-items-start pr-0">
+                          <strong class="d-inline-block mb-2">Yusuf Rizaldi</strong>
+                          <p class="mb-3">Mantap gan</p>
+                          <div class="row w-100 d-flex justify-content-between pl-3">
+                            <div class="col-xs-6">
+                              <span class="mb-1 text-primary"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span><span class="mb-1 text-muted><i class=" fa="" fa-star"="">
+                              </span>
+                            </div>
+                            <div class="col-xs-6">
+                              <small class="mb-1 text-muted">5 hari yang lalu</small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </div>
@@ -265,7 +431,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- Popper.JS -->
     <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/popper.min.js"></script>
@@ -275,6 +442,14 @@
     <script>
       feather.replace()
     </script>
+    <!-- ALL PLUGINS -->
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/jquery.superslides.min.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/images-loded.min.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/isotope.min.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/baguetteBox.min.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/form-validator.min.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/contact-form-script.js"></script>
+    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/dashboard-custom.js"></script>
 
     <?php echo ((isset($messageModal))? $messageModal : ''); ?>
 
@@ -370,6 +545,57 @@
           document.getElementById(preview).style.display = 'none';
 
           //document.getElementById(preview).style.display = '<?php //if($linkgambar != "" ){echo "block";}else{echo "none";} ?>';
+        }
+      }
+
+      function filterButtonClicked(button) {
+        var filter = button.getAttribute('data-filter');
+        var context = filter.substring(0, 4);
+
+        var elements = document.getElementsByClassName(filter);
+
+        if(context == 'shop') {
+          $('.shoppositive').hide();
+          $('.shopnegative').hide();
+
+          if(filter == 'shop*'){
+            document.getElementById('allShopReviews').className = 'btn btn-light active';
+            document.getElementById('positiveShopReviews').className = 'btn btn-light';
+            document.getElementById('negativeShopReviews').className = 'btn btn-light';
+            $('.shoppositive').fadeIn(400, 'swing');
+            $('.shopnegative').fadeIn(400, 'swing');
+          }else if(filter == 'shoppositive'){
+            document.getElementById('allShopReviews').className = 'btn btn-light';
+            document.getElementById('positiveShopReviews').className = 'btn btn-light active';
+            document.getElementById('negativeShopReviews').className = 'btn btn-light';
+            $('.shoppositive').fadeIn(400, 'swing');
+          }else if(filter == 'shopnegative'){
+            document.getElementById('allShopReviews').className = 'btn btn-light';
+            document.getElementById('positiveShopReviews').className = 'btn btn-light';
+            document.getElementById('negativeShopReviews').className = 'btn btn-light active';
+            $('.shopnegative').fadeIn(400, 'swing');
+          }
+        } else if(context == 'menu') {
+          $('.menupositive').hide();
+          $('.menunegative').hide();
+
+          if(filter == 'menu*'){
+            document.getElementById('allMenuReviews').className = 'btn btn-light active';
+            document.getElementById('positiveMenuReviews').className = 'btn btn-light';
+            document.getElementById('negativeMenuReviews').className = 'btn btn-light';
+            $('.menupositive').fadeIn(400, 'swing');
+            $('.menunegative').fadeIn(400, 'swing');
+          }else if(filter == 'menupositive'){
+            document.getElementById('allMenuReviews').className = 'btn btn-light';
+            document.getElementById('positiveMenuReviews').className = 'btn btn-light active';
+            document.getElementById('negativeMenuReviews').className = 'btn btn-light';
+            $('.menupositive').fadeIn(400, 'swing');
+          }else if(filter == 'menunegative'){
+            document.getElementById('allMenuReviews').className = 'btn btn-light';
+            document.getElementById('positiveMenuReviews').className = 'btn btn-light';
+            document.getElementById('negativeMenuReviews').className = 'btn btn-light active';
+            $('.menunegative').fadeIn(400, 'swing');
+          }
         }
       }
     </script>

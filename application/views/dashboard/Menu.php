@@ -81,7 +81,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="ulasan">
+                <a class="nav-link" href="reviews">
                   <span data-feather="users"></span>
                   Ulasan
                 </a>

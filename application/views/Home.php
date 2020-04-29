@@ -429,11 +429,11 @@
 						<div class="col-md-12 mb-3">
 							<label for="rating_toko">Beri Rating untuk Kami</label>
 								<div id="rating_toko" class="btn-group btn-group-toggle starrating risingstar d-flex justify-content-end flex-row-reverse col-6 p-0" data-toggle="buttons">
-								<label id="s5" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Sangat Bagus"><input type="radio" id="star5" name="rating_toko" value="5"/> </label>
-								<label id="s4" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Bagus"><input type="radio" id="star4" name="rating_toko" value="4"/> </label>
-								<label id="s3" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Biasa Saja"><input type="radio" id="star3" name="rating_toko" value="3"/> </label>
-								<label id="s2" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Buruk"><input type="radio" id="star2" name="rating_toko" value="2"/> </label>
-								<label id="s1" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Sangat Buruk"><input type="radio" id="star1" name="rating_toko" value="1"/> </label>
+								<label id="s5" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Sangat Bagus"><input type="radio" id="star5" name="rating_toko" value="5" required/> </label>
+								<label id="s4" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Bagus"><input type="radio" id="star4" name="rating_toko" value="4" required/> </label>
+								<label id="s3" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Biasa Saja"><input type="radio" id="star3" name="rating_toko" value="3" required/> </label>
+								<label id="s2" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Buruk"><input type="radio" id="star2" name="rating_toko" value="2" required/> </label>
+								<label id="s1" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Sangat Buruk"><input type="radio" id="star1" name="rating_toko" value="1" required/> </label>
 							</div>
 							<div class="invalid-feedback">
 								Rating tidak boleh kosong.
@@ -498,6 +498,32 @@
 
 		function starLeave() {
 			rate('s' + checkedRatingId);
+		}
+
+		document.getElementById('no_telepon_pengulas').onkeypress = function() {
+			return (event.charCode >= 48 && event.charCode <= 57);
+		} 
+
+		function setInputFilter(textbox, inputFilter) {
+			eventArray = ['input', 'keydown', 'keyup', 'mousedown', 'mouseup', 'select', 'contextmenu', 'drop'];
+			eventArray.forEach(function(event) {
+				textbox.addEventListener(event, function() {
+					if(inputFilter(this.value)) {
+						this.oldValue = this.value;;
+						this.oldSelectionStart = this.selectionStart;
+						this.oldSelectionEnd = this.selectionEnd;
+					} else if(this.hasOwnProperty('oldValue')) {
+						this.value = this.oldValue;
+						this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+					} else {
+						this.value = '';
+					}
+				});
+			});
+
+			setInputFilter(document.getElementById('no_telepon_pengulas'), function(value) {
+				return /^[+]{0,1}?\d*$/.test(value);
+			});
 		}
 	</script>
 

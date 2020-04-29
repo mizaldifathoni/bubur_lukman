@@ -3,9 +3,13 @@
 
 class ModelUlasan extends CI_Model
 {	
+  function getAllReviews() {
+    $query = $this->db->select('*')->from('ulasan_toko')->limit(100)->get();
+    return $query->result();
+  }
 
   function getRecentReviews() {
-    $query = $this->db->select('*')->from('ulasan_toko')->order_by('tanggal_ulasan_toko', 'ASC')->limit(5)->get();
+    $query = $this->db->select('*')->from('ulasan_toko')->order_by('tanggal_ulasan_toko', 'DESC')->limit(5)->get();
     return $query->result();
   }
 
