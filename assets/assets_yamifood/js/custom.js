@@ -71,6 +71,10 @@
 
 	$(document).ready(function () {
 		$('#rateMe1').mdbRate();
+
+		$('#promo').click(function () {
+			$('#promoModal').modal();
+		});
 	});
 
 	/* ..............................................
