@@ -64,7 +64,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="post">
+                <a class="nav-link" href="posts">
                   <span data-feather="file"></span>
                   Posting
                 </a>

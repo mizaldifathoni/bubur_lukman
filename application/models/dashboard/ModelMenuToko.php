@@ -71,7 +71,8 @@ class ModelMenuToko extends CI_Model
 
   function editMenu($idMenu, $menu)
   {
-    return $this->db->where('id_menu_toko', $idMenu)->update('menu_toko', $menu);
+    $query = $this->db->where('id_menu_toko', $idMenu)->update('menu_toko', $menu);
+    return $this->db->last_query();
   }
 
   function deleteMenu($idMenu)

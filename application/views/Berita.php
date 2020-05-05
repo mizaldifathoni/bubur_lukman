@@ -64,269 +64,22 @@
         <br><br><br><section class="section wb">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12">
+                        <div class="heading-title text-center">
+                            </br></br></br><h2>Berita</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="page-wrapper">
                             <div class="blog-list clearfix">
                                 
-                                <div class="blog-box row">
-                                    <div class="col-md-4">
-                                        <div class="post-media">
-                                            <a href="#" title="">
-                                                <img src="assets/assets_yamifood/assets_berita/images/ayam.jpg" alt="" class="img-fluid">
-                                                <div class="hovereffect"></div>
-                                            </a>
-                                        </div><!-- end media -->
-                                    </div><!-- end col -->
+                                <?php echo $posts ?>
 
-                                    <div class="blog-meta big-meta col-md-8">
-                                        <span id="promo" data-toggle="modal" data-target="#promoModal" class="bg-aqua"><a href="#" title="">Promo</a></span>
-                                        <h4><a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem.</h4>
-                                        <small><a href="#" title="">11 July, 2017</a></small>
-                                        <small><a href="#" title="">by Matilda</a></small>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
-
-                                <div id="promoModal" class="modal fade" role="dialog">
-                                    <div class="modal-dialog modal-lg" role="content">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h2 class="modal-title">Promo</h2>
-                                                <button id="tutupx" type="button" class="close">&times;</button>
-                                            </div>
-                                            
-                                            <div class="modal-body">
-                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis optio sunt delectus voluptatum veniam ex dolorem, earum minima deserunt ipsam ab iste maxime vel natus, ducimus error aut iusto accusamus?</p>
-                                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, velit voluptatibus maiores ab aut excepturi hic in molestiae inventore sunt dolorum error praesentium id porro libero iusto fugit iste facilis!</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <hr class="invis">
-
-                                <div class="blog-box row">
-                                    <div class="col-md-4">
-                                        <div class="post-media">
-                                            <a href="#" title="">
-                                                <img src="assets/assets_yamifood/assets_berita/images/acara.jpg" alt="" class="img-fluid">
-                                                <div class="hovereffect"></div>
-                                            </a>
-                                        </div><!-- end media -->
-                                    </div><!-- end col -->
-
-                                    <div class="blog-meta big-meta col-md-8">
-                                        <span class="bg-aqua"><a href="#" title="">Acara</a></span>
-                                        <h4><a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem.</p>
-                                        <small><a href="#" title="">10 July, 2017</a></small>
-                                        <small><a href="#" title="">by Matilda</a></small>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
-
-                                <hr class="invis">
-
-                                <div class="blog-box row">
-                                    <div class="col-md-4">
-                                        <div class="post-media">
-                                            <a href="#" title="">
-                                                <img src="assets/assets_yamifood/assets_berita/images/hijau1.jpg" alt="" class="img-fluid">
-                                                <div class="hovereffect"></div>
-                                            </a>
-                                        </div><!-- end media -->
-                                    </div><!-- end col -->
-
-                                    <div class="blog-meta big-meta col-md-8">
-                                        <span class="bg-aqua"><a href="#" title="">Diskon</a></span>
-                                        <h4><a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem.</p>
-                                        <small><a href="#" title="">09 July, 2017</a></small>
-                                        <small><a href="#" title="">by Matilda</a></small>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
-
-                                <hr class="invis">
-
-                                <div class="row">
-                                    <div class="col-lg-10 offset-lg-1">
-                                        <div class="banner-spot clearfix">
-                                            <div class="banner-img">
-                                                <img src="upload/banner_05.jpg" alt="" class="img-fluid">
-                                            </div><!-- end banner-img -->
-                                        </div><!-- end banner -->
-                                    </div><!-- end col -->
-                                </div><!-- end row -->
-
-                                <hr class="invis">
-
-                                <div class="blog-box row">
-                                    <div class="col-md-4">
-                                        <div class="post-media">
-                                            <a href="#" title="">
-                                                <img src="assets/assets_yamifood/assets_berita/images/hitam.jpg" alt="" class="img-fluid">
-                                                <div class="hovereffect"></div>
-                                            </a>
-                                        </div><!-- end media -->
-                                    </div><!-- end col -->
-
-                                    <div class="blog-meta big-meta col-md-8">
-                                        <span class="bg-aqua"><a href="#" title="">Diskon</a></span>
-                                        <h4><a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem.</p>
-                                        <small><a href="#" title="">08 July, 2017</a></small>
-                                        <small><a href="#" title="">by Matilda</a></small>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
-
-                                <hr class="invis">
-
-                                <div class="blog-box row">
-                                    <div class="col-md-4">
-                                        <div class="post-media">
-                                            <a href="#" title="">
-                                                <img src="assets/assets_yamifood/assets_berita/images/acara.jpg" alt="" class="img-fluid">
-                                                <div class="hovereffect"></div>
-                                            </a>
-                                        </div><!-- end media -->
-                                    </div><!-- end col -->
-
-                                    <div class="blog-meta big-meta col-md-8">
-                                        <span class="bg-aqua"><a href="#" title="">Acara</a></span>
-                                        <h4><a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem.</p>
-                                        <small><a href="#" title="">07 July, 2017</a></small>
-                                        <small><a href="#" title="">by Matilda</a></small>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
-
-                                <hr class="invis">
-
-                                <div class="blog-box row">
-                                    <div class="col-md-4">
-                                        <div class="post-media">
-                                            <a href="#" title="">
-                                                <img src="assets/assets_yamifood/assets_berita/images/buburkacangijo.jpg" alt="" class="img-fluid">
-                                                <div class="hovereffect"></div>
-                                            </a>
-                                        </div><!-- end media -->
-                                    </div><!-- end col -->
-
-                                    <div class="blog-meta big-meta col-md-8">
-                                        <span class="bg-aqua"><a href="#" title="">Promo</a></span>
-                                        <h4><a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem.</p>
-                                        <small><a href="#" title="">06 July, 2017</a></small>
-                                        <small><a href="#" title="">by Matilda</a></small>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
-
-                                <hr class="invis">
-
-                                <div class="blog-box row">
-                                    <div class="col-md-4">
-                                        <div class="post-media">
-                                            <a href="#" title="">
-                                                <img src="assets/assets_yamifood/assets_berita/images/hitam.jpg" alt="" class="img-fluid">
-                                                <div class="hovereffect"></div>
-                                            </a>
-                                        </div><!-- end media -->
-                                    </div><!-- end col -->
-
-                                    <div class="blog-meta big-meta col-md-8">
-                                        <span class="bg-aqua"><a href="#" title="">Diskon</a></span>
-                                        <h4><a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem.</p>
-                                        <small><a href="#" title="">05 July, 2017</a></small>
-                                        <small><a href="#" title="">by Matilda</a></small>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
-
-                                <hr class="invis">
-
-                                <div class="blog-box row">
-                                    <div class="col-md-4">
-                                        <div class="post-media">
-                                            <a href="#" title="">
-                                                <img src="assets/assets_yamifood/assets_berita/images/acara.jpg" alt="" class="img-fluid">
-                                                <div class="hovereffect"></div>
-                                            </a>
-                                        </div><!-- end media -->
-                                    </div><!-- end col -->
-
-                                    <div class="blog-meta big-meta col-md-8">
-                                        <span class="bg-aqua"><a href="#" title="">Acara</a></span>
-                                        <h4><a href="#.html" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem.</p>
-                                        <small><a href="#" title="">01 July, 2017</a></small>
-                                        <small><a href="#" title="">by Matilda</a></small>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
+                                
                             </div><!-- end blog-list -->
                         </div><!-- end page-wrapper -->
-
-                        <hr class="invis">
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <nav aria-label="Page navigation">
-                                    <ul class="pagination justify-content-start">
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div><!-- end col -->
-                        </div><!-- end row -->
-                    </div><!-- end col -->
-
-                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                        <br><br><div class="sidebar">
-                            <div class="widget">
-                                <h2 class="widget-title">Search</h2>
-                                <form class="form-inline search-form">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Search on the site">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                                    </div>
-                                </form>
-                            </div><!-- end widget -->
-
-                            <div class="widget">
-                                <br><h2 class="widget-title">Recent Posts</h2>
-                                <div class="blog-list-widget">
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="w-100 justify-content-between">
-                                                <img src="assets/assets_yamifood/assets_berita/images/ayam.jpg" alt="" class="img-fluid float-left" width="90px" height="90px">
-                                                <h3 class="mb-1">Diskon</h3>
-                                                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
-                                                <small>12 Jan, 2016</small>
-                                            </div>
-                                        </a>
-
-                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="w-100 justify-content-between">
-                                                <img src="assets/assets_yamifood/assets_berita/images/hijau1.jpg" alt="" class="img-fluid float-left" width="90px" height="90px">
-                                                <h3 class="mb-1">Promo</h3>
-                                                <h5>  Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
-                                                <small>11 Jan, 2016</small>
-                                            </div>
-                                        </a>
-
-                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="w-100 last-item justify-content-between">
-                                                <img src="assets/assets_yamifood/assets_berita/images/hitam.jpg" alt="" class="img-fluid float-left" width="90px" height="90px">
-                                                <h3 class="mb-1">Diskon</h3>
-                                                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
-                                                <small>07 Jan, 2016</small>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div><!-- end blog-list -->
-                            </div><!-- end widget -->
-                        </div><!-- end sidebar -->
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end container -->
@@ -409,12 +162,31 @@
         
     </div><!-- end wrapper -->
 
-    <!-- Core JavaScript
-    ================================================== -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/tether.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <!-- Post detail modal -->
+    <div class="modal fade" id="viewPostModal" tabindex="-1" role="dialog" aria-labelledby="viewPostModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-white p-0 mb-4">
+              <img id="view_foto_posting" src="http://localhost/bubur_lukman/assets/picture/posts/Lebaran_Ya_Balapan_5eb1127ba6c41.jpg" alt="Lebaran Ya Balapan" class="img-fluid">
+              <button type="button" class="close top-right pr-4" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body pxm-5">
+              <h2 id="view_judul_posting" class="mb-3"><span class="badge badge-success mr-2">Promo</span> Judul</h2>
+              <p>
+                <h4 id="view_isi_posting" class="text-content">
+              ...
+                </h4>
+              </p>
+            </div>
+            <div class="modal-footer d-flex justify-content-between pxm-5">
+              <small id="view_tanggal_posting" class="text-muted">...</small>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ALL JS FILES -->
     <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/jquery-3.2.1.min.js"></script>
@@ -434,5 +206,17 @@
     <script src="assets/assets_yamifood/assets_berita/js/bootstrap.min.js"></script>
     <script src="assets/assets_yamifood/assets_berita/js/custom.js"></script>
 
-</body>
+    <script>
+      $('#viewPostModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var idPosting = button.data('id-posting');
+
+        document.getElementById('view_foto_posting').src = document.getElementById('foto_posting_' + idPosting).src;
+        document.getElementById('view_judul_posting').innerHTML = document.getElementById('judul_posting_' + idPosting).innerHTML;
+        document.getElementById('view_isi_posting').innerHTML = document.getElementById('isi_posting_' + idPosting).innerHTML;
+        document.getElementById('view_tanggal_posting').innerHTML = 'Diposting pada ' + document.getElementById('tanggal_posting_' + idPosting).innerHTML;
+      });
+    </script>
+
+  </body>
 </html>
