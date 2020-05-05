@@ -60,6 +60,18 @@
   color: #00858D !important;
 }
 
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
 html {
   scroll-behavior: smooth;
 }

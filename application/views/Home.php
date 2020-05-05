@@ -134,7 +134,7 @@
 				</div>
 			</div>
 			<?php echo ((isset($menus))? $menus : ''); ?>
-			<div class="row">
+			<div class="row mt-5">
 				<div class="col-lg-12">
 					<center><h2><a href="<?php echo base_url('menu') ?>">LIHAT SELENGKAPNYA</a></h2></center>
 				</div>
@@ -393,62 +393,126 @@
 			</svg> Ulasan 
 	</a>
 
+
+	<!-- Modal Ulasan Toko -->
 	<div class="modal fade" id="ulasModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title pb-0" >Beri Toko Kami Ulasan</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-			</div>
-			<form action="" method="POST">
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-md-12 mb-3">
-							<label for="nama_pengulas">Nama Lengkap</label>
-							<input type="text" class="form-control rounded" id="nama_pengulas" name="nama_pengulas" placeholder="cth. Muhammad Muttaqin" value="" minlength="3" maxlength="32" required="">
-							<div class="invalid-feedback">
-								Nama lengkap tidak boleh kosong.
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title pb-0" >Beri Toko Kami Ulasan</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form action="" method="POST">
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-12 mb-3">
+								<label for="nama_pengulas">Nama Lengkap</label>
+								<input type="text" class="form-control rounded" id="nama_pengulas" name="nama_pengulas" placeholder="cth. Muhammad Muttaqin" value="" minlength="3" maxlength="32" required="">
+								<div class="invalid-feedback">
+									Nama lengkap tidak boleh kosong.
+								</div>
 							</div>
-						</div>
-						<div class="col-md-12 mb-3">
-							<label for="no_telepon_pengulas">No. HP</label>
-							<input type="text" class="form-control rounded" id="no_telepon_pengulas" name="no_telepon_pengulas" placeholder="cth. 081288701234" value="" minlength="10" maxlength="16" required="">
-							<div class="invalid-feedback">
-								No. HP tidak boleh kosong.
+							<div class="col-md-12 mb-3">
+								<label for="no_telepon_pengulas">No. HP</label>
+								<input type="text" class="form-control rounded" id="no_telepon_pengulas" name="no_telepon_pengulas" placeholder="cth. 081288701234" value="" minlength="10" maxlength="16" pattern="[+]{0,1}[0-9]{10,16}" required="">
+								<div class="invalid-feedback">
+									No. HP tidak boleh kosong.
+								</div>
 							</div>
-						</div>
-						<div class="col-md-12 mb-3">
-							<label for="isi_ulasan_toko">Ulasan</label>
-							<textarea type="text" class="form-control rounded" id="isi_ulasan_toko" name="isi_ulasan_toko" placeholder="cth. Pelayanan baik, tempatnya cozy, buburnya enak sekali pas di kantong" rows="3" minlength="3" maxlength="64" required=""></textarea>
-							<div class="invalid-feedback">
-								Ulasan tidak boleh kosong.
+							<div class="col-md-12 mb-3">
+								<label for="isi_ulasan_toko">Ulasan</label>
+								<textarea type="text" class="form-control rounded" id="isi_ulasan_toko" name="isi_ulasan_toko" placeholder="cth. Pelayanan baik, tempatnya cozy, buburnya enak sekali pas di kantong" rows="3" minlength="3" maxlength="64" required=""></textarea>
+								<div class="invalid-feedback">
+									Ulasan tidak boleh kosong.
+								</div>
 							</div>
-						</div>
-						<div class="col-md-12 mb-3">
-							<label for="rating_toko">Beri Rating untuk Kami</label>
-								<div id="rating_toko" class="btn-group btn-group-toggle starrating risingstar d-flex justify-content-end flex-row-reverse col-6 p-0" data-toggle="buttons">
-								<label id="s5" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Sangat Bagus"><input type="radio" id="star5" name="rating_toko" value="5" required/> </label>
-								<label id="s4" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Bagus"><input type="radio" id="star4" name="rating_toko" value="4" required/> </label>
-								<label id="s3" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Biasa Saja"><input type="radio" id="star3" name="rating_toko" value="3" required/> </label>
-								<label id="s2" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Buruk"><input type="radio" id="star2" name="rating_toko" value="2" required/> </label>
-								<label id="s1" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave()" onmouseover="starHover(this.id)" onclick="rate(this.id)" title="Sangat Buruk"><input type="radio" id="star1" name="rating_toko" value="1" required/> </label>
-							</div>
-							<div class="invalid-feedback">
-								Rating tidak boleh kosong.
+							<div class="col-md-12 mb-3">
+								<label for="rating_toko">Rating Menu</label>
+									<div id="rating_toko" class="btn-group btn-group-toggle starrating risingstar d-flex justify-content-end flex-row-reverse col-6 p-0" data-toggle="buttons">
+									<label id="s5" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave('s')" onmouseover="starHover(this.id, 's')" onclick="rate(this.id, 's')" title="Sangat Bagus"><input type="radio" id="star5" name="rating_toko" value="5" required/> </label>
+									<label id="s4" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave('s')" onmouseover="starHover(this.id, 's')" onclick="rate(this.id, 's')" title="Bagus"><input type="radio" id="star4" name="rating_toko" value="4" required/> </label>
+									<label id="s3" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave('s')" onmouseover="starHover(this.id, 's')" onclick="rate(this.id, 's')" title="Biasa Saja"><input type="radio" id="star3" name="rating_toko" value="3" required/> </label>
+									<label id="s2" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave('s')" onmouseover="starHover(this.id, 's')" onclick="rate(this.id, 's')" title="Buruk"><input type="radio" id="star2" name="rating_toko" value="2" required/> </label>
+									<label id="s1" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave('s')" onmouseover="starHover(this.id, 's')" onclick="rate(this.id, 's')" title="Sangat Buruk"><input type="radio" id="star1" name="rating_toko" value="1" required/> </label>
+								</div>
+								<div class="invalid-feedback">
+									Rating tidak boleh kosong.
+								</div>
 							</div>
 						</div>
 					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<input type="submit" class="btn btn-primary" name="tambahUlasan" value="Kirim"/>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- End of Modal Ulasan Toko -->
+
+	<!-- Modal Ulasan Menu -->
+	<div class="modal fade" id="ulasMenuModal" tabindex="-1" role="dialog" aria-labelledby="ulasMenuModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 id="ulasMenuModalTitle" class="modal-title pb-0" >Tulis ulasan menu</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<input type="submit" class="btn btn-primary" name="tambahUlasan" value="Kirim"/>
-				</div>
-			</form>
-    </div>
-  </div>
-</div>
+				<form action="" method="POST">
+					<div class="modal-body">
+						<div class="row">
+							<input type="text" id="id_menu_toko" name="id_menu_toko" hidden required="">
+
+							<div class="col-md-12 mb-3">
+								<label for="nama_pengulas_menu">Nama Lengkap</label>
+								<input type="text" class="form-control rounded" id="nama_pengulas_menu" name="nama_pengulas_menu" placeholder="cth. Muhammad Muttaqin" value="" minlength="3" maxlength="32" required="">
+								<div class="invalid-feedback">
+									Nama lengkap tidak boleh kosong.
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="no_telepon_pengulas_menu">No. HP</label>
+								<input type="text" class="form-control rounded" id="no_telepon_pengulas_menu" name="no_telepon_pengulas_menu" placeholder="cth. 081288701234" value="" minlength="10" maxlength="16" pattern="[+]{0,1}[0-9]{10,16}" required="">
+								<div class="invalid-feedback">
+									No. HP tidak boleh kosong.
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="isi_ulasan_menu">Ulasan</label>
+								<textarea type="text" class="form-control rounded" id="isi_ulasan_menu" name="isi_ulasan_menu" placeholder="cth. Pelayanan baik, tempatnya cozy, buburnya enak sekali pas di kantong" rows="3" minlength="3" maxlength="64" required=""></textarea>
+								<div class="invalid-feedback">
+									Ulasan tidak boleh kosong.
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="rating_menu">Beri Rating untuk Kami</label>
+									<div id="rating_menu" class="btn-group btn-group-toggle starrating risingstar d-flex justify-content-end flex-row-reverse col-6 p-0" data-toggle="buttons">
+									<label id="menu_s5" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave('menu_s')" onmouseover="starHover(this.id, 'menu_s')" onclick="rate(this.id, 'menu_s')" title="Sangat Bagus"><input type="radio" id="menu_star5" name="rating_menu" value="5" required/> </label>
+									<label id="menu_s4" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave('menu_s')" onmouseover="starHover(this.id, 'menu_s')" onclick="rate(this.id, 'menu_s')" title="Bagus"><input type="radio" id="menu_star4" name="rating_menu" value="4" required/> </label>
+									<label id="menu_s3" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave('menu_s')" onmouseover="starHover(this.id, 'menu_s')" onclick="rate(this.id, 'menu_s')" title="Biasa Saja"><input type="radio" id="menu_star3" name="rating_menu" value="3" required/> </label>
+									<label id="menu_s2" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave('menu_s')" onmouseover="starHover(this.id, 'menu_s')" onclick="rate(this.id, 'menu_s')" title="Buruk"><input type="radio" id="menu_star2" name="rating_menu" value="2" required/> </label>
+									<label id="menu_s1" class="btn btn-link p-0 cursor-hand" onmouseout="starLeave('menu_s')" onmouseover="starHover(this.id, 'menu_s')" onclick="rate(this.id, 'menu_s')" title="Sangat Buruk"><input type="radio" id="menu_star1" name="rating_menu" value="1" required/> </label>
+								</div>
+								<div class="invalid-feedback">
+									Rating tidak boleh kosong.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<input type="submit" class="btn btn-primary" name="tambahUlasanMenu" value="Kirim"/>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- End of Modal Ulasan Menu -->
 	
 	
 
@@ -457,74 +521,72 @@
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/jquery-3.2.1.min.js"></script>
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/popper.min.js"></script>
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/bootstrap.min.js"></script>
-    <!-- ALL PLUGINS -->
+  <!-- ALL PLUGINS -->
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/jquery.superslides.min.js"></script>
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/images-loded.min.js"></script>
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/isotope.min.js"></script>
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/baguetteBox.min.js"></script>
 	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/form-validator.min.js"></script>
-    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/contact-form-script.js"></script>
-		<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/custom.js"></script>
+  <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/contact-form-script.js"></script>
+	<script src="<?php echo base_url('assets/assets_yamifood') ?>/js/custom.js"></script>
 
-		<?php echo ((isset($messageModal))? $messageModal : ''); ?>
+	<?php echo ((isset($messageModal))? $messageModal : ''); ?>
 		
 	<script>
 		checkedRatingId = 0;
 
-		function rate(id) {
+		function rate(id, prefixId) {
 			star = id.slice(-1);
 			checkedRatingId = star;
 
 			for(i=1; i<=5; i++) {
+				var id = prefixId + i;
+
 				if(i <= star) {
-					document.getElementById('s' + i).setAttribute('class', 'btn btn-link p-0 cursor-hand text-primary')
+					document.getElementById(prefixId + i).setAttribute('class', 'btn btn-link p-0 cursor-hand text-primary')
 				}else{
-					document.getElementById('s' + i).setAttribute('class', 'btn btn-link p-0 cursor-hand')
+					document.getElementById(prefixId + i).setAttribute('class', 'btn btn-link p-0 cursor-hand')
 				}
 			}
 		}
 
-		function starHover(id) {
+		function starHover(id, prefixId) {
 			star = id.slice(-1);
 
 			for(i=1; i<=5; i++) {
+				var id = prefixId + i;
+
 				if(i <= star) {
-					document.getElementById('s' + i).setAttribute('class', 'btn btn-link p-0 cursor-hand text-primary')
+					document.getElementById(prefixId + i).setAttribute('class', 'btn btn-link p-0 cursor-hand text-primary')
 				}else{
-					document.getElementById('s' + i).setAttribute('class', 'btn btn-link p-0 cursor-hand')
+					document.getElementById(prefixId + i).setAttribute('class', 'btn btn-link p-0 cursor-hand')
 				}
 			}
 		}
 
-		function starLeave() {
-			rate('s' + checkedRatingId);
+		function starLeave(prefixId) {
+			var id = prefixId + checkedRatingId;
+			rate(prefixId + checkedRatingId, prefixId);
 		}
 
 		document.getElementById('no_telepon_pengulas').onkeypress = function() {
 			return (event.charCode >= 48 && event.charCode <= 57);
-		} 
-
-		function setInputFilter(textbox, inputFilter) {
-			eventArray = ['input', 'keydown', 'keyup', 'mousedown', 'mouseup', 'select', 'contextmenu', 'drop'];
-			eventArray.forEach(function(event) {
-				textbox.addEventListener(event, function() {
-					if(inputFilter(this.value)) {
-						this.oldValue = this.value;;
-						this.oldSelectionStart = this.selectionStart;
-						this.oldSelectionEnd = this.selectionEnd;
-					} else if(this.hasOwnProperty('oldValue')) {
-						this.value = this.oldValue;
-						this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
-					} else {
-						this.value = '';
-					}
-				});
-			});
-
-			setInputFilter(document.getElementById('no_telepon_pengulas'), function(value) {
-				return /^[+]{0,1}?\d*$/.test(value);
-			});
 		}
+
+		document.getElementById('no_telepon_pengulas_menu').onkeypress = function() {
+			return (event.charCode >= 48 && event.charCode <= 57);
+		}
+
+		$('#ulasMenuModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var idMenu = button.data('id-menu')
+        var namaMenu = button.data('nama-menu');
+
+        var modal = $(this)
+
+        document.getElementById('id_menu_toko').value = idMenu;
+        document.getElementById('ulasMenuModalTitle').innerHTML = 'Tulis ulasan tentang ' + namaMenu;
+    });
 	</script>
 
 </body>

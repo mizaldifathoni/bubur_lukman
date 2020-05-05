@@ -143,7 +143,8 @@
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade pt-4 px-4 show active" id="shop" role="tabpanel" aria-labelledby="shop-tab">
+            <?php echo $shop_reviews ?>
+            <!-- <div class="tab-pane fade pt-4 px-4 show active" id="shop" role="tabpanel" aria-labelledby="shop-tab">
               <div class="row">
                 <div class="col-lg-12 pt-3 pb-5">
                   <div class="row">
@@ -220,7 +221,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="tab-pane fade pt-4 px-4" id="menu" role="tabpanel" aria-labelledby="menu-tab">
               <div class="row">
                 <div class="col-lg-12 pt-3 pb-5">
