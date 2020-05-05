@@ -20,7 +20,7 @@ class ModelUlasan extends CI_Model
 
   function getOverallRatings() {
     $query = $this->db->select('AVG(rating_toko) as avg_rating_toko')->from('ulasan_toko')->get();
-    $overallRatings = floor($query->result()[0]->avg_rating_toko * 2) / 2;
+    $overallRatings = floor($query->result()[0]->avg_rating_toko * 10) / 10;
     return  number_format($overallRatings, 1);
   }
 

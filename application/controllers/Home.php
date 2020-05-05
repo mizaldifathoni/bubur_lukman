@@ -63,7 +63,7 @@ class Home extends CI_Controller
 			$isDiscountEnabled = ($disc > 0);
 			$priceBefore = $food->harga_menu;
 			$priceAfter = $priceBefore - ($priceBefore * ($disc/100));
-			$menuRating = $this->ModelUlasanMenu->getOverallMenuRatings($food->id_menu_toko);
+			$menuRating = $this->ModelUlasanMenu->getMenuRatings($food->id_menu_toko);
 			$menuReviewCounts = $this->ModelUlasanMenu->getMenuReviewCounts($food->id_menu_toko);
 
 			$html .= '
@@ -110,7 +110,7 @@ class Home extends CI_Controller
 			$isDiscountEnabled = ($disc > 0);
 			$priceBefore = $beverage->harga_menu;
 			$priceAfter = $priceBefore - ($priceBefore * ($disc/100));
-			$menuRating = $this->ModelUlasanMenu->getOverallMenuRatings($food->id_menu_toko);
+			$menuRating = $this->ModelUlasanMenu->getMenuRatings($food->id_menu_toko);
 			$menuReviewCounts = $this->ModelUlasanMenu->getMenuReviewCounts($beverage->id_menu_toko);
 
 			$html .= '
