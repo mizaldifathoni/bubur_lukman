@@ -79,12 +79,28 @@
                                     </div><!-- end col -->
 
                                     <div class="blog-meta big-meta col-md-8">
-                                        <span class="bg-aqua"><a href="#" title="">Promo</a></span>
+                                        <span id="promo" data-toggle="modal" data-target="#promoModal" class="bg-aqua"><a href="#" title="">Promo</a></span>
                                         <h4><a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem.</h4>
                                         <small><a href="#" title="">11 July, 2017</a></small>
                                         <small><a href="#" title="">by Matilda</a></small>
                                     </div><!-- end meta -->
                                 </div><!-- end blog-box -->
+
+                                <div id="promoModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-lg" role="content">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h2 class="modal-title">Promo</h2>
+                                                <button id="tutupx" type="button" class="close">&times;</button>
+                                            </div>
+                                            
+                                            <div class="modal-body">
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis optio sunt delectus voluptatum veniam ex dolorem, earum minima deserunt ipsam ab iste maxime vel natus, ducimus error aut iusto accusamus?</p>
+                                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, velit voluptatibus maiores ab aut excepturi hic in molestiae inventore sunt dolorum error praesentium id porro libero iusto fugit iste facilis!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <hr class="invis">
 
