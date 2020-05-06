@@ -10,6 +10,7 @@ class Login extends CI_Controller
     $this->load->model('dashboard/ModelLogin');
     $this->load->model('component/Modal');
     $this->load->model('dashboard/ModelPengaturan');
+    $this->load->model('dashboard/ModelLog');
   }
 
 	public function index()
@@ -35,8 +36,11 @@ class Login extends CI_Controller
     if($getAccess['access']){
       $session = array(
         'username_pengguna' => $username,
+        'id_pengguna' => $getAccess['id_pengguna'],
         'tipe_pengguna' => $getAccess['tipe_pengguna']
       );
+
+      $this->ModelLog->insertLoginLog($getAccess['id_pengguna']);
 
       $this->session->set_userdata($session);
       redirect(base_url('dashboard/home'));

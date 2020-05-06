@@ -12,6 +12,9 @@ class Gallery extends CI_Controller
 		$this->load->model('dashboard/ModelLogin');
 		$this->load->model('dashboard/ModelFoto');
 		$this->load->model('dashboard/ModelPengaturan');
+
+		$this->load->library('session');
+		$this->load->model('dashboard/ModelLog');
   }
 
 	public function index()
@@ -152,6 +155,9 @@ class Gallery extends CI_Controller
 					  'settings'		=> $this->ModelPengaturan->getAllSettings(),
 						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Foto <i>' . $photo['judul_foto'] . '</i> berhasil ditambahkan.')
 					);
+
+					$this->ModelLog->insertCreateLog($this->session->userdata('id_pengguna'), 'foto galeri', $photo['judul_foto']);
+
 					$this->load->view('dashboard/gallery', $data);
 				}else{
 					$data = array(
@@ -208,6 +214,9 @@ class Gallery extends CI_Controller
 						'settings'		=> $this->ModelPengaturan->getAllSettings(),
 						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Foto <i>' . $judulFotoAwal . '</i> berhasil diperbaharui!')
 					);
+
+					$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'foto galeri', $photo['judul_foto']);
+
 					$this->load->view('dashboard/gallery', $data);
 				}else{
 					$data = array(
@@ -239,6 +248,9 @@ class Gallery extends CI_Controller
 					'settings'		=> $this->ModelPengaturan->getAllSettings(),
 					'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Foto <i>' . $judulFotoAwal . '</i> berhasil diperbaharui!')
 				);
+
+				$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'foto galeri', $photo['judul_foto']);
+
 				$this->load->view('dashboard/gallery', $data);
 			}else{
 				$data = array(
@@ -263,6 +275,8 @@ class Gallery extends CI_Controller
 				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Berhasil menghapus foto <i>' . $judulFoto . '</i>.')
 			);
 			
+			$this->ModelLog->insertDeleteLog($this->session->userdata('id_pengguna'), 'foto galeri', $judulFoto);
+
 			$this->load->view('dashboard/gallery', $data);
 		}else{
 			$data = array(

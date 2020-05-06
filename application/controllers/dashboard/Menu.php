@@ -13,6 +13,9 @@ class Menu extends CI_Controller
 		$this->load->model('dashboard/ModelMenuToko');
 		$this->load->model('dashboard/ModelToko');
 		$this->load->model('dashboard/ModelPengaturan');
+
+		$this->load->library('session');
+		$this->load->model('dashboard/ModelLog');
   }
 
 	public function index()
@@ -179,6 +182,9 @@ class Menu extends CI_Controller
 						'settings'		=> $this->ModelPengaturan->getAllSettings(),
 						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Menu <i>' . $menu['nama_menu'] . '</i> berhasil ditambahkan ke toko <i>' . $namaToko . '</i>.')
 					);
+
+					$this->ModelLog->insertCreateLog($this->session->userdata('id_pengguna'), 'menu restoran', $menu['nama_menu']);
+
 					$this->load->view('dashboard/menu', $data);
 				}else{
 					$data = array(
@@ -239,6 +245,9 @@ class Menu extends CI_Controller
 						'settings'		=> $this->ModelPengaturan->getAllSettings(),
 						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Menu pada toko <i>' . $namaToko . '</i> berhasil diperbaharui!')
 					);
+
+					$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'menu restoran', $menu['nama_menu'] . ' pada toko ' . $namaToko);
+
 					$this->load->view('dashboard/menu', $data);
 				}else{
 					$data = array(
@@ -274,6 +283,9 @@ class Menu extends CI_Controller
 					'settings'		=> $this->ModelPengaturan->getAllSettings(),
 					'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Menu pada toko <i>' . $namaToko . '</i> berhasil diperbaharui!')
 				);
+
+				$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'menu restoran', $menu['nama_menu'] . ' pada toko ' . $namaToko);
+
 				$this->load->view('dashboard/menu', $data);
 			}else{
 				$data = array(
@@ -297,6 +309,8 @@ class Menu extends CI_Controller
 				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Berhasil menghapus menu <i>' . $this->input->post('hapus_nama_menu') . '</i> dari toko <i>' . $this->input->post('hapus_nama_toko') . '</i>.')
 			);
 			
+			$this->ModelLog->insertDeleteLog($this->session->userdata('id_pengguna'), 'menu restoran', $this->input->post('hapus_nama_menu') . ' pada toko ' . $this->input->post('hapus_nama_toko'));
+
 			$this->load->view('dashboard/menu', $data);
 		}else{
 			$data = array(

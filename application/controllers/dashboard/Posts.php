@@ -12,6 +12,9 @@ class Posts extends CI_Controller
 		$this->load->model('dashboard/ModelLogin');
 		$this->load->model('dashboard/ModelPosting');
 		$this->load->model('dashboard/ModelPengaturan');
+
+		$this->load->library('session');
+		$this->load->model('dashboard/ModelLog');
   }
 
 	public function index()
@@ -164,6 +167,9 @@ class Posts extends CI_Controller
 					  'settings'		=> $this->ModelPengaturan->getAllSettings(),
 						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', '<i>' . $post['judul_posting'] . '</i> berhasil diposting.')
 					);
+
+					$this->ModelLog->insertCreateLog($this->session->userdata('id_pengguna'), 'posting', $post['judul_posting']);
+
 					$this->load->view('dashboard/posts', $data);
 				}else{
 					$data = array(
@@ -223,6 +229,9 @@ class Posts extends CI_Controller
 						'settings'		=> $this->ModelPengaturan->getAllSettings(),
 						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Post <i>' . $judulPostingAwal . '</i> berhasil diperbaharui!')
 					);
+
+					$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'posting', $post['judul_posting']);
+
 					$this->load->view('dashboard/posts', $data);
 				}else{
 					$data = array(
@@ -256,6 +265,9 @@ class Posts extends CI_Controller
 					'settings'		=> $this->ModelPengaturan->getAllSettings(),
 					'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Post <i>' . $judulPostingAwal . '</i> berhasil diperbaharui!')
 				);
+
+				$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'posting', $post['judul_posting']);
+
 				$this->load->view('dashboard/posts', $data);
 			}else{
 				$data = array(
@@ -279,6 +291,8 @@ class Posts extends CI_Controller
 				'settings'		=> $this->ModelPengaturan->getAllSettings(),
 				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Berhasil menghapus post <i>' . $judulPosting . '</i>.')
 			);
+
+			$this->ModelLog->insertDeleteLog($this->session->userdata('id_pengguna'), 'posting', $judulPosting);
 			
 			$this->load->view('dashboard/posts', $data);
 		}else{

@@ -13,6 +13,9 @@ class Shop extends CI_Controller
 		$this->load->model('dashboard/ModelMenuToko');
 		$this->load->model('dashboard/ModelToko');
 		$this->load->model('dashboard/ModelPengaturan');
+
+		$this->load->library('session');
+		$this->load->model('dashboard/ModelLog');
   }
 
 	public function index()
@@ -153,6 +156,9 @@ class Shop extends CI_Controller
 						'settings'		=> $this->ModelPengaturan->getAllSettings(),
 						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Toko <i>' . $toko['nama_toko'] . '</i> berhasil ditambahkan.')
 					);
+
+					$this->ModelLog->insertCreateLog($this->session->userdata('id_pengguna'), 'toko/cabang', $toko['nama_toko']);
+
 					$this->load->view('dashboard/shop', $data);
 				}else{
 					$data = array(
@@ -208,6 +214,9 @@ class Shop extends CI_Controller
 						'settings'		=> $this->ModelPengaturan->getAllSettings(),
 						'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Toko <i>' . $toko['nama_toko'] . '</i> berhasil diperbaharui!')
 					);
+
+					$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'toko/cabang', $toko['nama_toko']);
+
 					$this->load->view('dashboard/shop', $data);
 				}else{
 					$data = array(
@@ -238,6 +247,9 @@ class Shop extends CI_Controller
 					'settings'		=> $this->ModelPengaturan->getAllSettings(),
 					'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Toko <i>' . $toko['nama_toko'] . '</i> berhasil diperbaharui!')
 				);
+
+				$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'toko/cabang', $toko['nama_toko']);
+
 				$this->load->view('dashboard/shop', $data);
 			}else{
 				$data = array(
@@ -260,6 +272,8 @@ class Shop extends CI_Controller
 				'settings'		=> $this->ModelPengaturan->getAllSettings(),
 				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Berhasil menghapus toko <i>' . $this->input->post('hapus_nama_toko') . '</i>.')
 			);
+
+			$this->ModelLog->insertDeleteLog($this->session->userdata('id_pengguna'), 'toko/cabang', $this->input->post('hapus_nama_toko'));
 			
 			$this->load->view('dashboard/shop', $data);
 		}else{

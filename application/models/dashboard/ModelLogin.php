@@ -18,9 +18,11 @@ class ModelLogin extends CI_Model
 
     $query = $this->db->get_Where($table,$where, $limit);
     $access = ($query->num_rows() > 0)? true : false;
-    $tipe_pengguna = (!$query)? $query->row_array()['id_tipe_pengguna'] : 0;
+    $tipe_pengguna = ($query)? $query->row_array()['id_tipe_pengguna'] : 0;
+    $id_pengguna = ($query)? $query->row_array()['id_pengguna'] : 0;
     $returnArray = array(
       'access' => $access,
+      'id_pengguna' => $id_pengguna,
       'tipe_pengguna' => $tipe_pengguna
     );
 

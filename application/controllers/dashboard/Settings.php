@@ -13,6 +13,9 @@ class Settings extends CI_Controller
 		$this->load->model('dashboard/ModelMenuToko');
 		$this->load->model('dashboard/ModelToko');
 		$this->load->model('dashboard/ModelPengaturan');
+
+		$this->load->library('session');
+		$this->load->model('dashboard/ModelLog');
   }
 
 	public function index()
@@ -123,6 +126,9 @@ class Settings extends CI_Controller
 				'settings'		=> $this->ModelPengaturan->getAllSettings(),
 				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Pengaturan dasar berhasil diperbaharui.')
 			);
+
+			$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'pengaturan', 'pengaturan dasar');
+
 			$this->load->view('dashboard/settings', $data);
 		}else{
 			if(!$isLogoUploadSuccess || !$isPhotoUploadSuccess){
@@ -154,6 +160,9 @@ class Settings extends CI_Controller
 				'settings'		=> $this->ModelPengaturan->getAllSettings(),
 				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Pengaturan kontak dan media sosial berhasil diperbaharui.')
 			);
+
+			$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'pengaturan', 'pengaturan kontak dan media sosial');
+
 			$this->load->view('dashboard/settings', $data);
 		}else{
 			$data = array(
@@ -173,6 +182,9 @@ class Settings extends CI_Controller
 				'settings'		=> $this->ModelPengaturan->getAllSettings(),
 				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Pengaturan waktu buka berhasil diperbaharui.')
 			);
+
+			$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'pengaturan', 'pengaturan waktu buka');
+
 			$this->load->view('dashboard/settings', $data);
 		}else{
 			$data = array(

@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
     <!-- Site Metas -->
-    <title><?php echo $settings['title'] ?> - Dashboard</title>  
+    <title>Log Perubahan - <?php echo $settings['title'] ?></title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -58,9 +58,9 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="home">
+                <a class="nav-link" href="home">
                   <span data-feather="bar-chart-2" class="mb-1"></span>
-                  Ikhtisar <span class="sr-only">(current)</span>
+                  Ikhtisar
                 </a>
               </li>
               <li class="nav-item">
@@ -112,9 +112,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="changelog">
+                <a class="nav-link active" href="changelog">
                   <span data-feather="file-text" class="mb-1"></span>
-                  Log Perubahan
+                  Log Perubahan <span class="sr-only">(current)</span>
                 </a>
               </li>
             </ul>
@@ -123,82 +123,34 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 pb-4 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Ikhtisar</h1>
+            <h1 class="h2">Laporan Log Perubahan</h1>
           </div>
 
           <div class="row mb-5">
-            <div class="col-lg-3">
+            <div class="col-12">
               <div class="card alert alert-info">
-                <div class="card-body text-center">
-                  <h3 class="mb-3"><a href="<?php echo base_url() ?>dashboard/Shop">Jumlah Toko</a></h3>
-                  <h1 class="display-4"><?php echo $shop_counts ?></h1>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="card alert alert-info">
-                <div class="card-body text-center">
-                  <h3 class="mb-3"><a href="<?php echo base_url() ?>dashboard/Menu">Jumlah Menu</a></h3>
-                  <h1 class="display-4"><?php echo $menu_counts ?></h1>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="card alert alert-info">
-                <div class="card-body text-center">
-                  <h3 class="mb-3"><a href="<?php echo base_url() ?>dashboard/Posts">Jumlah Posting</a></h3>
-                  <h1 class="display-4"><?php echo $post_counts ?></h1>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="card alert alert-info">
-                <div class="card-body text-center">
-                  <h3 class="mb-3"><a href="<?php echo base_url() ?>dashboard/Review">Jumlah Ulasan</a></h3>
-                  <h1 class="display-4"><?php echo $review_counts ?></h1>
+                <div class="card-body">
+                  <strong>Selamat datang di Laporan Log Perubahan!</strong> Laporan log perubahan berfungsi untuk melihat perubahan informasi yang terjadi di dalam web.
                 </div>
               </div>
             </div>
           </div>
 
-          <h1 class="mb-3">Grafik Penayangan</h1>
-          <canvas class="my-4 mb-5" id="myChart" width="900" height="380"></canvas>
-
           <div class="row">
-            <div class="col-lg-6">
-              <h1 class="mb-3">Penayangan terhadap Waktu</h1>
-              <table class="table table-bordered rounded">
+            <div class="col-12">
+              <table class="table table-striped" style="table-layout: fixed">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 10%">ID</th>
+                    <th scope="col" style="width: 20%">Username</th>
+                    <th scope="col" style="width: 50%">Log</th>
+                    <th scope="col" style="width: 20%">Waktu</th>
+                  </tr>
+                </thead>
                 <tbody>
-                <tr>
-                    <td>Penayangan kemarin</td>
-                    <td><?php echo $all_statistics['yesterday'] ?></td>
-                  </tr>
-                  <tr class="table-info">
-                    <td>Penayangan hari ini</td>
-                    <td><?php echo $all_statistics['today'] ?></td>
-                  </tr>
-                  <tr>
-                    <td>Penayangan minggu ini</td>
-                    <td><?php echo $all_statistics['weekly'] ?></td>
-                  </tr>
-                  <tr>
-                    <td>Penayangan bulan ini</td>
-                    <td><?php echo $all_statistics['monthly'] ?></td>
-                  </tr>
-                  <tr>
-                    <td>Penayangan tahun ini</td>
-                    <td><?php echo $all_statistics['yearly'] ?></td>
-                  </tr>
-                  <tr>
-                    <td>Penayangan sepanjang waktu</td>
-                    <td><?php echo $all_statistics['all_time'] ?></td>
-                  </tr>
+                  <?php echo $changelog ?>
                 </tbody>
               </table>
-            </div>
-            <div class="col-lg-6">
-              <h1 class="mb-3">Penayangan terhadap Lokasi</h1>
-              <?php echo $most_visitor_location ?>
             </div>
           </div>
           
@@ -218,71 +170,22 @@
       feather.replace()
     </script>
 
-    <!-- Graphs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    
     <script>
-      var ctx = document.getElementById("myChart");
-      var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: [<?php
-              for($i=6; $i>=0; $i--){
-                echo ($i == 0)? '"' . $weekly_statistics['days'][$i] . '"' : '"' . $weekly_statistics['days'][$i] . '", ';
-              } 
-              ?>],
-          datasets: [{
-            data: [<?php
-              for($i=6; $i>=0; $i--){
-                echo ($i == 0)? $weekly_statistics['views'][$i] : $weekly_statistics['views'][$i] . ', ';
-              } 
-              ?>],
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#00858D',
-            borderWidth: 4,
-            pointBackgroundColor: '#00858D'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-    </script>
-    <script>
-      /*
-      function responsify() {
-        if(window.innerWidth > 1920){
-          document.querySelector("#navbar_container").setAttribute("class", "container flex-md-nowrap p-0");
-          document.querySelector("#content_container").setAttribute("class", "container");
-          document.querySelector("#side_navbar").setAttribute("class", "col-md-2 d-none d-md-block bg-light");
-        }else{
-          document.querySelector("#navbar_container").setAttribute("class", "container-fluid flex-md-nowrap p-0");
-          document.querySelector("#content_container").setAttribute("class", "container-fluid");
-          document.querySelector("#side_navbar").setAttribute("class", "col-md-2 d-none d-md-block bg-light sidebar");
-        }
-      }
-      
-
-      window.addEventListener('load', responsify());
-
-      window.addEventListener('resize', function(event) {
-        responsify();
-      });
-      */
-
       $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
       });
+
+      function sendWhatsApp(num) {
+        var no_telepon = document.getElementById('no_telepon_' + num).innerHTML;
+        var message = document.getElementById('promo_message').value;
+
+        var link = 'https://wa.me/' + no_telepon + '?text=' + encodeURI(message);
+
+        var win = window.open(link, '_blank');
+        win.focus();
+      }
     </script>
   </body>
 </html>
