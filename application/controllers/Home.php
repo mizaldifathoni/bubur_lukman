@@ -15,6 +15,7 @@ class Home extends CI_Controller
 		$this->load->model('dashboard/ModelPengaturan');
 		$this->load->model('dashboard/ModelUlasan');
 		$this->load->model('dashboard/ModelUlasanMenu');
+		$this->load->model('dashboard/ModelFoto');
 		$this->load->model('dashboard/ModelStatistik');
   }
 	
@@ -30,6 +31,7 @@ class Home extends CI_Controller
 				'settings' => $this->ModelPengaturan->getAllSettings(),
 				'shop_locations'	=> $this->ModelToko->getSemuaLokasiToko(),
 				'reviews' => $this->getRecentReviewsHtml(),
+				'gallery' => $this->getGalleryHtml(),
 				'ratings' => $this->getOverallRatingsHtml()
 			);
 			$this->ModelStatistik->addStatistics(base_url() . 'Home');
@@ -43,7 +45,7 @@ class Home extends CI_Controller
 		$foods = $this->ModelMenuToko->getFoodMenusByIdToko($idToko);
 
 		$html = '
-		<div class="row">
+		<div class="row mb-3">
 			<div class="col-lg-12">
 				<div class="special-menu text-center">
 					<div class="button-group filter-button-group">
@@ -154,6 +156,54 @@ class Home extends CI_Controller
 		$html .= '
 		</div>
 		';
+
+		return $html;
+	}
+
+	private function getGalleryHtml() {
+		$photos = $this->ModelFoto->getAllPhotos();
+
+		$html = '
+			<!-- Start Gallery -->
+			<div class="gallery-box pb-0">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="heading-title text-center">
+								<h2>Gallery</h2>
+								<p>Koleksi foto-foto tempat dan produk kami</p>
+							</div>
+						</div>
+					</div>
+					<div class="tz-gallery">
+						<div class="row d-flex justify-content-center">
+		';	
+
+		
+		$isPhotosAvailable = false;
+		foreach($photos as $photo) {
+			$isPhotosAvailable = true;
+
+			$html .= '
+							<div class="col-sm-6 col-md-4 col-lg-4">
+								<a class="lightbox" href="' . base_url() . $photo->path_foto . '">
+									<img class="img-fluid" src="' . base_url() . $photo->path_foto . '" alt="' . $photo->judul_foto . '">
+								</a>
+							</div>
+			';
+		}
+
+		$html .= '
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Gallery -->
+		';
+
+		if(!$isPhotosAvailable) {
+			$html = '';
+		}
 
 		return $html;
 	}

@@ -63,7 +63,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
 							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
-							<a class="btn btn-primary mt-3" href="#special_menu">Lihat Promo</a>
+							<a class="btn btn-primary mt-3" href="#special_menu">Lihat Menu</a>
 						</div>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
 							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
-							<a class="btn btn-primary mt-3" href="#special_menu">Lihat Promo</a>
+							<a class="btn btn-primary mt-3" href="#special_menu">Lihat Menu</a>
 						</div>
 					</div>
 				</div>
@@ -87,7 +87,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong><?php echo $settings['welcome_message'] ?></strong></h1>
 							<p class="m-b-40"><?php echo $settings['welcome_message_description'] ?></p>
-							<a class="btn btn-primary mt-3" href="#special_menu">Lihat Promo</a>
+							<a class="btn btn-primary mt-3" href="#special_menu">Lihat Menu</a>
 						</div>
 					</div>
 				</div>
@@ -129,7 +129,7 @@
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
 						<h2>Special Menu</h2>
-						<p>Belajarlah dari zombie, walaupun dia makan orang tapi dia gak pernah makan temen.</p>
+						<p>Kami menyediakan berbagai menu khas buatan kami</p>
 					</div>
 				</div>
 			</div>
@@ -240,37 +240,7 @@
 	<!-- End Menu -->
 	
 	<!-- Start Gallery -->
-	<div class="gallery-box pb-0">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="heading-title text-center">
-						<h2>Gallery</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-					</div>
-				</div>
-			</div>
-			<div class="tz-gallery">
-				<div class="row">
-					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="assets/assets_yamifood/images/buburrr.jpg">
-							<img class="img-fluid" src="assets/assets_yamifood/images/buburrr.jpg" alt="Gallery Images">
-						</a>
-					</div>
-					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="assets/assets_yamifood/images/ijo.jpg">
-							<img class="img-fluid" src="assets/assets_yamifood/images/ijo.jpg" alt="Gallery Images">
-						</a>
-					</div>
-					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="assets/assets_yamifood/images/ketan.jpg">
-							<img class="img-fluid" src="assets/assets_yamifood/images/ketan.jpg" alt="Gallery Images">
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<?php echo $gallery ?>
 	<!-- End Gallery -->
 
 	<!-- Start Review -->
@@ -352,22 +322,20 @@
 	<footer class="footer-area bg-f">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-6">
+				<div class="col-lg-4 col-md-6">
 					<h3>About Us</h3>
 					<p><?php echo $settings['shop_history'] ?></p>
 				</div>
-				<div class="col-lg-3 col-md-6">
+				<div class="col-lg-4 col-md-6">
 					<h3>Opening hours</h3>
 					<p><?php echo $settings['opening_hours'] ?></p>
 				</div>
-				<div class="col-lg-3 col-md-6">
+				<div class="col-lg-4 col-md-6">
 					<h3>Contact information</h3>
-					<p class="lead"><a href="tel:<?php echo $settings['phone_number'] ?>"><i class="fa fa-phone mr-2"></i><?php echo $settings['phone_number'] ?></a></p>
+					<p><a href="tel:<?php echo $settings['phone_number'] ?>"><i class="fa fa-phone mr-2"></i><?php echo $settings['phone_number'] ?></a></p>
 					<p><a href="mailto:<?php echo $settings['email'] ?>"><i class="fa fa-envelope mr-2"></i><?php echo $settings['email'] ?></a></p>
-					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="<?php echo $settings['facebook_link'] ?>" target="_blank"><i class="fa fa-facebook mr-2" aria-hidden="true"></i> <?php echo $settings['title'] ?></a></li>
-						<li class="list-inline-item"><a href="<?php echo $settings['instagram_link'] ?>" target="_blank"><i class="fa fa-instagram mr-1" aria-hidden="true"></i> <?php echo $settings['instagram_username'] ?></a></li>
-					</ul>
+					<p><a href="<?php echo $settings['facebook_link'] ?>" target="_blank"><i class="fa fa-facebook mr-3" aria-hidden="true"></i><?php echo $settings['title'] ?></a></p>
+					<p><a href="<?php echo $settings['instagram_link'] ?>" target="_blank"><i class="fa fa-instagram mr-1" aria-hidden="true"></i> <?php echo $settings['instagram_username'] ?></a></p>
 				</div>
 			</div>
 		</div>
@@ -376,7 +344,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<p class="company-name">Copyright &copy; 2020 <a href="#"><?php echo $settings['title'] ?>.</a> v07032020</a></p>
+						<p class="company-name">Copyright &copy; 2020 <a href="#"><?php echo $settings['title'] ?>.</a> v06052020</a></p>
 					</div>
 				</div>
 			</div>
@@ -513,6 +481,25 @@
 		</div>
 	</div>
 	<!-- End of Modal Ulasan Menu -->
+
+	<!-- Photo view modal -->
+	<div class="modal fade" id="viewPhotoModal" tabindex="-1" role="dialog" aria-labelledby="viewPhotoModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-white p-0 mb-4">
+              <img id="view_foto" src="" alt="" class="img-fluid">
+              <button type="button" class="close top-right pr-4" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-footer d-flex justify-content-between pxm-5">
+              <small id="view_judul_foto" class="text-muted">...</small>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+      </div>
+		</div>
+		<!-- End of photo view modal -->
 	
 	
 

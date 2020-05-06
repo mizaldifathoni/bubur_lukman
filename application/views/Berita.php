@@ -125,22 +125,20 @@
     <footer class="footer-area bg-f">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <h3>About Us</h3>
                     <p><?php echo $settings['shop_history'] ?></p>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <h3>Opening hours</h3>
                     <p><?php echo $settings['opening_hours'] ?></p>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
 					<h3>Contact information</h3>
-					<p class="lead"><a href="tel:<?php echo $settings['phone_number'] ?>"><i class="fa fa-phone mr-2"></i><?php echo $settings['phone_number'] ?></a></p>
+					<p><a href="tel:<?php echo $settings['phone_number'] ?>"><i class="fa fa-phone mr-2"></i><?php echo $settings['phone_number'] ?></a></p>
 					<p><a href="mailto:<?php echo $settings['email'] ?>"><i class="fa fa-envelope mr-2"></i><?php echo $settings['email'] ?></a></p>
-					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="<?php echo $settings['facebook_link'] ?>" target="_blank"><i class="fa fa-facebook mr-2" aria-hidden="true"></i> <?php echo $settings['title'] ?></a></li>
-						<li class="list-inline-item"><a href="<?php echo $settings['instagram_link'] ?>" target="_blank"><i class="fa fa-instagram mr-1" aria-hidden="true"></i> <?php echo $settings['instagram_username'] ?></a></li>
-					</ul>
+					<p><a href="<?php echo $settings['facebook_link'] ?>" target="_blank"><i class="fa fa-facebook mr-3" aria-hidden="true"></i><?php echo $settings['title'] ?></a></p>
+					<p><a href="<?php echo $settings['instagram_link'] ?>" target="_blank"><i class="fa fa-instagram mr-1" aria-hidden="true"></i> <?php echo $settings['instagram_username'] ?></a></p>
 				</div>
             </div>
         </div>
@@ -149,7 +147,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <p class="company-name">Copyright &copy; 2020 <a href="#"><?php echo $settings['title'] ?>.</a> v07032020</a></p>
+                        <p class="company-name">Copyright &copy; 2020 <a href="#"><?php echo $settings['title'] ?>.</a> v06052020</a></p>
                     </div>
                 </div>
             </div>

@@ -53,76 +53,67 @@
 
     <div id="wrapper" class="container-fluid">
       <div class="row">
-        <nav id="sidebar-wrapper" class="col-md-2 d-md-block bg-light sidebar">
+      <nav id="sidebar-wrapper" class="col-md-2 d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link" href="home">
-                  <span data-feather="bar-chart-2"></span>
+                  <span data-feather="bar-chart-2" class="mb-1"></span>
                   Ikhtisar
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="posts">
-                  <span data-feather="file"></span>
+                  <span data-feather="file" class="mb-1"></span>
                   Posting
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="shop">
-                  <span data-feather="home"></span>
+                  <span data-feather="home" class="mb-1"></span>
                   Toko/Cabang <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="menu">
-                  <span data-feather="shopping-cart"></span>
+                  <span data-feather="shopping-cart" class="mb-1"></span>
                   Menu Restoran
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="reviews">
-                  <span data-feather="users"></span>
+                  <span data-feather="users" class="mb-1"></span>
                   Ulasan
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="gallery">
+                  <span data-feather="image" class="mb-1"></span>
+                  Galeri
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="settings">
-                  <span data-feather="settings"></span>
+                  <span data-feather="settings" class="mb-1"></span>
                   Pengaturan
                 </a>
               </li>
             </ul>
 
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-2 text-muted">
+              <span>Laporan</span>
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Current month
+                <a class="nav-link" href="userdata">
+                  <span data-feather="file-text" class="mb-1"></span>
+                  Data Pengguna
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Last quarter
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Social engagement
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Year-end sale
+                <a class="nav-link" href="changelog">
+                  <span data-feather="file-text" class="mb-1"></span>
+                  Log Perubahan
                 </a>
               </li>
             </ul>

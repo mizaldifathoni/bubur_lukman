@@ -27,7 +27,11 @@ class Berita extends CI_Controller
 
 		$html = '';
 
+		$isPostAvailable = false;
+
 		foreach($posts as $post) {
+			$isPostAvailable = true;
+
 			$labelHtml = '';
 			if($post->label == "berita") {
         $labelHtml = '<span class="badge badge-info mr-2">Berita</span>';
@@ -49,7 +53,7 @@ class Berita extends CI_Controller
 			$dayOfMonth = date('j ', strtotime($timestamp));
 			$year = date('Y', strtotime($timestamp));
 
-			$postDate = $days[$dayOfWeek] . ', ' . $dayOfMonth . ' ' . $months[$monthOfYear] . ' ' . $year;
+			$postDate = $days[$dayOfWeek - 1] . ', ' . $dayOfMonth . ' ' . $months[$monthOfYear - 1] . ' ' . $year;
 
 			
 
@@ -80,6 +84,22 @@ class Berita extends CI_Controller
                                 </div>
 
                                 <hr class="invis">
+			';
+		}
+
+		if(!$isPostAvailable) {
+			$html .= '
+				<div class="row min-p-5 mb-5">
+					<div class="col-12 d-flex justify-content-center">
+						<img class="w-100 p-5" src="' . base_url() . 'assets/picture/illustration/empty_place.png' . '" style="max-width: 768px"/>
+					</div>
+					<div class="col-12 d-flex justify-content-center">
+						<h1 class="mb-3">Wah, belum ada berita saat ini...</h1>
+					</div>
+					<div class="col-12 d-flex justify-content-center">
+						<a class="btn btn-light" href="' . base_url() . '">Kembali ke beranda</a>
+					</div>
+				</div>
 			';
 		}
 

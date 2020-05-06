@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
     <!-- Site Metas -->
-    <title><?php echo $settings['title'] ?> - Ulasan</title>  
+    <title><?php echo $settings['title'] ?> - Gallery</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -81,15 +81,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="reviews">
+                <a class="nav-link" href="reviews">
                   <span data-feather="users" class="mb-1"></span>
-                  Ulasan <span class="sr-only">(current)</span>
+                  Ulasan
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="gallery">
+                <a class="nav-link active" href="gallery">
                   <span data-feather="image" class="mb-1"></span>
-                  Galeri
+                  Galeri <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
@@ -122,32 +122,20 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 pb-4 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Ulasan</h1>
+            <h1 class="h2">Galeri</h1>
           </div>
-
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="btn btn-link nav-link rounded-tab active" onclick="document.getElementById('allShopReviews').click()" id="shop-tab" data-toggle="tab" href="#shop" role="tab" aria-controls="home" aria-selected="true" data-filter="*">Ulasan Toko</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-link nav-link rounded-tab" onclick="document.getElementById('allMenuReviews').click()" id="menu-tab" data-toggle="tab" href="#menu" role="tab" aria-controls="profile" aria-selected="false" data-filter="*">Ulasan Menu</a>
-            </li>
-          </ul>
-          <div class="tab-content" id="myTabContent">
-            <?php echo $shop_reviews ?>
-            <?php echo $menu_reviews ?>
-          </div>
+          <?php echo $accordions ?>
         </main>
       </div>
     </div>
 
-    <!-- Modal Tambah Toko -->
-    <div class="modal fade" id="addShopModal" tabindex="-1" role="dialog" aria-labelledby="addShopModal" aria-hidden="true">
+    <!-- Modal Tambah Foto -->
+    <div class="modal fade" id="addPhotoModal" tabindex="-1" role="dialog" aria-labelledby="addPhotoModal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <form action="" method="POST" enctype="multipart/form-data">
             <div class="modal-header">
-              <h3 class="modal-title pb-0" id="addShopModalTitle">Tambah Toko</h3>
+              <h3 class="modal-title pb-0" id="addPhotoModalTitle">Tambah Foto</h3>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -155,81 +143,68 @@
             <div class="modal-body">
               <div class="row">
                 <div class="col-md-12 mb-3">
-                  <label for="tambah_nama_toko">Nama Toko/Cabang</label>
-                  <input type="text" class="form-control rounded" id="tambah_nama_toko" name="tambah_nama_toko" placeholder="cth. Bubur Lukman 5" value="" minlength="3" maxlength="32" required="">
-                  <div class="invalid-feedback">
-                    Nama toko tidak boleh kosong.
-                  </div>
-                </div>
-                <div class="col-md-12 mb-3">
-                  <label for="tambah_lokasi_toko">Alamat Toko</label>
-                  <textarea type="text" class="form-control rounded" id="tambah_lokasi_toko" name="tambah_lokasi_toko" rows="2" required=""></textarea>
-                  <div class="invalid-feedback">
-                    Alamat toko tidak boleh kosong.
-                  </div>
-                </div>
-                <div class="col-md-12 mb-3">
-                  <label for="tambah_foto_toko">Unggah Foto</label>
+                  <label for="tambah_foto">Unggah Foto</label>
                   <div class="input-group d-flex justify-contents-center align-items-center">
-                    <input type="file" id="tambah_foto_toko" name="tambah_foto_toko" accept="image/*" onchange="readURL(this, 'tambahPreviewImage', 'tambahUploadButton', 'tambahImageIndicator');" style="display: none" required>
-                    <label type="button" id="tambahUploadButton" class="btn btn-light mr-4" for="tambah_foto_toko">Pilih</label>
+                    <input type="file" id="tambah_foto" name="tambah_foto" accept="image/*" onchange="readURL(this, 'tambahPreviewImage', 'tambahUploadButton', 'tambahImageIndicator');" style="display: none" required>
+                    <label type="button" id="tambahUploadButton" class="btn btn-light mr-4" for="tambah_foto">Pilih</label>
                     <span id="tambahImageIndicator">Tidak ada foto yang dipilih.</span>
                     <img id="tambahPreviewImage" src="#" style="max-width: 100%; max-height: 200px; width: auto; height: auto;display: none" onerror="this.style.display = 'none'"/>
+                  </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label for="tambah_judul_foto">Judul Foto</label>
+                  <input type="text" class="form-control rounded" id="tambah_judul_foto" name="tambah_judul_foto" placeholder="cth. Halaman Depan Bubur Lukman" value="" minlength="3" maxlength="32" required="">
+                  <div class="invalid-feedback">
+                    Judul foto tidak boleh kosong.
                   </div>
                 </div>
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-              <button type="submit" class="btn btn-primary" id="tambahToko" name="tambahToko">Tambah</button>
+              <button type="submit" class="btn btn-primary" id="tambahFoto" name="tambahFoto">Tambah</button>
             </div>
           </form>
         </div>
       </div>
     </div>
 
-    <!-- Modal Edit Toko -->
-    <div class="modal fade" id="editShopModal" tabindex="-1" role="dialog" aria-labelledby="editShopModal" aria-hidden="true">
+    <!-- Modal Edit Foto -->
+    <div class="modal fade" id="editPhotoModal" tabindex="-1" role="dialog" aria-labelledby="editPhotoModal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <form action="" method="POST" enctype="multipart/form-data">
             <div class="modal-header">
-              <h3 class="modal-title pb-0" id="editShopModalTitle">Edit Menu</h3>
+              <h3 class="modal-title pb-0" id="editPhotoModalTitle">Edit Foto</h3>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
               <div class="row">
-                <input type="text" id="edit_id_toko" name="edit_id_toko" value="" hidden>
+                <input id="edit_id_foto" type="text" class="form-control rounded" name="edit_id_foto" value="" hidden required>
+                <input id="edit_judul_foto_awal" type="text" class="form-control rounded" name="edit_judul_foto_awal" value="" hidden required>
                 <div class="col-md-12 mb-3">
-                  <label for="edit_nama_toko">Nama Toko/Cabang</label>
-                  <input type="text" class="form-control rounded" id="edit_nama_toko" name="edit_nama_toko" placeholder="cth. Bubur Lukman 5" value="" minlength="3" maxlength="32" required="">
-                  <div class="invalid-feedback">
-                    Nama toko tidak boleh kosong.
-                  </div>
-                </div>
-                <div class="col-md-12 mb-3">
-                  <label for="edit_lokasi_toko">Alamat Toko</label>
-                  <textarea type="text" class="form-control rounded" id="edit_lokasi_toko" name="edit_lokasi_toko" rows="2" required=""></textarea>
-                  <div class="invalid-feedback">
-                    Alamat toko tidak boleh kosong.
-                  </div>
-                </div>
-                <div class="col-md-12 mb-3">
-                  <label for="edit_foto_toko">Unggah Foto</label>
+                  <label for="edit_foto">Unggah Foto</label>
                   <div class="input-group d-flex justify-contents-center align-items-center">
-                    <input type="file" id="edit_foto_toko" name="edit_foto_toko" accept="image/*" onchange="readURL(this, 'editPreviewImage', 'editUploadButton', 'editImageIndicator');" style="display: none">
-                    <label type="button" id="editUploadButton" class="btn btn-light mr-4" for="edit_foto_toko">Pilih</label>
+                    <input type="file" id="edit_foto" name="edit_foto" accept="image/*" onchange="readURL(this, 'editPreviewImage', 'editUploadButton', 'editImageIndicator');" style="display: none">
+                    <label type="button" id="editUploadButton" class="btn btn-light mr-4" for="edit_foto">Pilih</label>
                     <span id="editImageIndicator">Tidak ada foto yang dipilih.</span>
                     <img id="editPreviewImage" src="#" style="max-width: 100%; max-height: 200px; width: auto; height: auto;display: none" onerror="this.style.display = 'none'"/>
+                  </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label for="edit_judul_foto">Judul Foto</label>
+                  <input type="text" class="form-control rounded" id="edit_judul_foto" name="edit_judul_foto" placeholder="cth. Halaman Depan Bubur Lukman" value="" minlength="3" maxlength="32" required="">
+                  <div class="invalid-feedback">
+                    Judul foto tidak boleh kosong.
                   </div>
                 </div>
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-              <button type="submit" class="btn btn-primary" id="editToko" name="editToko">Simpan</button>
+              <button type="submit" class="btn btn-primary" id="editFoto" name="editFoto">Simpan</button>
             </div>
           </form>
         </div>
@@ -237,23 +212,23 @@
     </div>
 
     <!-- Modal Hapus Menu-->
-    <div class="modal fade" id="deleteShopModal" tabindex="-1" role="dialog" aria-labelledby="deleteShopModal" aria-hidden="true">
+    <div class="modal fade" id="deletePhotoModal" tabindex="-1" role="dialog" aria-labelledby="deletePhotoModal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <form action="" method="POST">
             <div class="modal-header">
-              <h3 class="modal-title" id="deleteShopModalTitle">Hapus Toko</h3>
+              <h3 class="modal-title" id="deletePhotoModalTitle">Hapus Foto</h3>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <input type="text" id="hapus_id_toko" name="hapus_id_toko" value="" hidden>
-              <input type="text" id="hapus_nama_toko" name="hapus_nama_toko" value="" hidden>
-              <span id="pesan_hapus">Apakah Anda yakin untuk menghapus menu X pada toko Y?</span>
+              <input type="text" id="hapus_id_foto" name="hapus_id_foto" value="" hidden>
+              <input type="text" id="hapus_judul_foto" name="hapus_judul_foto" value="" hidden>
+              <span id="pesan_hapus">Apakah Anda yakin untuk menghapus foto X?</span>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-outline-danger" name="hapusToko"><i class="fas fa-trash"></i> Hapus</button>
+              <button type="submit" class="btn btn-outline-danger" name="hapusFoto"><i class="fas fa-trash"></i> Hapus</button>
               <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
             </div>
           </form>
@@ -268,8 +243,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- Popper.JS -->
     <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/popper.min.js"></script>
@@ -279,14 +253,6 @@
     <script>
       feather.replace()
     </script>
-    <!-- ALL PLUGINS -->
-    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/jquery.superslides.min.js"></script>
-    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/images-loded.min.js"></script>
-    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/isotope.min.js"></script>
-    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/baguetteBox.min.js"></script>
-    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/form-validator.min.js"></script>
-    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/contact-form-script.js"></script>
-    <script src="<?php echo base_url('assets/assets_yamifood') ?>/js/dashboard-custom.js"></script>
 
     <?php echo ((isset($messageModal))? $messageModal : ''); ?>
 
@@ -330,36 +296,35 @@
         $("#wrapper").toggleClass("toggled");
       });
 
-      $('#editShopModal').on('show.bs.modal', function (event) {
+      $('#editPhotoModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
-        var idToko = button.data('id-toko')
-        var namaToko = button.data('nama-toko');
-        var lokasiToko = button.data('lokasi-toko')
-        var fotoToko = button.data('foto-toko')
+        var idFoto = button.data('id-foto')
+        var judulFoto = button.data('judul-foto');
+        var pathFoto = button.data('path-foto');
 
-        var modal = $(this)
-        modal.find('.modal-title').text('Edit Toko ' + namaToko)
-        document.getElementById('edit_id_toko').value = idToko;
-        document.getElementById('edit_nama_toko').value = namaToko;
-        document.getElementById('edit_lokasi_toko').value = lokasiToko;
+        var modal = $(this);
+        modal.find('.modal-title').text('Edit Foto ' + judulFoto);
+        document.getElementById('edit_id_foto').value = idFoto;
+        document.getElementById('edit_judul_foto').value = judulFoto;
+        document.getElementById('edit_judul_foto_awal').value = judulFoto;
           
         //memuat foto yang sudah ada
         document.getElementById('editPreviewImage').style.display = "block";
-        document.getElementById('editPreviewImage').setAttribute('src', '<?php echo base_url(''); ?>' + fotoToko);
+        document.getElementById('editPreviewImage').setAttribute('src', '<?php echo base_url(''); ?>' + pathFoto);
         document.getElementById('editImageIndicator').style.display = 'none';
         document.getElementById('editUploadButton').innerHTML = 'Pilih foto lain...';
       });
 
-      $('#deleteShopModal').on('show.bs.modal', function (event) {
+      $('#deletePhotoModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
-        var idToko = button.data('id-toko')
-        var namaToko = button.data('nama-toko');
+        var idFoto = button.data('id-foto')
+        var judulFoto = button.data('judul-foto');
 
         var modal = $(this)
 
-        document.getElementById('hapus_id_toko').value = idToko;
-        document.getElementById('hapus_nama_toko').value = namaToko;
-        document.getElementById('pesan_hapus').innerHTML = 'Apakah Anda yakin menghapus toko <i>' + namaToko + '</i> ?';
+        document.getElementById('hapus_id_foto').value = idFoto;
+        document.getElementById('hapus_judul_foto').value = judulFoto;
+        document.getElementById('pesan_hapus').innerHTML = 'Apakah Anda yakin menghapus foto <i>' + judulFoto + '</i> ?';
       });
 
       function readURL(input, preview, tombol, indikator) {
@@ -382,57 +347,6 @@
           document.getElementById(preview).style.display = 'none';
 
           //document.getElementById(preview).style.display = '<?php //if($linkgambar != "" ){echo "block";}else{echo "none";} ?>';
-        }
-      }
-
-      function filterButtonClicked(button) {
-        var filter = button.getAttribute('data-filter');
-        var context = filter.substring(0, 4);
-
-        var elements = document.getElementsByClassName(filter);
-
-        if(context == 'shop') {
-          $('.shoppositive').hide();
-          $('.shopnegative').hide();
-
-          if(filter == 'shop*'){
-            document.getElementById('allShopReviews').className = 'btn btn-light active';
-            document.getElementById('positiveShopReviews').className = 'btn btn-light';
-            document.getElementById('negativeShopReviews').className = 'btn btn-light';
-            $('.shoppositive').fadeIn(400, 'swing');
-            $('.shopnegative').fadeIn(400, 'swing');
-          }else if(filter == 'shoppositive'){
-            document.getElementById('allShopReviews').className = 'btn btn-light';
-            document.getElementById('positiveShopReviews').className = 'btn btn-light active';
-            document.getElementById('negativeShopReviews').className = 'btn btn-light';
-            $('.shoppositive').fadeIn(400, 'swing');
-          }else if(filter == 'shopnegative'){
-            document.getElementById('allShopReviews').className = 'btn btn-light';
-            document.getElementById('positiveShopReviews').className = 'btn btn-light';
-            document.getElementById('negativeShopReviews').className = 'btn btn-light active';
-            $('.shopnegative').fadeIn(400, 'swing');
-          }
-        } else if(context == 'menu') {
-          $('.menupositive').hide();
-          $('.menunegative').hide();
-
-          if(filter == 'menu*'){
-            document.getElementById('allMenuReviews').className = 'btn btn-light active';
-            document.getElementById('positiveMenuReviews').className = 'btn btn-light';
-            document.getElementById('negativeMenuReviews').className = 'btn btn-light';
-            $('.menupositive').fadeIn(400, 'swing');
-            $('.menunegative').fadeIn(400, 'swing');
-          }else if(filter == 'menupositive'){
-            document.getElementById('allMenuReviews').className = 'btn btn-light';
-            document.getElementById('positiveMenuReviews').className = 'btn btn-light active';
-            document.getElementById('negativeMenuReviews').className = 'btn btn-light';
-            $('.menupositive').fadeIn(400, 'swing');
-          }else if(filter == 'menunegative'){
-            document.getElementById('allMenuReviews').className = 'btn btn-light';
-            document.getElementById('positiveMenuReviews').className = 'btn btn-light';
-            document.getElementById('negativeMenuReviews').className = 'btn btn-light active';
-            $('.menunegative').fadeIn(400, 'swing');
-          }
         }
       }
     </script>
