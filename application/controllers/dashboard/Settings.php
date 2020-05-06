@@ -26,12 +26,18 @@ class Settings extends CI_Controller
 			}elseif(null !== $this->input->post('updateBaseSettings')){
 				unset($_POST['updateBaseSettings']);
 				$this->updateBaseSettings();
+			}elseif(null !== $this->input->post('updateWelcomeMessageSettings')){
+				unset($_POST['updateWelcomeMessageSettings']);
+				$this->updateWelcomeMessageSettings();
 			}elseif(null !== $this->input->post('updateContactSettings')){
 				unset($_POST['updateContactSettings']);
 				$this->updateContactSettings();
 			}elseif(null !== $this->input->post('updateOpeningHoursSettings')){
 				unset($_POST['updateOpeningHoursSettings']);
 				$this->updateOpeningHoursSettings();
+			}elseif(null !== $this->input->post('updateWebSettings')){
+				unset($_POST['updateWebSettings']);
+				$this->updateWebSettings();
 			}else{
 				$data = array(
 					'settings'		=> $this->ModelPengaturan->getAllSettings()
@@ -147,6 +153,29 @@ class Settings extends CI_Controller
 		}
 	}
 
+	function updateWelcomeMessageSettings()
+	{
+		$welcomeMessage							= $this->input->post('pesan_selamat_datang');
+		$welcomeMessageDescription	= $this->input->post('deskripsi_pesan_selamat_datang');
+
+		if($this->ModelPengaturan->updateWelcomeMessage($welcomeMessage) && $this->ModelPengaturan->updateWelcomeMessageDescription($welcomeMessageDescription)){
+			$data = array(
+				'settings'		=> $this->ModelPengaturan->getAllSettings(),
+				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Pengaturan pesan selamat datang berhasil diperbaharui.')
+			);
+
+			$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'pengaturan', 'pengaturan pesan selamat datang');
+
+			$this->load->view('dashboard/settings', $data);
+		}else{
+			$data = array(
+				'settings'		=> $this->ModelPengaturan->getAllSettings(),
+				'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui pengaturan pesan selamat datang, silakan coba lagi nanti.')
+			);
+			$this->load->view('dashboard/settings', $data);
+		}
+	}
+
 	function updateContactSettings()
 	{
 		$phoneNumber		= $this->input->post('nomor_hp');
@@ -192,6 +221,106 @@ class Settings extends CI_Controller
 				'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui pengaturan waktu buka, silakan coba lagi nanti.')
 			);
 			$this->load->view('dashboard/settings', $data);
+		}
+	}
+
+	public function updateWebSettings()
+	{
+		$isFaviconNotNull = isset($_FILES['favicon']['name']) && $_FILES['favicon']['name'] !== '';
+		$isAppleFaviconNotNull = isset($_FILES['favicon_apple']['name']) && $_FILES['favicon_apple']['name'] !== '';
+
+		$isFaviconUploadSuccess = true;
+		$isAppleFaviconUploadSuccess = true;
+
+		$webTitle = $this->ModelPengaturan->getTitle();
+		$metaAuthor = $this->input->post('meta_author');
+		$metaDescription = $this->input->post('meta_description');
+		$metaKeywords = $this->input->post('meta_keywords');
+		$pathFavicon = '';
+		$pathAppleFavicon = '';
+		
+		if($isFaviconNotNull){
+			$arrayFaviconName = explode('.', $_FILES['favicon']['name']);
+			$faviconExtension = strtolower(end($arrayFaviconName));
+			$namaFavicon = 'favicon_' . str_replace(' ', '_', $webTitle) . '_' . uniqid() . '.' . $faviconExtension;
+			$pathFavicon = 'assets/picture/favicon/' . $namaFavicon;
+
+			if (!file_exists('./assets/picture/favicon/')) {
+				mkdir('./assets/picture/favicon/', 0777, true);
+			}
+
+			$configUploadFavicon['upload_path']    = './assets/picture/favicon/';
+			$configUploadFavicon['allowed_types']  = 'ico';
+			$configUploadFavicon['file_name']			= $namaFavicon;
+				
+			$this->load->library('upload', $configUploadFavicon);
+
+			if($this->upload->do_upload('favicon')){
+				$isFaviconUploadSuccess = true;
+
+			}else{
+				$isFaviconUploadSuccess = false;
+			}
+		}
+
+		if($isAppleFaviconNotNull){
+			$arrayAppleFaviconName = explode('.', $_FILES['favicon_apple']['name']);
+			$appleFaviconExtension = strtolower(end($arrayAppleFaviconName));
+			$namaAppleFavicon = 'apple_favicon_' . str_replace(' ', '_', $webTitle) . '_' . uniqid() . '.' . $appleFaviconExtension;
+			$pathAppleFavicon = 'assets/picture/favicon/' . $namaAppleFavicon;
+
+			if (!file_exists('./assets/picture/favicon/')) {
+				mkdir('./assets/picture/favicon/', 0777, true);
+			}
+
+			$configUploadAppleFavicon['upload_path']    = './assets/picture/favicon/';
+			$configUploadAppleFavicon['allowed_types']  = 'png';
+			$configUploadAppleFavicon['file_name']			= $namaAppleFavicon;
+			
+			if(isset($this->upload)) unset($this->upload);
+			$this->load->library('upload', $configUploadAppleFavicon);
+
+			if($this->upload->do_upload('favicon_apple')){
+				$isAppleFaviconUploadSuccess = true;
+			}else{
+				$isAppleFaviconUploadSuccess = false;
+			}
+		}
+
+		$isUpdateSuccess = false;
+		if($isFaviconNotNull && $isFaviconUploadSuccess && $isAppleFaviconNotNull && $isAppleFaviconUploadSuccess){
+			$isUpdateSuccess = ($this->ModelPengaturan->updateMetaAuthor($metaAuthor) && $this->ModelPengaturan->updateMetaDescription($metaDescription) && $this->ModelPengaturan->updateMetaKeywords($metaKeywords) && $this->ModelPengaturan->updateFaviconPath($pathFavicon) && $this->ModelPengaturan->updateAppleFaviconPath($pathAppleFavicon));
+		}else if($isFaviconNotNull && $isFaviconUploadSuccess && !$isAppleFaviconNotNull){
+			$isUpdateSuccess = ($this->ModelPengaturan->updateMetaAuthor($metaAuthor) && $this->ModelPengaturan->updateMetaDescription($metaDescription) && $this->ModelPengaturan->updateMetaKeywords($metaKeywords) && $this->ModelPengaturan->updateFaviconPath($pathFavicon));
+		}else if(!$isFaviconNotNull && $isAppleFaviconNotNull && $isAppleFaviconUploadSuccess){
+			$isUpdateSuccess = ($this->ModelPengaturan->updateMetaAuthor($metaAuthor) && $this->ModelPengaturan->updateMetaDescription($metaDescription) && $this->ModelPengaturan->updateMetaKeywords($metaKeywords) && $this->ModelPengaturan->updateAppleFaviconPath($pathAppleFavicon));
+		}else{
+			$isUpdateSuccess = ($this->ModelPengaturan->updateMetaAuthor($metaAuthor) && $this->ModelPengaturan->updateMetaDescription($metaDescription) && $this->ModelPengaturan->updateMetaKeywords($metaKeywords));
+		}
+
+		if($isUpdateSuccess){
+			$data = array(
+				'settings'		=> $this->ModelPengaturan->getAllSettings(),
+				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Pengaturan web berhasil diperbaharui.')
+			);
+
+			$this->ModelLog->insertUpdateLog($this->session->userdata('id_pengguna'), 'pengaturan', 'pengaturan web');
+
+			$this->load->view('dashboard/settings', $data);
+		}else{
+			if(!$isFaviconUploadSuccess || !$isAppleFaviconUploadSuccess){
+				$data = array(
+					'settings'		=> $this->ModelPengaturan->getAllSettings(),
+					'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya gambar yang diunggah tidak sesuai, pastikan ekstensi gambar yang diupload sesuai.')
+				);
+				$this->load->view('dashboard/settings', $data);
+			}else{
+				$data = array(
+					'settings'		=> $this->ModelPengaturan->getAllSettings(),
+					'messageModal'	=> $this->Modal->createMessageModal('Gagal Memperbaharui Pengaturan', 'Whoops! Nampaknya ada kesalahan dalam memperbaharui pengaturan web, silakan coba lagi nanti.')
+				);
+				$this->load->view('dashboard/settings', $data);
+			}
 		}
 	}
 	

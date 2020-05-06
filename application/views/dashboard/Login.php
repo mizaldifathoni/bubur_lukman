@@ -4,23 +4,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
-    <title>Bubur Lukman - Login</title>
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
     <!-- Site Metas -->
-    <title><?php echo $settings['title'] ?></title>  
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>Masuk - <?php echo $settings['title'] ?></title>  
+    <meta name="author" content="<?php echo $settings['meta_author'] ?>">
+    <meta name="description" content="<?php echo $settings['meta_description'] ?>">
+    <meta name="keywords" content="<?php echo $settings['meta_keywords'] ?>">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="<?php echo base_url() . $settings['favicon'] ?>" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<?php echo base_url() . $settings['favicon_apple'] ?>">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/bootstrap.min.css">

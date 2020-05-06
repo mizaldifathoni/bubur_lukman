@@ -4,22 +4,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
     <!-- Site Metas -->
-    <title><?php echo $settings['title'] ?> - Pengaturan</title>  
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>Pengaturan - <?php echo $settings['title'] ?></title>  
+    <meta name="author" content="<?php echo $settings['meta_author'] ?>">
+    <meta name="description" content="<?php echo $settings['meta_description'] ?>">
+    <meta name="keywords" content="<?php echo $settings['meta_keywords'] ?>">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="<?php echo base_url() . $settings['favicon'] ?>" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<?php echo base_url() . $settings['favicon_apple'] ?>">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/assets_yamifood') ?>/css/bootstrap.min.css">
@@ -197,12 +194,59 @@
               <a class="card-header p-0" href="#" id="headingTwo" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseTwo">
                 <h2 class="mb-0 p-0">
                   <button class="btn btn-link btn-lg" type="button">
-                    <i id="accordion1" class="fas fa-chevron-right mr-1 accordion-icon"></i> Pengaturan Kontak dan Media Sosial
+                    <i id="accordion2" class="fas fa-chevron-right mr-1 accordion-icon"></i> Pengaturan Pesan Selamat Datang
                   </button>
                 </h2>
               </a>
 
               <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body pb-0">
+                  <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="alert alert-info">
+                          <strong>TIPS:</strong> Gunakan "&lt;br&gt;" untuk memulai baris baru (enter).
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="row mb-3">
+                          <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                            <label class="">Pesan Selamat Datang</label>
+                          </div>
+                          <div class="col-xl-9">
+                            <input type="text" class="form-control rounded" id="pesan_selamat_datang" name="pesan_selamat_datang" placeholder="cth. Welcome to Bubur Lukman" value="<?php echo $settings['welcome_message'] ?>" minlength="3" maxlength="32" required="">
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                            <label class="">Deskripsi Pesan Selamat Datang</label>
+                          </div>
+                          <div class="col-xl-9">
+                            <textarea class="form-control rounded" id="deskripsi_pesan_selamat_datang" name="deskripsi_pesan_selamat_datang" placeholder="cth. Bubur Lukman adalah salah satu pengracik bubur terbaik di Lampung" rows="4" required=""><?php echo $settings['welcome_message_description'] ?></textarea>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col-xl-12 d-flex align-items-center justify-content-end">
+                            <button class="btn btn-primary" type="submit" name="updateWelcomeMessageSettings" id="updateWelcomeMessageSettings">Simpan</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form> 
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <a class="card-header p-0" href="#" id="headingThree" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapseThree">
+                <h2 class="mb-0 p-0">
+                  <button class="btn btn-link btn-lg" type="button">
+                    <i id="accordion3" class="fas fa-chevron-right mr-1 accordion-icon"></i> Pengaturan Kontak dan Media Sosial
+                  </button>
+                </h2>
+              </a>
+
+              <div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body pb-0">
                   <form action="" method="POST" enctype="multipart/form-data">
                     <div class="row">
@@ -262,18 +306,19 @@
                     </div>
                   </form> 
                 </div>
+              </div>
             </div>
 
             <div class="card">
-              <a class="card-header p-0" href="#" id="headingThree" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapseThree">
+              <a class="card-header p-0" href="#" id="headingFour" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapseFour">
                 <h2 class="mb-0 p-0">
                   <button class="btn btn-link btn-lg" type="button">
-                    <i id="accordion3" class="fas fa-chevron-down mr-1 accordion-icon"></i> Pengaturan Waktu Buka
+                    <i id="accordion4" class="fas fa-chevron-down mr-1 accordion-icon"></i> Pengaturan Waktu Buka
                   </button>
                 </h2>
               </a>
 
-              <div id="collapse3" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapse4" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                 <div class="card-body pb-0">
                   <form action="" method="POST" enctype="multipart/form-data">
                     <div class="row">
@@ -295,6 +340,87 @@
                     </div>
                   </form> 
                 </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <a class="card-header p-0" href="#" id="headingFive" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapseFive">
+                <h2 class="mb-0 p-0">
+                  <button class="btn btn-link btn-lg" type="button">
+                    <i id="accordion1" class="fas fa-chevron-down mr-1 accordion-icon"></i> Pengaturan Web
+                  </button>
+                </h2>
+              </a>
+
+              <div id="collapse5" class="collapse show" aria-labelledby="headingFive" data-parent="#accordionExample">
+                <div class="card-body pb-0">
+                  <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="row mb-3">
+                          <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                            <label class="">Icon (format .ico)</label>
+                          </div>
+                          <div class="col-xl-9">
+                            <div class="input-group d-flex justify-contents-center align-items-center">
+                              <input type="file" id="favicon" name="favicon" accept=".ico" onchange="readURL(this, 'faviconPreview', 'faviconUploadButton', 'faviconIndicator');" style="display: none">
+                              <label type="button" id="faviconUploadButton" class="btn btn-light mr-4" for="favicon">Pilih Icon Lain...</label>
+                              <span id="faviconIndicator" style="display: none">Tidak ada icon yang dipilih.</span>
+                              <img id="faviconPreview" src="<?php echo base_url() . $settings['favicon'] ?>" style="max-width: 100%; max-height: 200px; width: auto; height: auto;" onerror="this.style.display = 'none'"/>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                            <label class="">Icon (format .png)</label>
+                          </div>
+                          <div class="col-xl-9">
+                            <div class="input-group d-flex justify-contents-center align-items-center">
+                              <input type="file" id="favicon_apple" name="favicon_apple" accept="image/png" onchange="readURL(this, 'faviconApplePreview', 'faviconAppleUploadButton', 'faviconAppleIndicator');" style="display: none">
+                              <label type="button" id="faviconAppleUploadButton" class="btn btn-light mr-4" for="favicon_apple">Pilih Icon Lain...</label>
+                              <span id="faviconAppleIndicator" style="display: none">Tidak ada icon yang dipilih.</span>
+                              <img id="faviconApplePreview" src="<?php echo base_url() . $settings['favicon_apple'] ?>" style="max-width: 100%; max-height: 200px; width: auto; height: auto;" onerror="this.style.display = 'none'"/>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                            <label class="">Penulis Web</label>
+                          </div>
+                          <div class="col-xl-9">
+                            <input type="text" class="form-control rounded" id="meta_author" name="meta_author" placeholder="cth. Abu Bakar" value="<?php echo $settings['meta_author'] ?>" minlength="3" maxlength="64" required="">
+                          </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                          <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                            <label class="">Deskripsi Web</label>
+                          </div>
+                          <div class="col-xl-9">
+                            <textarea class="form-control rounded" id="meta_description" name="meta_description" placeholder="cth. Bubur Lukman adalah salah satu pengracik bubur terbaik di Lampung" rows="4" required=""><?php echo $settings['meta_description'] ?></textarea>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <div class="col-xl-3 d-flex align-items-center justify-content-start">
+                            <label class="">Kata Kunci Web</label>
+                          </div>
+                          <div class="col-xl-9">
+                            <textarea class="form-control rounded" id="meta_keywords" name="meta_keywords" placeholder="cth. Bubur Lukman adalah salah satu pengracik bubur terbaik di Lampung" rows="4" required=""><?php echo $settings['meta_keywords'] ?></textarea>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col-xl-12 d-flex align-items-center justify-content-end">
+                            <button class="btn btn-primary" type="submit" name="updateWebSettings" id="updateWebSettings">Simpan</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form> 
+                </div>
+              </div>
             </div>
             
           </div>

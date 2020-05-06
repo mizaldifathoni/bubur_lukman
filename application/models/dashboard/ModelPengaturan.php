@@ -27,7 +27,12 @@ class ModelPengaturan extends CI_Model
         'opening_hours'               => $query->result()[9]->value,
         'facebook_link'               => $query->result()[10]->value,
         'instagram_link'              => $query->result()[11]->value,
-        'instagram_username'          => $igUsername
+        'instagram_username'          => $igUsername,
+        'favicon'                     => $query->result()[12]->value,
+        'favicon_apple'               => $query->result()[13]->value,
+        'meta_author'                 => $query->result()[14]->value,
+        'meta_description'            => $query->result()[15]->value,
+        'meta_keywords'               => $query->result()[16]->value
       );
     }else{
       $allSettings = array(
@@ -43,7 +48,12 @@ class ModelPengaturan extends CI_Model
         'opening_hours'               => '',
         'facebook_link'               => '#',
         'instagram_link'              => '#',
-        'instagram_username'          => ''
+        'instagram_username'          => '',
+        'favicon'                     => '',
+        'favicon_apple'               => '',
+        'meta_author'                 => '',
+        'meta_description'            => '',
+        'meta_keywords'               => ''
       );
     }
 
@@ -122,6 +132,38 @@ class ModelPengaturan extends CI_Model
     return ($query->result() != null)? $query->result()[0]->value : null;
   }
 
+  function getFaviconPath()
+  {
+    $query = $this->db->select('value')->from('pengaturan')->where('variabel', 'favicon')->limit(1)->get();
+    return ($query->result() != null)? $query->result()[0]->value : null;
+  }
+
+  function getAppleFaviconPath()
+  {
+    $query = $this->db->select('value')->from('pengaturan')->where('variabel', 'favicon_apple')->limit(1)->get();
+    return ($query->result() != null)? $query->result()[0]->value : null;
+  }
+
+  function getMetaAuthor()
+  {
+    $query = $this->db->select('value')->from('pengaturan')->where('variabel', 'meta_author')->limit(1)->get();
+    return ($query->result() != null)? $query->result()[0]->value : null;
+  }
+
+  function getMetaDescription()
+  {
+    $query = $this->db->select('value')->from('pengaturan')->where('variabel', 'meta_description')->limit(1)->get();
+    return ($query->result() != null)? $query->result()[0]->value : null;
+  }
+
+  function getMetaKeywords()
+  {
+    $query = $this->db->select('value')->from('pengaturan')->where('variabel', 'meta_keywords')->limit(1)->get();
+    return ($query->result() != null)? $query->result()[0]->value : null;
+  }
+
+
+
   function updateTitle($title)
   {
     $update = array('value' => $title);
@@ -192,6 +234,36 @@ class ModelPengaturan extends CI_Model
   {
     $update = array('value' => $instagramLink);
     return $this->db->where('variabel', 'link_instagram')->update('pengaturan', $update);
+  }
+
+  function updateFaviconPath($faviconPath)
+  {
+    $update = array('value' => $faviconPath);
+    return $this->db->where('variabel', 'favicon')->update('pengaturan', $update);
+  }
+
+  function updateAppleFaviconPath($appleFaviconPath)
+  {
+    $update = array('value' => $appleFaviconPath);
+    return $this->db->where('variabel', 'favicon_apple')->update('pengaturan', $update);
+  }
+
+  function updateMetaAuthor($metaAuthor)
+  {
+    $update = array('value' => $metaAuthor);
+    return $this->db->where('variabel', 'meta_author')->update('pengaturan', $update);
+  }
+
+  function updateMetaDescription($metaDescription)
+  {
+    $update = array('value' => $metaDescription);
+    return $this->db->where('variabel', 'meta_description')->update('pengaturan', $update);
+  }
+
+  function updateMetaKeywords($metaKeywords)
+  {
+    $update = array('value' => $metaKeywords);
+    return $this->db->where('variabel', 'meta_keywords')->update('pengaturan', $update);
   }
 }
 
