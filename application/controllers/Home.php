@@ -225,6 +225,7 @@ class Home extends CI_Controller
 				'settings' => $this->ModelPengaturan->getAllSettings(),
 				'shop_locations'	=> $this->ModelToko->getSemuaLokasiToko(),
 				'reviews' => $this->getRecentReviewsHtml(),
+				'gallery' => $this->getGalleryHtml(),
 				'ratings' => $this->getOverallRatingsHtml(),
 				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Ulasan Anda berhasil ditambahkan, terimakasih sudah mengulas toko kami :)')
 			);
@@ -235,6 +236,7 @@ class Home extends CI_Controller
 				'settings' => $this->ModelPengaturan->getAllSettings(),
 				'shop_locations'	=> $this->ModelToko->getSemuaLokasiToko(),
 				'reviews' => $this->getRecentReviewsHtml(),
+				'gallery' => $this->getGalleryHtml(),
 				'ratings' => $this->getOverallRatingsHtml(),
 				'messageModal'	=> $this->Modal->createMessageModal('Gagal Menambah Ulasan', 'hoops! Nampaknya ada kesalahan dalam menambahkan ulasan, silahkan coba lagi.')
 			);
@@ -328,6 +330,7 @@ class Home extends CI_Controller
 				'settings' => $this->ModelPengaturan->getAllSettings(),
 				'shop_locations'	=> $this->ModelToko->getSemuaLokasiToko(),
 				'reviews' => $this->getRecentReviewsHtml(),
+				'gallery' => $this->getGalleryHtml(),
 				'ratings' => $this->getOverallRatingsHtml(),
 				'messageModal'	=> $this->Modal->createMessageModal('Berhasil!', 'Ulasan Anda berhasil ditambahkan, terimakasih sudah mengulas menu kami :)')
 			);
@@ -338,6 +341,7 @@ class Home extends CI_Controller
 				'settings' => $this->ModelPengaturan->getAllSettings(),
 				'shop_locations'	=> $this->ModelToko->getSemuaLokasiToko(),
 				'reviews' => $this->getRecentReviewsHtml(),
+				'gallery' => $this->getGalleryHtml(),
 				'ratings' => $this->getOverallRatingsHtml(),
 				'messageModal'	=> $this->Modal->createMessageModal('Gagal Menambah Ulasan', 'Maaf, nampaknya ada kesalahan dalam menambahkan ulasan, silahkan coba lagi.')
 			);
