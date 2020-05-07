@@ -36,7 +36,7 @@ class Menu extends CI_Controller
 		$foods = $this->ModelMenuToko->getFoodMenusByIdToko($idToko);
 
 		$html = '
-		<div class="row special-list">
+		<!-- <div class="row special-list"> -->
 		';
 
 		foreach($foods as $food){
@@ -60,7 +60,7 @@ class Menu extends CI_Controller
 							<h5> ' . (($isDiscountEnabled)? 'Rp ' . $priceAfter . '<sup><small>  <del>Rp ' . $priceBefore . '</del></small></sup>' : 'Rp ' . $priceBefore) . '</h5>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row" style="min-height: 36px">
 						<div class="col-12 d-flex justify-content-between">
 						<span data-toggle="tooltip" data-placement="bottom" title="' . $menuRating . '/5.0 dari ' . $menuReviewCounts . ' ulasan">
 			';
@@ -105,10 +105,10 @@ class Menu extends CI_Controller
 						<div class="why-text">
 							<h4>' . $beverage->nama_menu . '</h4>
 							<p>' . $beverage->deskripsi_menu . '</p>
-							<h5> ' . (($isDiscountEnabled)? 'Rp ' . $priceAfter . '<sup><small>  <del>Rp ' . $priceBefore . '</del></sup>' : 'Rp ' . $priceBefore) . '</h5>
+							<h5> ' . (($isDiscountEnabled)? 'Rp ' . $priceAfter . '<sup><small>  <del>Rp ' . $priceBefore . '</del></small></sup>' : 'Rp ' . $priceBefore) . '</h5>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row" style="min-height: 36px">
 						<div class="col-12 d-flex justify-content-between">
 							<span data-toggle="tooltip" data-placement="bottom" title="' . $menuRating . '/5.0 dari ' . $menuReviewCounts . ' ulasan">
 			';
@@ -134,7 +134,7 @@ class Menu extends CI_Controller
 		}
 
 		$html .= '
-		</div>
+		<!-- </div> -->
 		';
 
 		return $html;
@@ -179,6 +179,7 @@ class Menu extends CI_Controller
 				</div>
 			</div>
 		</div>
+		<div class="row special-list">
 		';
 
 		$isFirstToko = true;
@@ -186,6 +187,10 @@ class Menu extends CI_Controller
 			$html .= $this->getAllMenusHtml($toko->id_toko, $isFirstToko);
 			$isFirstToko = false;
 		}
+
+		$html .= '
+		</div>
+		';
 
 		return $html;
 	}
